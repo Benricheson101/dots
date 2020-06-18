@@ -18,7 +18,7 @@ $ echo 'alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME
 # reload your zshrc
 $ source ~/.zshrc
 # add '.dotfiles.git' to gitignore
-$ echo ".dotfiles.git" >> .gitignore
+$ echo '.dotfiles.git' >> .gitignore
 # clone this repo
 $ git clone --bare git@github.com:Benricheson101/dotfiles.git $HOME/.dotfiles.git
 # check for conflicts
