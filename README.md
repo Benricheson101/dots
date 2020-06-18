@@ -1,15 +1,17 @@
 ## Dotfiles
 
 ### Packages:
-| Use        | Thing                                                      |
-|------------|------------------------------------------------------------|
-| Terminal   | [Alacritty](https://github.com/alacritty/alacritty)        |
-| Editor     | [Neovim](https://neovim.io)                                |
-| Shell      | [Zsh](https://www.zsh.org) + [Oh My Zsh](https://ohmyz.sh) |
-| Notifs     | [Dunst](https://dunst-project.org)                         |
-| Theme      | [Nord](https://nordtheme.com)                              |
-| Bar        | [Polybar](https://polybar.github.io)                       |
-| Compositor | [Picom](https://github.com/yshui/picom)                    |
+| Use            	| Thing                                                                                                       	|
+|----------------	|-------------------------------------------------------------------------------------------------------------	|
+| Window Manager 	| [BSPWM](https://github.com/baskerville/bspwm)                                                               	|
+| Terminal       	| [Alacritty](https://github.com/alacritty/alacritty)                                                         	|
+| Editor         	| [Neovim](https://neovim.io)                                                                                 	|
+| Shell          	| [Zsh](https://www.zsh.org) + [Oh My Zsh](https://ohmyz.sh)                                                  	|
+| Notifications  	| [Dunst](https://dunst-project.org)                                                                          	|
+| Theme          	| [Nord](https://nordtheme.com)                                                                               	|
+| Bar            	| [Polybar](https://polybar.github.io)                                                                        	|
+| Compositor     	| [Picom](https://github.com/yshui/picom)                                                                     	|
+| Launcher       	| [Dmenu](https://tools.suckless.org/dmenu) + [Center Patch](https://tools.suckless.org/dmenu/patches/center) 	|
 
 ### Installation
 ```bash
@@ -26,3 +28,5 @@ $ dot checkout
 # prevent untracked files from showing up in `dot status`
 $ dot config --local status.showUntrackedFiles false
 ```
+### Picture
+![Wooooow](meta/dotfile.png)
