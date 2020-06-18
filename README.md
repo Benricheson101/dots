@@ -4,6 +4,7 @@
 | Use            	| Thing                                                                                                       	|
 |----------------	|-------------------------------------------------------------------------------------------------------------	|
 | Window Manager 	| [BSPWM](https://github.com/baskerville/bspwm)                                                               	|
+| Hotkeys        	| [SXHKD](https://github.com/baskerville/sxhkd)                                                               	|
 | Terminal       	| [Alacritty](https://github.com/alacritty/alacritty)                                                         	|
 | Editor         	| [Neovim](https://neovim.io)                                                                                 	|
 | Shell          	| [Zsh](https://www.zsh.org) + [Oh My Zsh](https://ohmyz.sh)                                                  	|
@@ -12,7 +13,7 @@
 | Bar            	| [Polybar](https://polybar.github.io)                                                                        	|
 | Compositor     	| [Picom](https://github.com/yshui/picom)                                                                     	|
 | Launcher       	| [Dmenu](https://tools.suckless.org/dmenu) + [Center Patch](https://tools.suckless.org/dmenu/patches/center) 	|
-
+| Screenshots    	| [Maim](https://github.com/naelstrof/maim) / [Flameshot](https://flameshot.js.org)                           	|
 ### Installation
 ```bash
 # add 'dot' as an alias
@@ -29,4 +30,4 @@ $ dot checkout
 $ dot config --local status.showUntrackedFiles false
 ```
 ### Picture
-![Wooooow](meta/dotfile.png)
+![dOt](meta/dotfile.png)
