@@ -5,12 +5,10 @@
 # terminal emulator
 super + Return
 	alacritty
-  #st
 
 # program launcher
 super + @space
 	dmenu_run -b -c -l 20
-  #~/scripts/dmenu_wal.sh
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -84,7 +82,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}' 
+	bspc {desktop -f,node -d} '^{1-9,10}'
 
 #
 # preselect
@@ -149,5 +147,3 @@ super + ctrl + button{4,5}
 # open interactive man page search with dmenu
 super + d
 	~/scripts/dmenu/manpage.sh
-	#echo -e "first\nsecond\nthird" | dmenu
-	#man -k . | awk '{print $1}' | dmenu | xargs alacritty -e man
