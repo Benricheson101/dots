@@ -1,0 +1,24 @@
+; vim:ft=dosini
+
+[colors]
+background = #2E3440
+background-alt = #3B4252
+foreground = #D8DEE9
+foreground-alt = #81A1C1
+
+primary = #ECEFF4
+secondary = #E5E9F0
+
+;frost
+frost1= #8FBCBB
+frost2 = #88C0D0
+frost3 = #81A1C1
+frost4 = #5E81AC
+
+urgent = #BF616A
+alert = #BF616A
+warning = #D08770
+notify = #EBCB8B
+success = #A3BE8C
+function = #B48EAD
+
