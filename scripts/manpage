@@ -1,0 +1,12 @@
+#!/bin/zsh
+
+command="$(man -k . | awk '{print $1}' | sort | dmenu -i -c -l 20 -p 'MAN PAGE:')"
+
+[[ -z "$command" ]] && exit 1;
+
+# alacritty -e zsh -c "source ~/.LESS_TERMCAP && man $command"
+# alacritty -e zsh -c "source ~/.LESS_TERMCAP && man -P \"nvim -R -c 'ColorToggle' -\" "
+
+# zsh -c "source ~/.LESS_TERMCAP && man -P 'nvim -R +:ColorToggle -' $command"
+
+alacritty -e zsh -c "source ~/.LESS_TERMCAP && man $command"
