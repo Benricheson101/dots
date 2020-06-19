@@ -14,6 +14,7 @@
 | Compositor     	| [Picom](https://github.com/yshui/picom)                                                                     	|
 | Launcher       	| [Dmenu](https://tools.suckless.org/dmenu) + [Center Patch](https://tools.suckless.org/dmenu/patches/center) 	|
 | Screenshots    	| [Maim](https://github.com/naelstrof/maim) / [Flameshot](https://flameshot.js.org)                           	|
+| Audio          	| [PulseAudio](https://gitlab.freedesktop.org/pulseaudio/pulseaudio)                                          	|
 ### Installation
 ```bash
 # add 'dot' as an alias
