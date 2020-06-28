@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline'
 
 " theme
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -49,6 +50,9 @@ Plug 'jiangmiao/auto-pairs'
 " column
 Plug 'godlygeek/tabular'
 
+" discord rich presence
+Plug 'hugolgst/vimsence'
+
 call plug#end()
 
 " map leader key to ','
@@ -58,7 +62,7 @@ let g:mapleader=','
 " set stuff
 " =======================================================================
 
-colorscheme nord
+colorscheme gruvbox
 set number relativenumber " line numbers
 set expandtab tabstop=2 shiftwidth=2 " 2 space tabs
 set linebreak " linebreak on wrap
@@ -124,7 +128,6 @@ let g:airline_powerline_fonts = 1
 " coc
 " ==========================================
 " coc plugins i use:
-" coc-discord
 " coc-eslint
 " coc-json
 " coc-rls
@@ -185,3 +188,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDSpaceDelims = 1
 let g:NERDCheckAllLines = 1
 let g:NERDCompactSexyComs = 1
+
+" ==========================================
+" vimsence
+" ==========================================
+let g:vimsence_small_text = 'go away'
+let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing: {}'
+let g:vimsence_editing_state = 'Project: {}'
+let g:vimsence_file_explorer_text = 'In NERDTree'
+let g:vimsence_file_explorer_details = 'Looking for files'

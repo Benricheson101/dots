@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "coc-discord": ">=0.0.3",
     "coc-eslint": ">=1.2.7",
     "coc-json": ">=1.2.6",
     "coc-rls": ">=1.1.6",
