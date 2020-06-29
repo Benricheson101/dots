@@ -147,3 +147,6 @@ super + ctrl + button{4,5}
 # open interactive man page search with dmenu
 super + d
 	~/scripts/manpage
+
+super + shift + s
+  [[ -z $(pgrep screenkey) ]] && screenkey -f "FiraCode Mono Nerd Font Regular" -s small --opacity 0.7 || pkill -f screenkey
