@@ -130,7 +130,7 @@ super + {Left,Down,Up,Right}
 
 # copy selection to clipboard
 ctrl + Print + {_,shift}
-  maim -Bu -b 5 {-s,_} | ~/scripts/screenshot-uploader/uploader
+  maim -Bu -b 5 {-s,_} | ~/scripts/b2-uploader/b2uploader
 
 # launch flameshot
 super + Print
@@ -149,4 +149,4 @@ super + d
 	~/scripts/manpage
 
 super + shift + s
-  [[ -z $(pgrep screenkey) ]] && screenkey -f "FiraCode Mono Nerd Font Regular" -s small --opacity 0.7 || pkill -f screenkey
+  [[ -z $(pgrep screenkey) ]] && screenkey -p bottom -f "FiraCode Mono Nerd Font Regular" -s small --opacity 0.7 || pkill -f screenkey

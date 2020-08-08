@@ -1,4 +1,4 @@
-" bens very beautiful neovim config
+"aaaa bens very beautiful neovim config
 
 " =======================================================================
 " laod plugins
@@ -6,10 +6,12 @@
 call plug#begin('~/.vim/plugged')
 " airline
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " theme
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'ajmwagar/vim-deus'
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -20,9 +22,15 @@ Plug 'sheerun/vim-polyglot'
 
 " languages
 Plug 'HerringtonDarkholme/yats.vim'
+Plug 'zah/nim.vim'
 
 " javascript
 Plug 'pangloss/vim-javascript'
+
+" web stuff
+Plug 'MaxMEllon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
+Plug 'mattn/emmet-vim'
 
 " rust
 Plug 'racer-rust/vim-racer'
@@ -62,7 +70,8 @@ let g:mapleader=','
 " set stuff
 " =======================================================================
 
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme deus
 set number relativenumber " line numbers
 set expandtab tabstop=2 shiftwidth=2 " 2 space tabs
 set linebreak " linebreak on wrap
@@ -73,6 +82,7 @@ set autoread
 set clipboard=unnamedplus " use system clipboard for yank/put
 set hidden
 set re=0 " new regex engine
+set undodir=/tmp//
 
 if(has('termguicolors'))
   set termguicolors
@@ -123,6 +133,7 @@ set shortmess+=c
 " airline
 " ==========================================
 let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
 
 " ==========================================
 " coc
@@ -198,3 +209,7 @@ let g:vimsence_editing_details = 'Editing: {}'
 let g:vimsence_editing_state = 'Project: {}'
 let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
+
+" ==========================================
+" emmet
+" ==========================================

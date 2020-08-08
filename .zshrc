@@ -127,6 +127,10 @@ function mk () {
 	mkdir -p "$@" && cd "$@"
 }
 
+function rmd () {
+  pandoc $1 | w3m -T text/html
+}
+
 unsetopt BEEP
 source /usr/share/nvm/init-nvm.sh
 
