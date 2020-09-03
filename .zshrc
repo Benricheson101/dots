@@ -115,7 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-alias grep=rg
+# alias grep=rg
 alias reload!='source $HOME/.zshrc'
 
 #

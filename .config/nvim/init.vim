@@ -61,6 +61,9 @@ Plug 'godlygeek/tabular'
 " discord rich presence
 Plug 'hugolgst/vimsence'
 
+" vim zoom
+Plug 'markstory/vim-zoomwin'
+
 call plug#end()
 
 " map leader key to ','
@@ -82,6 +85,7 @@ set autoread
 set clipboard=unnamedplus " use system clipboard for yank/put
 set hidden
 set re=0 " new regex engine
+set list " show whitespace
 set undodir=/tmp//
 
 if(has('termguicolors'))

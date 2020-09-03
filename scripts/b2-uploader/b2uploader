@@ -16,8 +16,12 @@ filename=$(echo $json | jq -r '.fileName')
 [[ -z $filename ]] && { notify-send -u critical 'Screenshot Upload Error' 'The server returned null or did not respond in time' ; exit 1 ; }
 
 fullurl="$url$filename"
+
+echo $fullurl >> ~/Pictures/screenshots.txt
 echo -n $fullurl
 echo -n $fullurl | xclip -sel clip
-notify-send -u normal 'Screenshot Uploaded' $fullurl
+notify-send -u normal -i $temp 'Screenshot Uploaded' $fullurl
+
+rm $temp
 
 # vim:ft=sh
