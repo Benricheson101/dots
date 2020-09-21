@@ -4,7 +4,7 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ben/.oh-my-zsh"
@@ -115,8 +115,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-# alias grep=rg
 alias reload!='source $HOME/.zshrc'
+alias fuck="sudo !!"
 
 #
 # Functions

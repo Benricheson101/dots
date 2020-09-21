@@ -3,10 +3,15 @@
 bucketName='red-panda'
 url='https://i.red-panda.red/'
 
+# bucketName='porg-imgs'
+# url='https://i.what-the-f.uk/'
+
 temp=$(mktemp /tmp/XXXXXX.png)
 cat /dev/stdin > $temp
 
 [[ -s $temp ]] || exit 1;
+
+cat $temp | xclip -sel clip -t image/png
 
 a=$(b2 upload_file $bucketName $temp $(sed 's,/tmp/,,' <<< $temp) --noProgress)
 

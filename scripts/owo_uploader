@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+. $HOME/.config/owo/owo.conf
+
+out=$(owo -sc)
+[[ -z $out ]] && exit 1;
+
+echo $out >> $HOME/Pictures/screenshots.txt
+
+icon="$SCREENSHOTS_DIR/$(ls -t $SCREENSHOTS_DIR | head -n 1)"
+
+notify-send -u normal -i $icon "Screenshot Uploaded" "$out"

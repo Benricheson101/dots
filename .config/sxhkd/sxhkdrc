@@ -128,16 +128,11 @@ super + {Left,Down,Up,Right}
 # screenshots
 #
 
-# copy selection to clipboard
-#ctrl + Print + {_,shift}
-  #maim -Bu -b 5 {-s,_} | ~/scripts/b2-uploader/b2uploader
-
 ctrl + Print
   maim -Bslu -c 0.3,0,0.5,0.3 -t 3 | ~/scripts/b2-uploader/b2uploader
-  #maim -Bu -b 5 -s | ~/scripts/b2-uploader/b2uploader
 
-#ctrl + shift + Print
-  #
+shift + Print
+  ~/scripts/owo_uploader
 
 # launch flameshot
 super + Print

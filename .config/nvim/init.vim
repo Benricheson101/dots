@@ -12,6 +12,8 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'ajmwagar/vim-deus'
+Plug 'ayu-theme/ayu-vim'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -64,6 +66,9 @@ Plug 'hugolgst/vimsence'
 " vim zoom
 Plug 'markstory/vim-zoomwin'
 
+" indent line
+Plug 'Yggdroot/indentLine'
+
 call plug#end()
 
 " map leader key to ','
@@ -85,8 +90,8 @@ set autoread
 set clipboard=unnamedplus " use system clipboard for yank/put
 set hidden
 set re=0 " new regex engine
-set list " show whitespace
-set undodir=/tmp//
+" set list " show whitespace
+set undodir=/tmp/
 
 if(has('termguicolors'))
   set termguicolors
@@ -106,9 +111,6 @@ vnoremap <silent> K 10gk
 noremap <silent> j gj
 noremap <silent> k gk
 
-" open a new tab
-noremap <C-t> :tabedit<CR>
-noremap! <C-t> :tabedit<CR>
 " previous tab
 nnoremap <A-Left> :tabprevious<CR>
 nnoremap <A-h> :tabprevious<CR>
@@ -118,6 +120,9 @@ nnoremap <A-l> :tabnext<CR>
 
 " press space to stop highlighting
 nnoremap <silent> <SPACE> :noh<CR>
+
+" add a semi to the end of the line
+nnoremap ;; A;<esc>
 
 " use <C-s> to save
 noremap <C-s> :w<CR>
@@ -215,5 +220,7 @@ let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
 
 " ==========================================
-" emmet
+" indentLine
 " ==========================================
+let g:indentLine_setColors = 0
+let g:indentLine_char = '¦'

@@ -1,6 +1,6 @@
 #! /bin/sh
 echo Updating mirrorlist...
-reflector --sort rate --protocol https --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist
-echo Beginning mirror refresh...
-pacman -Syy
+reflector --sort rate --protocol https --fastest 50 --number 100 --save /etc/pacman.d/mirrorlist &&
+echo Beginning mirror refresh... &&
+pacman -Syy &&
 echo Refresh complete.
