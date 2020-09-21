@@ -124,9 +124,6 @@ nnoremap <silent> <SPACE> :noh<CR>
 " add a semi to the end of the line
 nnoremap ;; A;<esc>
 
-" use <C-s> to save
-noremap <C-s> :w<CR>
-
 " =======================================================================
 " plugins
 " =======================================================================
