@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 bspc config focus_follows_pointer true
 

@@ -8,6 +8,7 @@ export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ben/.oh-my-zsh"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -135,3 +136,4 @@ unsetopt BEEP
 source /usr/share/nvm/init-nvm.sh
 
 alias ssh='TERM=xterm ssh'
+[ -f "/home/ben/.ghcup/env" ] && source "/home/ben/.ghcup/env" # ghcup-env

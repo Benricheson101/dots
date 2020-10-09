@@ -38,6 +38,9 @@ Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
 Plug 'cespare/vim-toml'
 
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
 " highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
 
@@ -149,6 +152,7 @@ let g:airline_powerline_fonts = 1
 " coc-json
 " coc-rls
 " coc-tsserver
+" coc-java
 
 " jsonc format (json with comments)
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -164,6 +168,16 @@ function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
+
+" ==========================================
+" vim-javascript
+" ==========================================
+let g:javascript_plugin_jsdoc = 1
+
+" ==========================================
+" vim-javascript
+" ==========================================
+let g:vim_markdown_conceal_code_blocks = 0
 
 " ==========================================
 " vim racer
@@ -205,6 +219,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDSpaceDelims = 1
 let g:NERDCheckAllLines = 1
 let g:NERDCompactSexyComs = 1
+
+
+" ==========================================
+" vimsence
+" ==========================================
+let g:AutoPairsShortcutJump = 0
 
 " ==========================================
 " vimsence

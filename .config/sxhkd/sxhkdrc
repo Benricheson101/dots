@@ -128,15 +128,21 @@ super + {Left,Down,Up,Right}
 # screenshots
 #
 
-ctrl + Print
-  maim -Bslu -c 0.3,0,0.5,0.3 -t 3 | ~/scripts/b2-uploader/b2uploader
+# launc flameshot
+alt + Print
+  flameshot gui
 
+# b2 uploader
+ctrl + Print
+  maim -Bslu -c 0.3,0,0.5,0.3 -t 3 | ~/scripts/b2uploader
+
+# owo uploader
 shift + Print
   ~/scripts/owo_uploader
 
-# launch flameshot
-super + Print
-  flameshot gui
+# launch flameshot + upload
+{_, super} + Print
+  flameshot gui {_, -r | ~/scripts/flameshot_uploader}
 
 # start apps
 super + shift + d
