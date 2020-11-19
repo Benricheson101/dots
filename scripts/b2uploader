@@ -1,7 +1,20 @@
-#! /bin/bash
+#!/usr/bin/env bash
+
+#
+# REQUIREMENTS:
+# jq
+# b2 command line thing
+# xclip
+# notify-send
+#
+
+. ~/scripts/util
 
 bucketName='red-panda'
 url='https://i.red-panda.red/'
+
+adjectives="$HOME/scripts/adjectives.txt"
+animals="$HOME/scripts/animals.txt"
 
 # bucketName='porg-imgs'
 # url='https://i.what-the-f.uk/'
@@ -13,7 +26,15 @@ cat /dev/stdin > $temp
 
 cat $temp | xclip -sel clip -t image/png
 
-a=$(b2 upload_file $bucketName $temp $(sed 's,/tmp/,,' <<< $temp) --noProgress)
+ext=$(rg '\.(.*)$' -o -r '$1'<<< $(basename "$temp"))
+
+adjective=$(capitalize_first_word $(shuf -n 1 "$adjectives"))
+animal=$(capitalize_first_word $(shuf -n 1 "$animals"))
+
+file="${adjective}${animal}.${ext}"
+
+a=$(b2 upload_file $bucketName $temp "$file" --noProgress)
+# a=$(b2 upload_file $bucketName $temp $(sed 's,/tmp/,,' <<< $temp) --noProgress)
 
 json=$(echo $a | grep -o '\{.*\}$')
 filename=$(echo $json | jq -r '.fileName')
@@ -24,6 +45,7 @@ if [[ -z $filename ]]; then
 fi
 
 fullurl="$url$filename"
+# fullurl="$url$"
 
 echo $fullurl >> ~/Pictures/screenshots.txt
 printf '%s' $fullurl

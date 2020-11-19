@@ -1,4 +1,4 @@
-"aaaa bens very beautiful neovim config
+" bens very beautiful neovim config
 
 " =======================================================================
 " laod plugins
@@ -25,33 +25,28 @@ Plug 'sheerun/vim-polyglot'
 " languages
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'zah/nim.vim'
-
-" javascript
 Plug 'pangloss/vim-javascript'
-
-" web stuff
 Plug 'MaxMEllon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
 Plug 'mattn/emmet-vim'
-
-" rust
-Plug 'racer-rust/vim-racer'
+Plug 'chrisbra/Colorizer' " show color code color
+Plug 'racer-rust/vim-racer' " rust
 Plug 'cespare/vim-toml'
-
-" Haskell
+Plug 'Glench/Vim-Jinja2-Syntax' " works pretty well for .tera files
 Plug 'neovimhaskell/haskell-vim'
+Plug 'uiiaoo/java-syntax.vim'
+Plug 'lifepillar/pgsql.vim'
+
+Plug 'tmhedberg/matchit'
 
 " highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
-
-" show color of color codes
-Plug 'chrisbra/Colorizer'
 
 " nerdtree
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
-" nerdcommenter
+" comment blocks of text
 Plug 'preservim/nerdcommenter'
 
 " surround
@@ -66,11 +61,15 @@ Plug 'godlygeek/tabular'
 " discord rich presence
 Plug 'hugolgst/vimsence'
 
-" vim zoom
+" make window fullscreen
 Plug 'markstory/vim-zoomwin'
 
 " indent line
 Plug 'Yggdroot/indentLine'
+
+" other stuff
+Plug 'wakatime/vim-wakatime'
+Plug 'johannesthyssen/vim-signit'
 
 call plug#end()
 
@@ -127,6 +126,8 @@ nnoremap <silent> <SPACE> :noh<CR>
 " add a semi to the end of the line
 nnoremap ;; A;<esc>
 
+nnoremap ,, A,<esc>
+
 " =======================================================================
 " plugins
 " =======================================================================
@@ -143,6 +144,8 @@ set shortmess+=c
 " ==========================================
 let g:airline_powerline_fonts = 1
 " let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamode=':t'
 
 " ==========================================
 " coc
@@ -152,7 +155,10 @@ let g:airline_powerline_fonts = 1
 " coc-json
 " coc-rls
 " coc-tsserver
+" coc-css
+" coc-clangd
 " coc-java
+" coc-sql
 
 " jsonc format (json with comments)
 autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -178,6 +184,8 @@ let g:javascript_plugin_jsdoc = 1
 " vim-javascript
 " ==========================================
 let g:vim_markdown_conceal_code_blocks = 0
+" dont hide *, **, `, ```, etc
+let g:vim_markdown_conceal = 0
 
 " ==========================================
 " vim racer

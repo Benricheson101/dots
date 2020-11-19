@@ -158,3 +158,6 @@ super + d
 
 super + shift + s
   [[ -z $(pgrep screenkey) ]] && screenkey -p bottom -f "FiraCode Mono Nerd Font Regular" -s small --opacity 0.7 || pkill -f screenkey
+
+super + u
+  unipicker --copy --command 'dmenu -c -l 20 -nb "#3B4252" -sb "#5E81AC" -fn "FiraCode Nerd Font Mono:style=Regular:size=10"'

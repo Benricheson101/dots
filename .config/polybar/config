@@ -391,7 +391,7 @@ content = 
 content-underline = ${colors.secondary}
 
 click-left = alacritty &
-click-middle = alacritty -e htop &
+click-right = alacritty -e htop &
 
 [settings]
 screenchange-reload = true

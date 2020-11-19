@@ -98,11 +98,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -117,19 +117,33 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias reload!='source $HOME/.zshrc'
-alias fuck="sudo !!"
 
 #
 # Functions
 #
 
 # Create a new dir and enter it
-function mk () {
+mk () {
 	mkdir -p "$@" && cd "$@"
 }
 
-function rmd () {
-  pandoc $1 | w3m -T text/html
+fuck () {
+  sudo $(history -1 | cut -c 8)
+}
+
+# im lazy ok lol
+build_and_run () {
+  lang="$1"
+  file="$2"
+
+  case "$lang" in
+    "rust")
+      rustc "$file" && ./"$(rg '(.*).rs$' -r '$1' <<< "$file")"
+      ;;
+    "cpp"|"c++")
+      g++ "$file" && ./a.out
+      ;;
+  esac
 }
 
 unsetopt BEEP
@@ -137,3 +151,6 @@ source /usr/share/nvm/init-nvm.sh
 
 alias ssh='TERM=xterm ssh'
 [ -f "/home/ben/.ghcup/env" ] && source "/home/ben/.ghcup/env" # ghcup-env
+
+# llvm stuff
+source <(llvmenv zsh)
