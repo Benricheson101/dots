@@ -64,7 +64,7 @@ font-4 = Font Awesome 5 Free Solid:style=Solid
 font-5 = Font Awesome 5 Free Regular:style=Regular
 
 modules-left = bspwm xwindow
-modules-center = 
+modules-center = spotify
 modules-right = xkeyboard pulseaudio memory launch-terminal date
 
 tray-position = right
@@ -392,6 +392,13 @@ content-underline = ${colors.secondary}
 
 click-left = alacritty &
 click-right = alacritty -e htop &
+
+[module/spotify]
+type = custom/script
+interval = 1
+format-prefix = " "
+format = <label>
+exec = "polybar-spotify -f '{artist}: {song}'"
 
 [settings]
 screenchange-reload = true
