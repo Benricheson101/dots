@@ -393,12 +393,14 @@ content-underline = ${colors.secondary}
 click-left = alacritty &
 click-right = alacritty -e htop &
 
+; https://github.com/Jvanrhijn/polybar-spotify
 [module/spotify]
 type = custom/script
 interval = 1
-format-prefix = " "
+; format-prefix = ""
 format = <label>
-exec = "polybar-spotify -f '{artist}: {song}'"
+; exec = "polybar-spotify -f '{artist}: {song}'"
+exec = "$HOME/scripts/polybar-spotify/spotify_status.py -t 70 -q -f '{song} - {artist}'"
 
 [settings]
 screenchange-reload = true
