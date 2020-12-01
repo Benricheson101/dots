@@ -13,8 +13,8 @@
 bucketName='red-panda'
 url='https://i.red-panda.red/'
 
-# adjectives="$HOME/scripts/adjectives.txt"
-# animals="$HOME/scripts/animals.txt"
+adjectives="$HOME/scripts/adjectives.txt"
+animals="$HOME/scripts/animals.txt"
 emojis="$HOME/scripts/emojis.txt"
 
 # bucketName='porg-imgs'
@@ -33,18 +33,17 @@ cat $temp | xclip -sel clip -t image/png
 
 ext=$(rg '\.(.*)$' -o -r '$1'<<< $(basename "$temp"))
 
-# adjective=$(capitalize_first_word $(shuf -n 1 "$adjectives"))
-# animal=$(capitalize_first_word $(shuf -n 1 "$animals"))
+adjective=$(capitalize_first_word $(shuf -n 1 "$adjectives"))
+animal=$(capitalize_first_word $(shuf -n 1 "$animals"))
 
-emoji1=$(random_emoji)
-emoji2=$(random_emoji)
-emoji3=$(random_emoji)
+# emoji1=$(random_emoji)
+# emoji2=$(random_emoji)
+# emoji3=$(random_emoji)
 
-# file="${adjective}${animal}.${ext}"
-file="${emoji1}${emoji2}${emoji3}.${ext}"
+file="${adjective}${animal}.${ext}"
+# file="${emoji1}${emoji2}${emoji3}.${ext}"
 
 a=$(b2 upload_file $bucketName $temp "$file" --noProgress)
-# a=$(b2 upload_file $bucketName $temp $(sed 's,/tmp/,,' <<< $temp) --noProgress)
 
 json=$(echo $a | grep -o '\{.*\}$')
 filename=$(echo $json | jq -r '.fileName')
@@ -59,8 +58,6 @@ fullurl="$url$filename"
 
 echo $fullurl >> ~/Pictures/screenshots.txt
 printf '%s' $fullurl
-# echo -n $fullurl | xclip -sel clip
-# xclip -sel clip <<< $fullurl
 printf '%s' $fullurl | xclip -sel clip
 notify-send -u normal -i $temp 'Screenshot Uploaded' $fullurl
 

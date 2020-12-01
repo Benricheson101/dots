@@ -117,6 +117,12 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias reload!='source $HOME/.zshrc'
+alias rm="rm -i"
+
+# cus im stupid
+del () {
+  mv "$@" ~/.trash
+}
 
 #
 # Functions
@@ -128,7 +134,7 @@ mk () {
 }
 
 fuck () {
-  sudo $(history -1 | cut -c 8)
+  sudo "$(history -1 | rg '\d+\s+(.*)' -r '$1')"
 }
 
 # im lazy ok lol

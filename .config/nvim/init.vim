@@ -14,6 +14,7 @@ Plug 'morhetz/gruvbox'
 Plug 'ajmwagar/vim-deus'
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'joshdick/onedark.vim'
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -94,6 +95,7 @@ set hidden
 set re=0 " new regex engine
 " set list " show whitespace
 set undodir=/tmp/
+set spell spelllang=en_us
 
 if(has('termguicolors'))
   set termguicolors

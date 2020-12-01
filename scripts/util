@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+function capitalize_first_word() {
+  sed 's/^./\u&/g' <<< "$@"
+}
