@@ -1,7 +1,7 @@
 sxhkd &
 flameshot &
 picom --experimental-backends &
-feh --bg-center Wallpaper/peterlik.jpg &
+feh --bg-center Wallpaper/current.jpg &
 xinput set-prop "pointer:Razer Razer Naga Trinity" "libinput Accel Speed" -1 &
 dunst &
 polybar example -r &

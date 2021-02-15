@@ -15,6 +15,7 @@ Plug 'ajmwagar/vim-deus'
 Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'joshdick/onedark.vim'
+Plug 'iandwelker/rose-pine-vim'
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -27,18 +28,22 @@ Plug 'sheerun/vim-polyglot'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'zah/nim.vim'
 Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty'
-Plug 'posva/vim-vue'
+"Plug 'MaxMEllon/vim-jsx-pretty'
+"Plug 'posva/vim-vue'
 Plug 'mattn/emmet-vim'
-Plug 'chrisbra/Colorizer' " show color code color
-Plug 'racer-rust/vim-racer' " rust
+Plug 'chrisbra/Colorizer' " css colors
+
+Plug 'rust-analyzer/rust-analyzer'
 Plug 'cespare/vim-toml'
 Plug 'Glench/Vim-Jinja2-Syntax' " works pretty well for .tera files
 Plug 'neovimhaskell/haskell-vim'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'lifepillar/pgsql.vim'
+Plug 'evanleck/vim-svelte'
+" Plug 'leafOfTree/vim-svelte-plugin'
 
-Plug 'tmhedberg/matchit'
+" Plug 'tmhedberg/matchit'
+Plug 'adelarsq/vim-matchit'
 
 " highlight whitespace
 Plug 'ntpeters/vim-better-whitespace'
@@ -49,6 +54,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " comment blocks of text
 Plug 'preservim/nerdcommenter'
+" Plug 'tyru/caw.vim'
 
 " surround
 Plug 'tpope/vim-surround'
@@ -60,7 +66,8 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 
 " discord rich presence
-Plug 'hugolgst/vimsence'
+" Plug 'hugolgst/vimsence'
+Plug 'Benricheson101/vimsence'
 
 " make window fullscreen
 Plug 'markstory/vim-zoomwin'
@@ -70,13 +77,15 @@ Plug 'Yggdroot/indentLine'
 
 " other stuff
 Plug 'wakatime/vim-wakatime'
-Plug 'johannesthyssen/vim-signit'
+" Plug 'johannesthyssen/vim-signit'
 
 call plug#end()
 
 " map leader key to ','
 let g:mapleader=','
 
+" apparently <C-j> is a bash thing or something idk
+let g:BASH_Ctrl_j = 'off'
 " =======================================================================
 " set stuff
 " =======================================================================
@@ -95,7 +104,7 @@ set hidden
 set re=0 " new regex engine
 " set list " show whitespace
 set undodir=/tmp/
-set spell spelllang=en_us
+" set spell spelllang=en_us " TODO: enable for html/md/svelte files
 
 if(has('termguicolors'))
   set termguicolors
@@ -127,8 +136,18 @@ nnoremap <silent> <SPACE> :noh<CR>
 
 " add a semi to the end of the line
 nnoremap ;; A;<esc>
-
 nnoremap ,, A,<esc>
+
+" lol
+noremap <Up>    <Nop>
+noremap <Down>  <Nop>
+noremap <Left>  <Nop>
+noremap <Right> <Nop>
+
+inoremap <Up>    <Nop>
+inoremap <Down>  <Nop>
+inoremap <Left>  <Nop>
+inoremap <Right> <Nop>
 
 " =======================================================================
 " plugins
@@ -155,7 +174,7 @@ let g:airline#extensions#tabline#fnamode=':t'
 " coc plugins i use:
 " coc-eslint
 " coc-json
-" coc-rls
+" coc-rust-analyzer
 " coc-tsserver
 " coc-css
 " coc-clangd
@@ -171,16 +190,35 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gt :call <SID>show_documentation()<CR>
+
+inoremap <silent><expr> <C-j> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1, 1)\<cr>" : "\<C-j>"
+inoremap <silent><expr> <C-k> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0, 1)\<cr>" : "\<C-k>"
+
+" ==========================================
+" vim-polyglot
+" ==========================================
+let g:svelte_indent_script = 0
+let g:html_indent_script1 = 0
 
 " ==========================================
 " vim-javascript
@@ -218,6 +256,9 @@ let g:better_whitespace_guicolor = '#BF616A'
 " nerdtree
 " ==========================================
 " open nerdtree if you open a dir in vim
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
@@ -234,22 +275,25 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let g:NERDSpaceDelims = 1
 let g:NERDCheckAllLines = 1
 let g:NERDCompactSexyComs = 1
-
+let g:NERDCustomDelimiters = {'svelte': {'left': '<!--','right': '-->'}}
 
 " ==========================================
-" vimsence
+" surround
 " ==========================================
 let g:AutoPairsShortcutJump = 0
 
 " ==========================================
 " vimsence
 " ==========================================
-let g:vimsence_small_text = 'go away'
+let g:vimsence_small_text = 'hi ur probably cool'
 let g:vimsence_small_image = 'neovim'
 let g:vimsence_editing_details = 'Editing: {}'
 let g:vimsence_editing_state = 'Project: {}'
 let g:vimsence_file_explorer_text = 'In NERDTree'
 let g:vimsence_file_explorer_details = 'Looking for files'
+let g:vimsence_display_github = 1
+let g:vimsence_display_github_repo = 1
+let g:vimsence_github_user = 'Benricheson101'
 
 " ==========================================
 " indentLine

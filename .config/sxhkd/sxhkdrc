@@ -161,3 +161,7 @@ super + shift + s
 
 super + u
   unipicker --copy --command 'dmenu -c -l 20 -nb "#3B4252" -sb "#5E81AC" -fn "FiraCode Nerd Font Mono:style=Regular:size=10"'
+
+# color picker
+super + shift + u
+  ~/scripts/colorpicker

@@ -10,6 +10,9 @@ export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
 export ZSH="/home/ben/.oh-my-zsh"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Sensitive variables that i dont wanna put on github lol
+. ~/.sensitive
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -53,7 +56,7 @@ HYPHEN_INSENSITIVE="true"
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+ENABLE_CORRECTION="false"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
@@ -83,8 +86,8 @@ ENABLE_CORRECTION="true"
 plugins=(
 	archlinux
   yarn
+  zsh-syntax-highlighting
 	zsh-autosuggestions
-	zsh-syntax-highlighting
   colored-man-pages
 )
 
@@ -118,6 +121,10 @@ fi
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias reload!='source $HOME/.zshrc'
 alias rm="rm -i"
+
+curlbot() {
+  curl -s -H "Authorization: Bot $DISCORD_TOKEN" "$@"
+}
 
 # cus im stupid
 del () {
