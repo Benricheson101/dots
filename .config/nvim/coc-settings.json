@@ -1,6 +1,8 @@
 {
   "javascript.validate.enable": false,
   "clangd.path": "/home/ben/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
-  "rust-analyzer.explainError": true,
-  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"]
+  // "rust-analyzer.explainError": true,
+  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"],
+  "diagnostic.checkCurrentLine": true
+  // "eslint.quiet": true
 }

@@ -5,8 +5,11 @@
 " =======================================================================
 call plug#begin('~/.vim/plugged')
 " airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+Plug 'itchyny/lightline.vim'
+Plug 'josa42/vim-lightline-coc'
 
 " theme
 Plug 'arcticicestudio/nord-vim'
@@ -16,6 +19,7 @@ Plug 'ayu-theme/ayu-vim'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'joshdick/onedark.vim'
 Plug 'iandwelker/rose-pine-vim'
+Plug 'wadackel/vim-dogrun'
 
 " nerdtree
 Plug 'preservim/nerdtree'
@@ -41,6 +45,7 @@ Plug 'uiiaoo/java-syntax.vim'
 Plug 'lifepillar/pgsql.vim'
 Plug 'evanleck/vim-svelte'
 " Plug 'leafOfTree/vim-svelte-plugin'
+Plug 'projectfluent/fluent.vim'
 
 " Plug 'tmhedberg/matchit'
 Plug 'adelarsq/vim-matchit'
@@ -66,7 +71,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 
 " discord rich presence
-" Plug 'hugolgst/vimsence'
 Plug 'Benricheson101/vimsence'
 
 " make window fullscreen
@@ -78,6 +82,9 @@ Plug 'Yggdroot/indentLine'
 " other stuff
 Plug 'wakatime/vim-wakatime'
 " Plug 'johannesthyssen/vim-signit'
+
+Plug 'chaoren/vim-wordmotion'
+Plug 'pantharshit00/vim-prisma'
 
 call plug#end()
 
@@ -91,7 +98,8 @@ let g:BASH_Ctrl_j = 'off'
 " =======================================================================
 
 " colorscheme gruvbox
-colorscheme deus
+" colorscheme deus
+colorscheme dogrun
 set number relativenumber " line numbers
 set expandtab tabstop=2 shiftwidth=2 " 2 space tabs
 set linebreak " linebreak on wrap
@@ -125,29 +133,32 @@ noremap <silent> j gj
 noremap <silent> k gk
 
 " previous tab
-nnoremap <A-Left> :tabprevious<CR>
-nnoremap <A-h> :tabprevious<CR>
+nnoremap <silent> <A-Left> :tabprevious<CR>
+nnoremap <silent> <A-h> :tabprevious<CR>
 " next tab
-nnoremap <A-Right> :tabnext<CR>
-nnoremap <A-l> :tabnext<CR>
+nnoremap <silent> <A-Right> :tabnext<CR>
+nnoremap <silent> <A-l> :tabnext<CR>
 
 " press space to stop highlighting
 nnoremap <silent> <SPACE> :noh<CR>
 
 " add a semi to the end of the line
-nnoremap ;; A;<esc>
-nnoremap ,, A,<esc>
+nnoremap <silent> ;; A;<esc>
+nnoremap <silent> ,, A,<esc>
 
 " lol
-noremap <Up>    <Nop>
-noremap <Down>  <Nop>
-noremap <Left>  <Nop>
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
 noremap <Right> <Nop>
 
-inoremap <Up>    <Nop>
-inoremap <Down>  <Nop>
-inoremap <Left>  <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+" enable spell check for only markup languages
+autocmd FileType markdown,svelte,jsx,html,vue setlocal spell spelllang=en_us
 
 " =======================================================================
 " plugins
@@ -169,6 +180,20 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamode=':t'
 
 " ==========================================
+" lightline
+" ==========================================
+let g:lightline = {
+  \ 'colorscheme': 'dogrun',
+  \ 'active': {
+  \   'left': [['mode', 'paste'],
+  \             ['coc_info', 'coc_hints', 'coc_errors', 'coc_warnings', 'coc_ok'],
+  \             ['readonly', 'filename', 'modified'], ['coc_status']]
+  \ },
+  \ }
+
+call lightline#coc#register()
+
+" ==========================================
 " coc
 " ==========================================
 " coc plugins i use:
@@ -180,6 +205,7 @@ let g:airline#extensions#tabline#fnamode=':t'
 " coc-clangd
 " coc-java
 " coc-sql
+" coc-tailwindcss
 
 " jsonc format (json with comments)
 autocmd FileType json syntax match Comment +\/\/.\+$+
