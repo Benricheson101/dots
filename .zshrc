@@ -5,6 +5,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export TERM="xterm-256color"
+# export TERM="screen-256color"
+# export TERM="screen"
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/ben/.oh-my-zsh"
@@ -12,6 +15,9 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 
 # Sensitive variables that i dont wanna put on github lol
 . ~/.sensitive
+
+# completion stuff that wont autoload for some reason
+. ~/.completion/*
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -89,6 +95,7 @@ plugins=(
   zsh-syntax-highlighting
 	zsh-autosuggestions
   colored-man-pages
+  elixir_mix
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,41 +129,15 @@ alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias reload!='source $HOME/.zshrc'
 alias rm="rm -i"
 
+#+--- Functions ---+
+
 curlbot() {
   curl -s -H "Authorization: Bot $DISCORD_TOKEN" "$@"
 }
 
-# cus im stupid
-del () {
-  mv "$@" ~/.trash
-}
-
-#
-# Functions
-#
-
 # Create a new dir and enter it
 mk () {
 	mkdir -p "$@" && cd "$@"
-}
-
-fuck () {
-  sudo "$(history -1 | rg '\d+\s+(.*)' -r '$1')"
-}
-
-# im lazy ok lol
-build_and_run () {
-  lang="$1"
-  file="$2"
-
-  case "$lang" in
-    "rust")
-      rustc "$file" && ./"$(rg '(.*).rs$' -r '$1' <<< "$file")"
-      ;;
-    "cpp"|"c++")
-      g++ "$file" && ./a.out
-      ;;
-  esac
 }
 
 unsetopt BEEP

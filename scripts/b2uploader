@@ -25,6 +25,7 @@ random_emoji() {
 }
 
 temp=$(mktemp /tmp/XXXXXX.png)
+trap "rm -f $temp" EXIT
 cat /dev/stdin > $temp
 
 [[ -s $temp ]] || exit 1;
@@ -61,6 +62,6 @@ printf '%s' $fullurl
 printf '%s' $fullurl | xclip -sel clip
 notify-send -u normal -i $temp 'Screenshot Uploaded' $fullurl
 
-rm $temp
+# rm $temp
 
 # vim:ft=sh

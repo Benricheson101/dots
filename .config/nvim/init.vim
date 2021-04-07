@@ -99,6 +99,10 @@ let g:BASH_Ctrl_j = 'off'
 
 " colorscheme gruvbox
 " colorscheme deus
+
+" set bg=dark
+" set t_Co=256
+
 colorscheme dogrun
 set number relativenumber " line numbers
 set expandtab tabstop=2 shiftwidth=2 " 2 space tabs
@@ -156,6 +160,12 @@ inoremap <Up> <Nop>
 inoremap <Down> <Nop>
 inoremap <Left> <Nop>
 inoremap <Right> <Nop>
+
+" for tmux
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+noremap <C-a> <Home>
+noremap <C-e> <End>
 
 " enable spell check for only markup languages
 autocmd FileType markdown,svelte,jsx,html,vue setlocal spell spelllang=en_us
