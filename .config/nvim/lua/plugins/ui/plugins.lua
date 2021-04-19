@@ -1,8 +1,8 @@
 require 'plugins.ui.config'
 
 local ui = {
-	'glepnir/dashboard-nvim',
-	'josa42/vim-lightline-coc',
+  'glepnir/dashboard-nvim',
+  'josa42/vim-lightline-coc',
   'itchyny/lightline.vim',
   'junegunn/fzf',
   'junegunn/fzf.vim',

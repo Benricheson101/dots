@@ -7,8 +7,8 @@ cmd 'autocmd FileType dashbord :IndentLinesDisable'
 
 -- BufReadPost --
 cmd [[
-	autocmd BufReadPost *
-	  \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-	  \ |   exe "normal! g`\""
-	  \ | endif
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
 ]]
