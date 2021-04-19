@@ -10,7 +10,7 @@ local global_ops = {
 
   ignorecase     = true,
   smartcase      = true,
-  undodir        = '/tmp/.nvim-undo-dir',
+  undodir        = '/tmp/.nvim-cache',
 }
 
 local window_ops = {
@@ -47,8 +47,8 @@ if fn.has('termguicolors') == 1 then
   vim.o.termguicolors = true
 end
 
-if fn.isdirectory('/tmp/.nvim-undo-dir') == 0 then
-  fn.mkdir('/tmp/.nvim-undo-dir', '', 0700)
+if fn.isdirectory('/tmp/.nvim-cache') == 0 then
+  fn.mkdir('/tmp/.nvim-cache', '', 0700)
 end
 
 local function load_ops(scope, ops)
@@ -60,32 +60,3 @@ end
 load_ops('o', window_ops)
 load_ops('wo', window_ops)
 load_ops('bo', buffer_ops)
-
--- -- global options --
--- o.autoread        = true
--- o.clipboard       = 'unnamedplus'
--- o.encoding        = 'UTF-8'
--- o.showmode        = false
--- o.regexpengine    = 0
-
--- o.ignorecase      = true
--- o.smartcase       = true
--- o.undodir         = '/tmp/.nvim-undo-dir'
-
--- -- window options --
--- wo.cursorline     = true
--- wo.linebreak      = true
-
--- wo.number         = true
--- wo.relativenumber = true
-
--- wo.foldcolumn     = '1'
--- wo.foldenable     = false
--- wo.foldmethod     = 'syntax'
-
--- -- buffer options --
--- bo.expandtab      = true
--- bo.tabstop        = 2
--- bo.shiftwidth     = 2
--- bo.omnifunc       = 'syntaxcomplete#Complete'
--- bo.undofile       = true
