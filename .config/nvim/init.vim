@@ -60,4 +60,4 @@ inoremap <silent><expr> <C-k> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(
 
 map <C-n> :NERDTreeToggle<CR>
 
-:lua require 'init'
+lua require 'init'

@@ -34,12 +34,12 @@ local buffer_ops = {
 }
 
 -- colorscheme --
+cmd 'colors dogrun'
 cmd 'hi FoldColumn guifg=#535F98'
 
 -- misc options --
 cmd 'set shortmess+=c'
 cmd 'set rtp+=~/.fzf'
-cmd 'colors dogrun'
 cmd 'filetype plugin on'
 
 if fn.has('termguicolors') == 1 then

@@ -6,7 +6,7 @@ g.indentLine_char = '¦'
 
 -- vim-better-whitespace --
 g.better_whitespace_guicolor            = '#BF616A'
-g.better_whitespace_filetypes_blacklist = {'dashboard'}
+g.better_whitespace_filetypes_blacklist = {'dashboard', 'packer'}
 
 -- nerdcommenter --
 g.NERDSpaceDelims      = 1
