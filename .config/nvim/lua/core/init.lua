@@ -1,0 +1,6 @@
+require 'core.autocmd'
+require 'core.functions'
+require 'core.globals'
+require 'core.maps'
+require 'core.options'
+require 'core.plug'

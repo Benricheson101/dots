@@ -5,7 +5,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
-export TERM="xterm-256color"
+# export TERM="xterm-256color"
 # export TERM="screen-256color"
 # export TERM="screen"
 
@@ -128,6 +128,13 @@ fi
 alias dot="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias reload!='source $HOME/.zshrc'
 alias rm="rm -i"
+alias ssh='TERM=xterm ssh'
+# alias nv="neovide --multiGrid"
+alias nv="neovide"
+
+# quick way to change layout
+alias aoeu="setxkbmap us"
+alias asdf="setxkbmap dvorak"
 
 #+--- Functions ---+
 
@@ -143,7 +150,6 @@ mk () {
 unsetopt BEEP
 source /usr/share/nvm/init-nvm.sh
 
-alias ssh='TERM=xterm ssh'
 [ -f "/home/ben/.ghcup/env" ] && source "/home/ben/.ghcup/env" # ghcup-env
 
 # llvm stuff

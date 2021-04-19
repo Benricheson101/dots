@@ -1,8 +1,31 @@
 {
+  // +-- Diagnostics --+
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "•",
+  "diagnostic.checkCurrentLine": true,
+
+  // +-- JavaScript --+
   "javascript.validate.enable": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "javascript.format.semicolons": "insert",
+  "javascript.format.enabled": true,
+  "javascript.preferences.quoteStyle": "single",
+
+  // +-- TypeScript --+
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "typescript.format.semicolons": "insert",
+  "typescript.format.enabled": true,
+  "typescript.preferences.quoteStyle": "single",
+
+  // +-- C --+
   "clangd.path": "/home/ben/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
-  // "rust-analyzer.explainError": true,
-  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"],
-  "diagnostic.checkCurrentLine": true
-  // "eslint.quiet": true
+
+  // +-- Rust --+
+  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"]
 }

@@ -22,3 +22,5 @@ bspc config presel_feedback_color '#bf616a'
 
 # rules
 bspc rule -a "Picture in picture" state=floating
+
+pgrep bspswallow || bspswallow &
