@@ -3,17 +3,18 @@
 ### Packages:
 | Use            	| Thing                                                                                                       	|
 |----------------	|-------------------------------------------------------------------------------------------------------------	|
-| Window Manager 	| [BSPWM](https://github.com/baskerville/bspwm)                                                               	|
-| Hotkeys        	| [SXHKD](https://github.com/baskerville/sxhkd)                                                               	|
+| Window Manager 	| [bspwm](https://github.com/baskerville/bspwm)                                                               	|
+| Hotkeys        	| [sxhkd](https://github.com/baskerville/sxhkd)                                                               	|
 | Terminal       	| [Alacritty](https://github.com/alacritty/alacritty)                                                         	|
-| Editor         	| [Neovim](https://neovim.io)                                                                                 	|
-| Shell          	| [Zsh](https://www.zsh.org) + [Oh My Zsh](https://ohmyz.sh)                                                  	|
+| Editor         	| [Neovide](https://github.com/Kethku/neovide)                                                                	|
+| Shell          	| [zsh](https://www.zsh.org) + [Oh My Zsh](https://ohmyz.sh)                                                  	|
 | Notifications  	| [Dunst](https://dunst-project.org)                                                                          	|
+| Editor Theme   	| [Vim Dogrun](https://github.com/wadackel/vim-dogrun)                                                         	|
 | Theme          	| [Nord](https://nordtheme.com)                                                                               	|
 | Bar            	| [Polybar](https://polybar.github.io)                                                                        	|
 | Compositor     	| [Picom](https://github.com/yshui/picom)                                                                     	|
 | Launcher       	| [Dmenu](https://tools.suckless.org/dmenu) + [Center Patch](https://tools.suckless.org/dmenu/patches/center) 	|
-| Screenshots    	| [Maim](https://github.com/naelstrof/maim) / [Flameshot](https://flameshot.js.org)                           	|
+| Screenshots    	| [Maim](https://github.com/naelstrof/maim) / [Flameshot](https://flameshot.org)                              	|
 | Audio          	| [PulseAudio](https://gitlab.freedesktop.org/pulseaudio/pulseaudio)                                          	|
 ### Installation
 ```bash
