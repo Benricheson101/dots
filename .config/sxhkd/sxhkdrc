@@ -140,7 +140,7 @@ ctrl + Print
 shift + Print
   ~/scripts/owo_uploader
 
-launch flameshot + upload
+# launch flameshot + upload
 {_, super} + Print
   flameshot gui {_, -r | ~/scripts/flameshot_uploader}
 

@@ -27,5 +27,20 @@
   "clangd.path": "/home/ben/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
 
   // +-- Rust --+
-  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"]
+  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"],
+
+  // +-- HTML --+
+  "html.enable": true,
+  "html.format.enable": true,
+  "html.format.wrapLineLength": 80,
+
+  // +-- LSP Stuff --+
+  "languageserver": {
+    // +-- Elm --+
+    "elmLS": {
+      "command": "elm-language-server",
+      "filetypes": ["elm"],
+      "rootPatterns": ["elm.json"]
+    }
+  }
 }

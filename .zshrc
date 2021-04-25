@@ -17,7 +17,8 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 . ~/.sensitive
 
 # completion stuff that wont autoload for some reason
-. ~/.completion/*
+autoload -U compinit && compinit
+for f in ~/.completion/*.zsh; do source $f; done
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,

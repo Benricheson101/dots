@@ -1,0 +1,36 @@
+-- Ben's Neovim Config --
+
+It's written (mostly) in Lua and spread across multiple files so it can be
+hard to find thing sometimes. Use <C-]> on the table of contents below to jump
+to files containing stuff
+
+*Table-of-Contents*
+	|Options|
+	|Plugins|
+
+	*Options*
+		|Global|
+		|Window|
+		|Buffer|
+		|GUI|
+
+	*Plugins*
+		|COC|
+			|COC-Plugins|
+			|COC-Config|
+		|Editor|
+			|Editor-Plugins|
+			|Editor-Config|
+		|Lang|
+			|Lang-Plugins|
+			|Lang-Config|
+		|LSP|
+			|LSP-Plugins|
+			|LSP-Config|
+		|Themes|
+			|Theme-Plugins|
+		|UI|
+			|UI-Plugins|
+			|UI-Config|
+
+vim:ft=help:isk+=45:

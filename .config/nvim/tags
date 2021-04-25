@@ -1,0 +1,30 @@
+Options	toc.txt	/*Options*
+Plugins	toc.txt	/*Plugins*
+
+Global	lua/core/options.lua	/local global_ops = {
+Window	lua/core/options.lua	/local window_ops = {
+Buffer	lua/core/options.lua	/local buffer_ops = {
+GUI	lua/core/options.lua	/local gui_ops = {
+
+COC	coc-settings.json	0
+COC-Plugins	~/.config/coc/extensions/package.json	0
+COC-Config	coc-settings.json	0
+
+Editor	lua/plugins/editor/plugins.lua	0
+Editor-Plugins	lua/plugins/editor/plugins.lua	/local editor = {
+Editor-Config	lua/plugins/editor/config.lua	0
+
+Lang	lua/plugins/lang/plugins.lua	0
+Lang-Plugins	lua/plugins/lang/plugins.lua	/local lang = {
+Lang-Config	lua/plugins/lang/config.lua	0
+
+LSP	lua/plugins/lsp/plugins.lua	0
+LSP-Plugins	lua/plugins/lsp/plugins.lua	/local lsp = {
+LSP-Config	lua/plugins/lsp/config.lua	0
+
+Themes	lua/plugins/themes/plugins.lua	0
+Theme-Plugins	lua/plugins/themes/plugins.lua	/local themes = {
+
+UI	lua/plugins/ui/plugins.lua	0
+UI-Plugins	lua/plugins/ui/plugins.lua	/local ui = {
+UI-Config	lua/plugins/ui/config.lua	0

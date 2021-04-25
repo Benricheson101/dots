@@ -6,9 +6,4 @@ cmd 'autocmd FileType json syntax match Comment +\\/\\/.\\+$+'
 cmd 'autocmd FileType dashbord,packer :IndentLinesDisable'
 
 -- BufReadPost --
-cmd [[
-  autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-    \ |   exe "normal! g`\""
-    \ | endif
-]]
+cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
