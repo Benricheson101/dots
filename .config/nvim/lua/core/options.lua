@@ -14,6 +14,8 @@ local global_ops = {
 
   ignorecase     = true,
   smartcase      = true,
+
+  conceallevel   = 0,
 }
 
 local window_ops = {
@@ -42,19 +44,17 @@ local gui_ops = {
 }
 
 -- colorscheme --
-cmd 'colors dogrun'
+-- cmd 'colors dogrun'
 cmd 'hi FoldColumn guifg=#535F98'
 
 -- misc options --
 cmd 'filetype plugin on'
 
--- {{{1
 local function load_ops(scope, ops)
   for k, v in pairs(ops) do
     (vim[scope])[k] = v
   end
 end
--- }}}1
 
 load_ops('o', global_ops)
 load_ops('wo', window_ops)
@@ -64,4 +64,4 @@ if fn.has('termguicolors') == 1 then
   load_ops('o', gui_ops)
 end
 
--- vim: set fdm=marker :
+-- vim:set fdm=marker:

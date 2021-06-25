@@ -4,7 +4,7 @@
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/.gem/ruby/2.7.0/bin:/home/ben/.yarn/bin:/home/ben/.mix/escripts:$PATH"
 # export TERM="xterm-256color"
 # export TERM="screen-256color"
 # export TERM="screen"
@@ -133,9 +133,12 @@ alias ssh='TERM=xterm ssh'
 # alias nv="neovide --multiGrid"
 alias nv="neovide"
 
+alias bat="bat -p --theme Nord"
+
 # quick way to change layout
 alias aoeu="setxkbmap us"
 alias asdf="setxkbmap dvorak"
+alias cls="clear"
 
 #+--- Functions ---+
 
@@ -154,4 +157,6 @@ source /usr/share/nvm/init-nvm.sh
 [ -f "/home/ben/.ghcup/env" ] && source "/home/ben/.ghcup/env" # ghcup-env
 
 # llvm stuff
-source <(llvmenv zsh)
+# source <(llvmenv zsh)
+
+eval $(opam env)

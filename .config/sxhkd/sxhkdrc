@@ -150,7 +150,7 @@ super + shift + d
 
 # window gaps with scroll wheel
 super + ctrl + button{4,5}
-    bspc config window_gap $(( $(bspc config window_gap) {-,+} 2 ))
+  bspc config window_gap $(( $(bspc config window_gap) {-,+} 2 ))
 
 # open interactive man page search with dmenu
 super + d

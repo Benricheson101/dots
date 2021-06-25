@@ -11,7 +11,7 @@ require'lspsaga'.init_lsp_saga {
 }
 
 -- nvim_lsp object
-local nvim_lsp = require'lspconfig'
+local nvim_lsp = require 'lspconfig'
 
 -- function to attach completion when setting up lsp
 local on_attach = function(client)

@@ -1,4 +1,5 @@
 {
+  "signature.target": "echo",
   // +-- Diagnostics --+
   "diagnostic.errorSign": "•",
   "diagnostic.warningSign": "•",
@@ -27,20 +28,66 @@
   "clangd.path": "/home/ben/.config/coc/extensions/coc-clangd-data/install/11.0.0/clangd_11.0.0/bin/clangd",
 
   // +-- Rust --+
-  "rust-analyzer.diagnostics.disabled": ["inactive-code", "unresolved-proc-macro"],
+  "rust-analyzer.diagnostics.disabled": ["inactive-code", "missing-unsafe", "unresolved-proc-macro"],
+  "rust-analyzer.procMacro.enable": true,
 
   // +-- HTML --+
   "html.enable": true,
   "html.format.enable": true,
   "html.format.wrapLineLength": 80,
 
+  // +-- Rich Presence --+
+  "rpc.detailsViewing": "Viewing {filename}",
+  "rpc.lowerDetailsViewing": "Workspace: {workspace}",
+
+  "rpc.detailsEditing": "Editing {filename}:{currentline}:{currentcolumn}",
+  "rpc.lowerDetailsEditing": "Workspace: {workspace} - {problems} problems found",
+
+  "rpc.workspaceElapsedTime": true,
+
+  "rpc.lowerDetailsIdle": "Probably dead",
+
+  "rpc.smallImage": "hi",
+
+  "rpc.problemsText": "{count}",
+
+  "rpc.button.enable": true,
+  "rpc.button.activeLabel": "View Repository",
+  "rpc.button.inactiveUrl": "https://github.com/benricheson101",
+  "rpc.button.inactiveLabel": "GitHub",
+
   // +-- LSP Stuff --+
   "languageserver": {
     // +-- Elm --+
-    "elmLS": {
-      "command": "elm-language-server",
-      "filetypes": ["elm"],
-      "rootPatterns": ["elm.json"]
+    // "elmLS": {
+    //   "command": "elm-language-server",
+    //   "filetypes": ["elm"],
+    //   "rootPatterns": ["elm.json"]
+    // },
+    // "kotlin": {
+    //   "command": "kotlin-language-server",
+    //   "filetypes": ["kotlin"]
+    // }
+    // +-- Haskell --+
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      // "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+      "filetypes": ["haskell", "lhaskell"]
+    },
+
+    "ocaml": {
+      "command": "ocamllsp",
+      "filetypes": ["ocaml"]
+    },
+
+    "rescript": {
+      "enable": true,
+      // "module": "~/.config/nvim/plugged/vim-rescript/server/out/server.js",
+      "module": "~/.local/share/nvim/site/pack/packer/start/vim-rescript/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
     }
   }
 }

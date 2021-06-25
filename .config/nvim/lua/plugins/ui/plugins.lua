@@ -1,11 +1,13 @@
 require 'plugins.ui.config'
 
 local ui = {
+  'antoinemadec/coc-fzf',
   'glepnir/dashboard-nvim',
-  'josa42/vim-lightline-coc',
   'itchyny/lightline.vim',
+  'josa42/vim-lightline-coc',
   'junegunn/fzf',
   'junegunn/fzf.vim',
+  'oblitum/rainbow',
   'preservim/nerdtree',
   'ryanoasis/vim-devicons',
   'tiagofumo/vim-nerdtree-syntax-highlight',

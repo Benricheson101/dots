@@ -1,3 +1,5 @@
+require 'plugins.ui.cmds'
+
 local g = vim.g
 local cmd = vim.cmd
 
@@ -24,16 +26,3 @@ g.lightline = {
     }
   }
 }
-
--- TODO: can these be turned into lua functions?
--- cmd [[
---   function! LightlineFiletype()
---     return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
---   endfunction
-
---   function! LightlineFileformat()
---     return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
---   endfunction
-
---   call lightline#coc#register()
--- ]]
