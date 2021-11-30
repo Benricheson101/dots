@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+mk() {
+  mkdir -p "$@" && cd "$@"
+}
+
+mk $@

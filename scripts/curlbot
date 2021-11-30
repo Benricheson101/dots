@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+curlbot() {
+  DISCORD_API_URL="https://discord.com/api"
+  DISCORD_API_VERSION="9"
+
+  path=""
+
+  for arg do
+    shift
+
+    if [[ "$path" == "" && "$arg" =~ ^/.*$ ]]; then
+      path="$arg"
+      continue
+    fi
+
+    set -- "$@" "$arg"
+  done
+
+  curl -sS -H "Authorization: Bot $DISCORD_TOKEN" "$DISCORD_API_URL/v${DISCORD_API_VERSION}${path}" $@
+}
+
+curlbot $@
