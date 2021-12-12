@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 curlbot() {
-  DISCORD_API_URL="https://discord.com/api"
-  DISCORD_API_VERSION="9"
+  : ${DISCORD_API_URL:="https://discord.com/api"}
+  : ${DISCORD_API_VERSION:="9"}
 
   path=""
 

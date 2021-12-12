@@ -34,7 +34,7 @@ Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
 Plug 'fatih/vim-go', {'for': ['go']}
 
 Plug 'jparise/vim-graphql'
-Plug 'mattn/emmet-vim', {'for': ['javascriptreact', 'typescriptreact', 'html']}
+Plug 'mattn/emmet-vim', {'for': ['javascriptreact', 'typescriptreact', 'html', 'markdown']}
 Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascriptreact', 'typescriptreact']}
 Plug 'yuezk/vim-js', {'for': ['javascript', 'typescript']}
 Plug 'pantharshit00/vim-prisma', {'for': ['prisma']}
