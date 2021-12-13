@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Create a directory and change to it
 mk() {
   mkdir -p "$@" && cd "$@"
 }

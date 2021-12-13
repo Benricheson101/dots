@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 
+# A wrapper around curl for making requests to Discord. Defaults to application/json for requests with payloads
+#
+# USAGE:
+#   curlbot /gateway/bot
+#   curlbot -X POST /channels/123/messages -d '{"content":"Hello, world!"}'
 curlbot() {
   : ${DISCORD_API_URL:="https://discord.com/api"}
   : ${DISCORD_API_VERSION:="9"}
 
+  DEFAULT_CONTENT_TYPE="application/json"
+
   path=""
 
-  for arg do
+  takesData=0
+  hasContentTypeHeader=0
+
+  for arg; do
     shift
 
     if [[ "$path" == "" && "$arg" =~ ^/.*$ ]]; then
@@ -14,10 +24,37 @@ curlbot() {
       continue
     fi
 
+    if [[ "$takesData" == 0 && "$arg" =~ ^-(d|-data(-(binary|urlencode|raw))?|F|-form)$ ]]; then
+      takesData=1
+    fi
+
+    shopt -s nocasematch
+    if [[ "$hasContentTypeHeader" == 0 && "$arg" =~ ^content-type:[[:space:]](.*)$ ]]; then
+      hasContentTypeHeader=1
+    fi
+    shopt -u nocasematch
+
     set -- "$@" "$arg"
   done
 
-  curl -sS -H "Authorization: Bot $DISCORD_TOKEN" "$DISCORD_API_URL/v${DISCORD_API_VERSION}${path}" $@
+  curlArgs=(
+    "-s"
+    "-S"
+    "-H"
+    "Authorization: Bot ${DISCORD_TOKEN}"
+    "--url"
+    "${DISCORD_API_URL}/v${DISCORD_API_VERSION}${path}"
+    "${@}"
+  )
+
+  if [[ "$takesData" == 1 && "$hasContentTypeHeader" == 0 ]]; then
+    curlArgs+=(
+      "-H"
+      "Content-Type: ${DEFAULT_CONTENT_TYPE}"
+    )
+  fi
+
+  eval "curl ${curlArgs[@]@Q}"
 }
 
-curlbot $@
+curlbot "$@"
