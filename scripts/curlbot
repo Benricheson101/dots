@@ -4,10 +4,11 @@
 #
 # USAGE:
 #   curlbot /gateway/bot
-#   curlbot -X POST /channels/123/messages -d '{"content":"Hello, world!"}'
+#   curlbot /channels/:channel/messages -d '{"content":"Hello, world!"}'
 curlbot() {
   : ${DISCORD_API_URL:="https://discord.com/api"}
   : ${DISCORD_API_VERSION:="9"}
+  : ${USE_AUTH:=1}
 
   DEFAULT_CONTENT_TYPE="application/json"
 
@@ -19,7 +20,7 @@ curlbot() {
   for arg; do
     shift
 
-    if [[ "$path" == "" && "$arg" =~ ^/.*$ ]]; then
+    if [[ ! -z "$path "&& "$arg" =~ ^/.*$ ]]; then
       path="$arg"
       continue
     fi
@@ -40,8 +41,6 @@ curlbot() {
   curlArgs=(
     "-s"
     "-S"
-    "-H"
-    "Authorization: Bot ${DISCORD_TOKEN}"
     "--url"
     "${DISCORD_API_URL}/v${DISCORD_API_VERSION}${path}"
     "${@}"
@@ -51,6 +50,14 @@ curlbot() {
     curlArgs+=(
       "-H"
       "Content-Type: ${DEFAULT_CONTENT_TYPE}"
+    )
+  fi
+
+  if [[ "$USE_AUTH" == 1 && ! -z "$DISCORD_TOKEN" ]]; then
+
+  curlArgs+=(
+    "-H"
+    "Authorization: Bot ${DISCORD_TOKEN}"
     )
   fi
 
