@@ -39,6 +39,7 @@ Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascriptreact', 'typescriptreact']}
 Plug 'yuezk/vim-js', {'for': ['javascript', 'typescript']}
 Plug 'pantharshit00/vim-prisma', {'for': ['prisma']}
 Plug 'projectfluent/fluent.vim', {'for': ['fluent']}
+Plug 'yaegassy/coc-tailwindcss',  {'do': 'npm install && npm run build', 'branch': 'feat/support-v3-and-use-server-pkg'}
 
 " Other
 Plug 'wakatime/vim-wakatime'
@@ -57,6 +58,10 @@ set laststatus=2
 set guioptions+='k'
 set conceallevel=0
 set autoread
+
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Editor
 set ts=2 sw=2 et
@@ -129,7 +134,6 @@ endfunction
 syntax on
 filetype plugin indent on
 
-
 " Plugins
 let g:prettier#autoformat_config_present = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -172,6 +176,7 @@ let g:indentLine_char = '¦'
 let g:indentLine_conceallevel = 0
 
 let g:better_whitespace_guicolor = '#BF616A'
+
 let g:haskell_indent_disable = 1
 
 let g:go_doc_keywordprg_enabled = 0

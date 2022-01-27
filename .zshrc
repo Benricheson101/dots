@@ -21,3 +21,6 @@ alias ls="exa"
 compdef _curl curlbot
 compdef _mkdir mk
 compdef _git dot
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+

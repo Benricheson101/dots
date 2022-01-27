@@ -5,6 +5,14 @@
 # USAGE:
 #   curlbot /gateway/bot
 #   curlbot /channels/:channel/messages -d '{"content":"Hello, world!"}'
+#
+# REQUIREMENTS:
+#   - curl
+#   - Bash 4.4 or later
+#
+# NOTE FOR MAC USERS:
+#   You MUST install Bash yourself. MacOS comes with Bash 3.
+#     - Homebrew: `brew install bash`
 curlbot() {
   : ${DISCORD_API_URL:="https://discord.com/api"}
   : ${DISCORD_API_VERSION:="9"}

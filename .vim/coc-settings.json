@@ -1,11 +1,4 @@
 {
-  // "coc.preferences.formatOnSaveFiletypes": [
-  //   "typescript",
-  //   "typescriptreact",
-  //   "javascript",
-  //   "javascriptreact"
-  // ],
-
   // +-- JavaScript --+
   "javascript.validate.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
@@ -25,7 +18,11 @@
 
   // +-- Rust --+
 
-  "rust-analyzer.diagnostics.disabled": ["inactive-code", "missing-unsafe", "unresolved-proc-macro"],
+  "rust-analyzer.diagnostics.disabled": [
+    "inactive-code",
+    "missing-unsafe",
+    "unresolved-proc-macro"
+  ],
   "rust-analyzer.procMacro.enable": true,
 
   // +-- Rich Presence --+
@@ -45,15 +42,15 @@
   "rpc.button.inactiveUrl": "https://github.com/benricheson101",
   "rpc.button.inactiveLabel": "GitHub",
 
+  "tailwindCSS.headwind.runOnSave": false,
+
   // +-- Python --+
   "python.pythonPath": "python3",
 
   "languageserver": {
     "haskell": {
       "command": "haskell-language-server-wrapper",
-      "args": [
-        "--lsp"
-      ],
+      "args": ["--lsp"],
       "rootPatterns": [
         ".stack.yaml",
         ".hie-bios",
@@ -62,30 +59,7 @@
         "package.yaml",
         "hie.yaml"
       ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ]
-    },
-
-    // https://github.com/tailwindlabs/tailwindcss-intellisense/tree/master/packages/tailwindcss-language-server
-    "tailwindcss": {
-      "command": "tailwindcss-language-server",
-      "args": [
-        "--stdio"
-      ],
-      "filetypes": [
-        "html",
-        "javascriptreact",
-        "typescriptreact",
-        "svelte"
-      ],
-      "rootPatterns": [
-        "tailwind.config.js"
-      ]
+      "filetypes": ["hs", "lhs", "haskell"]
     }
   }
 }
-
-// vim:ft=jsonc
