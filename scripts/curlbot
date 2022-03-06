@@ -15,7 +15,7 @@
 #     - Homebrew: `brew install bash`
 curlbot() {
   : ${DISCORD_API_URL:="https://discord.com/api"}
-  : ${DISCORD_API_VERSION:="9"}
+  : ${DISCORD_API_VERSION:="10"}
   : ${USE_AUTH:=1}
 
   DEFAULT_CONTENT_TYPE="application/json"
