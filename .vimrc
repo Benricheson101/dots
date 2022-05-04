@@ -1,6 +1,4 @@
 " Disable MacVim touchbar fullscreen button
-let g:macvim_default_touchbar_fullscreen=0
-
 call plug#begin("~/.vim/plugged")
 " Colorschemes
 Plug 'wadackel/vim-dogrun'
@@ -25,11 +23,13 @@ Plug 'chaoren/vim-wordmotion'
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'rrethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 " Languages
 Plug 'alx741/vim-hindent', {'for': ['haskell']}
 Plug 'itchyny/vim-haskell-indent', {'for': 'haskell'}
 Plug 'neovimhaskell/haskell-vim', {'for': ['haskell']}
+Plug 'arzg/vim-rust-syntax-ext', {'for': ['rust']}
 
 Plug 'fatih/vim-go', {'for': ['go']}
 
@@ -40,6 +40,8 @@ Plug 'yuezk/vim-js', {'for': ['javascript', 'typescript']}
 Plug 'pantharshit00/vim-prisma', {'for': ['prisma']}
 Plug 'projectfluent/fluent.vim', {'for': ['fluent']}
 Plug 'yaegassy/coc-tailwindcss',  {'do': 'npm install && npm run build', 'branch': 'feat/support-v3-and-use-server-pkg'}
+Plug 'cespare/vim-toml', {'for': ['toml']}
+Plug 'lifepillar/pgsql.vim'
 
 " Other
 Plug 'wakatime/vim-wakatime'
@@ -49,23 +51,34 @@ call plug#end()
 " Appearance
 colors dogrun
 set guifont=Fira\ Code\ Regular\ Nerd\ Font\ Complete\ Mono\ Windows\ Compatible:h12
-set macligatures
 set cursorline cursorcolumn
 set nu rnu
 set noshowmode
 set shortmess+=c
 set laststatus=2
 set guioptions+='k'
-set conceallevel=0
+" set conceallevel=0
 set autoread
+set backup
 
 if has('termguicolors')
   set termguicolors
 endif
 
+if has("gui_macvim")
+  let g:macvim_default_touchbar_fullscreen=0
+  set macligatures
+endif
+
+
 " Editor
 set ts=2 sw=2 et
 set ignorecase smartcase
+set backspace=indent,eol,start
+set backupdir=/private/tmp
+set dir=/private/tmp
+set undofile
+set undodir=/private/tmp
 
 " Keybinds
 let mapleader = ','
@@ -134,6 +147,8 @@ endfunction
 syntax on
 filetype plugin indent on
 
+autocmd! GUIEnter * set vb t_vb= " turns off bell
+
 " Plugins
 let g:prettier#autoformat_config_present = 1
 let g:prettier#autoformat_require_pragma = 0
@@ -181,3 +196,7 @@ let g:haskell_indent_disable = 1
 
 let g:go_doc_keywordprg_enabled = 0
 let g:go_fmt_autosave = 1
+
+let g:Hexokinase_highlighters = ['backgroundfull']
+
+let g:sql_type_default = 'pgsql'

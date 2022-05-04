@@ -15,6 +15,13 @@
   "typescript.format.semicolons": "insert",
   "typescript.format.enabled": true,
   "typescript.preferences.quoteStyle": "single",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
 
   // +-- Rust --+
 
@@ -24,6 +31,7 @@
     "unresolved-proc-macro"
   ],
   "rust-analyzer.procMacro.enable": true,
+  "rust-analyzer.inlayHints.enable": true,
 
   // +-- Rich Presence --+
   "rpc.detailsViewing": "Viewing {filename}",
@@ -42,6 +50,7 @@
   "rpc.button.inactiveUrl": "https://github.com/benricheson101",
   "rpc.button.inactiveLabel": "GitHub",
 
+  // TailwindCSS
   "tailwindCSS.headwind.runOnSave": false,
 
   // +-- Python --+
@@ -63,3 +72,5 @@
     }
   }
 }
+
+// vim:ft=jsonc
