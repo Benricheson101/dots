@@ -2,6 +2,7 @@
 call plug#begin("~/.vim/plugged")
 " Colorschemes
 Plug 'wadackel/vim-dogrun'
+Plug 'ayu-theme/ayu-vim'
 
 " QOL
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -11,10 +12,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'adelarsq/vim-matchit'
 
 " Editor
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html']
-  \ }
 Plug 'Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'chaoren/vim-wordmotion'
@@ -39,9 +36,9 @@ Plug 'maxmellon/vim-jsx-pretty', {'for': ['javascriptreact', 'typescriptreact']}
 Plug 'yuezk/vim-js', {'for': ['javascript', 'typescript']}
 Plug 'pantharshit00/vim-prisma', {'for': ['prisma']}
 Plug 'projectfluent/fluent.vim', {'for': ['fluent']}
-Plug 'yaegassy/coc-tailwindcss',  {'do': 'npm install && npm run build', 'branch': 'feat/support-v3-and-use-server-pkg'}
 Plug 'cespare/vim-toml', {'for': ['toml']}
 Plug 'lifepillar/pgsql.vim'
+Plug 'rescript-lang/vim-rescript'
 
 " Other
 Plug 'wakatime/vim-wakatime'
@@ -57,7 +54,6 @@ set noshowmode
 set shortmess+=c
 set laststatus=2
 set guioptions+='k'
-" set conceallevel=0
 set autoread
 set backup
 
@@ -68,6 +64,9 @@ endif
 if has("gui_macvim")
   let g:macvim_default_touchbar_fullscreen=0
   set macligatures
+  let ayucolor = "mirage"
+
+  colors ayu
 endif
 
 
@@ -130,6 +129,14 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 map <C-n> :NERDTreeToggle<CR>
 
+nnoremap <C-w>t :call BottomTerm()<CR>
+
+function! BottomTerm()
+  bo term
+  resize 18
+  set wfh
+endfunction
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
@@ -142,7 +149,6 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-
 " Misc.
 syntax on
 filetype plugin indent on

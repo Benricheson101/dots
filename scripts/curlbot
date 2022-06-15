@@ -17,6 +17,7 @@ curlbot() {
   : ${DISCORD_API_URL:="https://discord.com/api"}
   : ${DISCORD_API_VERSION:="10"}
   : ${USE_AUTH:=1}
+  : ${AUTH_HEADER:="Bot $DISCORD_TOKEN"}
 
   DEFAULT_CONTENT_TYPE="application/json"
 
@@ -62,10 +63,9 @@ curlbot() {
   fi
 
   if [[ "$USE_AUTH" == 1 && ! -z "$DISCORD_TOKEN" ]]; then
-
-  curlArgs+=(
-    "-H"
-    "Authorization: Bot ${DISCORD_TOKEN}"
+    curlArgs+=(
+      "-H"
+      "Authorization: ${AUTH_HEADER}"
     )
   fi
 

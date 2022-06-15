@@ -1,4 +1,10 @@
+
+
+
+
+
 export ZSH="/Users/benricheson/.oh-my-zsh"
+# export PATH="$(pyenv root)/shims:$PATH"
 export GPG_TTY=$(tty)
 
 ZSH_THEME="oxide"
@@ -23,4 +29,8 @@ compdef _mkdir mk
 compdef _git dot
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+
+
 

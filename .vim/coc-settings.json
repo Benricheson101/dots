@@ -1,4 +1,6 @@
 {
+    "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescriptreact"],
+
   // +-- JavaScript --+
   "javascript.validate.enable": false,
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
@@ -50,8 +52,10 @@
   "rpc.button.inactiveUrl": "https://github.com/benricheson101",
   "rpc.button.inactiveLabel": "GitHub",
 
-  // TailwindCSS
-  "tailwindCSS.headwind.runOnSave": false,
+  // +-- tailwindCSS --+
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.enable": true,
 
   // +-- Python --+
   "python.pythonPath": "python3",
@@ -69,6 +73,14 @@
         "hie.yaml"
       ],
       "filetypes": ["hs", "lhs", "haskell"]
+    },
+
+    "rescript": {
+      "enable": true,
+      "module": "/Users/benricheson/.vim/plugged/vim-rescript/server/out/server.js",
+      "args": ["--node-ipc"],
+      "filetypes": ["rescript"],
+      "rootPatterns": ["bsconfig.json"]
     }
   }
 }
