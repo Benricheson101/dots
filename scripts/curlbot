@@ -25,6 +25,7 @@ curlbot() {
 
   takesData=0
   hasContentTypeHeader=0
+  hasAuthHeader=0
 
   for arg; do
     shift
@@ -41,6 +42,10 @@ curlbot() {
     shopt -s nocasematch
     if [[ "$hasContentTypeHeader" == 0 && "$arg" =~ ^content-type:[[:space:]](.*)$ ]]; then
       hasContentTypeHeader=1
+    fi
+
+    if [[ "$hasAuthHeader" == 0 && "$arg" =~ ^authorization:.*$ ]]; then
+      hasAuthHeader=1
     fi
     shopt -u nocasematch
 
@@ -62,7 +67,7 @@ curlbot() {
     )
   fi
 
-  if [[ "$USE_AUTH" == 1 && ! -z "$DISCORD_TOKEN" ]]; then
+  if [[ "$USE_AUTH" == 1 && "$hasAuthHeader" == 0 && ! -z "$DISCORD_TOKEN" ]]; then
     curlArgs+=(
       "-H"
       "Authorization: ${AUTH_HEADER}"
