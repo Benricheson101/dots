@@ -87,10 +87,11 @@ curlbot() {
   if [[ "$owoifyResponse" == 0 ]]; then
     eval "curl ${curlArgs[@]@Q}"
   else
-    CMD='echowo "$('
-    CMD+="curl ${curlArgs[@]@Q}"
-    CMD+=')"'
-    eval "$CMD"
+    eval "curl ${curlArgs[@]@Q} 2>&1 > /tmp/noowo"
+    uwuifyy -o /tmp/owo -i /tmp/noowo
+    rm -rf /tmp/noowo
+    cat /tmp/owo
+    rm -rf /tmp/owo
   fi
 }
 
