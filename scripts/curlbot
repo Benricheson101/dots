@@ -26,6 +26,7 @@ curlbot() {
   takesData=0
   hasContentTypeHeader=0
   hasAuthHeader=0
+  owoifyResponse=0
 
   for arg; do
     shift
@@ -37,6 +38,10 @@ curlbot() {
 
     if [[ "$takesData" == 0 && "$arg" =~ ^-(d|-data(-(binary|urlencode|raw))?|F|-form)$ ]]; then
       takesData=1
+    fi
+
+    if [[ "$owoifyResponse" == 0 && "$arg" =~ ^-(W|-owo|-owoify)$ ]]; then
+      owoifyResponse=1
     fi
 
     shopt -s nocasematch
@@ -74,7 +79,14 @@ curlbot() {
     )
   fi
 
-  eval "curl ${curlArgs[@]@Q}"
+  if [[ "$owoifyResponse" == 0 ]]; then
+    eval "curl ${curlArgs[@]@Q}"
+  else
+    CMD='echowo "$('
+    CMD+="curl ${curlArgs[@]@Q}"
+    CMD+=')"'
+    eval "$CMD"
+  fi
 }
 
 curlbot "$@"
