@@ -52,6 +52,11 @@ curlbot() {
     if [[ "$hasAuthHeader" == 0 && "$arg" =~ ^authorization:.*$ ]]; then
       hasAuthHeader=1
     fi
+
+    if [[ "$hasAuthHeader" == 0 && "$arg" =~ ^-(-user-account)$ ]]; then
+      AUTH_HEADER="$DISCORD_TOKEN"
+    fi
+
     shopt -u nocasematch
 
     set -- "$@" "$arg"
