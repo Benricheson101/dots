@@ -35,7 +35,7 @@ curlbot() {
       continue
     fi
 
-    if [[ "$takesData" == 0 && "$arg" =~ ^-(d|-data(-(binary|urlencode|raw))?|F|-form)$ ]]; then
+    if [[ "$takesData" == 0 && "$arg" =~ ^-(d|-data(-(binary|urlencode|raw))?|F|-form)(@-?)?$ ]]; then
       takesData=1
     fi
 
@@ -51,6 +51,11 @@ curlbot() {
 
     set -- "$@" "$arg"
   done
+
+  if [[ "$path" =~ {id} ]]; then
+    APPLICATION_ID=$(cut -f1 -d. <<< $DISCORD_TOKEN | base64 -d)
+    path=$(sed "s/{id}/$APPLICATION_ID/g" <<< "$path")
+  fi
 
   curlArgs=(
     "-s"
