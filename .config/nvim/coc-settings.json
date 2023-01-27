@@ -1,0 +1,147 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "astro",
+    "javascript",
+    "rust",
+    "scss",
+    "typescript",
+    "typescriptreact"
+  ],
+
+  "suggest.noselect": true,
+
+  // +-- JavaScript --+
+  "javascript.validate.enable": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "javascript.format.semicolons": "insert",
+  "javascript.format.enabled": true,
+  "javascript.preferences.quoteStyle": "single",
+
+  // +-- TypeScript --+
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets": false,
+  "typescript.format.semicolons": "insert",
+  "typescript.format.enabled": true,
+  "typescript.preferences.quoteStyle": "single",
+  "typescript.inlayHints.parameterNames.enabled": "all",
+  "typescript.inlayHints.variableTypes.enabled": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "typescript.inlayHints.parameterTypes.enabled": true,
+  "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+  "typescript.inlayHints.propertyDeclarationTypes.enabled": true,
+  "typescript.inlayHints.parameterNames.suppressWhenArgumentMatchesName": true,
+
+  "tsserver.log": "verbose",
+
+  // +-- Rust --+
+
+  "rust-analyzer.diagnostics.disabled": [
+    "inactive-code",
+    "missing-unsafe",
+    "unresolved-proc-macro",
+    "incorrect-ident-case"
+  ],
+  "rust-analyzer.procMacro.enable": true,
+
+  // +-- Rich Presence --+
+  "rpc.detailsViewing": "Viewing {file_name}",
+  "rpc.lowerDetailsViewing": "Workspace: {workspace_folder}",
+
+  "rpc.detailsEditing": "Editing {file_name}:{current_line}:{current_column}",
+  "rpc.lowerDetailsEditing": "Workspace: {workspace_folder}",
+  "rpc.workspaceElapsedTime": true,
+  "rpc.checkIdle": false,
+  "rpc.smallImage": "hi",
+  "rpc.problemsText": "{problems}",
+  "rpc.showProblems": false,
+  "rpc.buttonEnabled": true,
+  "rpc.buttonActiveLabel": "View Repository",
+  "rpc.buttonInactiveUrl": "https://github.com/benricheson101",
+  "rpc.buttonInactiveLabel": "GitHub",
+
+  // +-- tailwindCSS --+
+  "tailwindCSS.colorDecorators": true,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.enable": true,
+
+  // +-- Python --+
+  "python.pythonPath": "python3",
+
+  "languageserver": {
+    "haskell": {
+      "command": "haskell-language-server-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        ".stack.yaml",
+        ".hie-bios",
+        "BUILD.bazel",
+        "cabal.config",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes": ["hs", "lhs", "haskell"]
+    },
+
+    // "rescript": {
+    //   "enable": true,
+    //   "module": "/Users/benricheson/.vim/plugged/vim-rescript/server/out/server.js",
+    //   "args": ["--node-ipc"],
+    //   "filetypes": ["rescript"],
+    //   "rootPatterns": ["bsconfig.json"]
+    // },
+
+    // "astro": {
+    //   "enable": true,
+    //   "args": ["--stdio"],
+    //   "rootPatterns": [
+    //     "astro.config.mjs"
+    //   ],
+    //   "command": "/opt/homebrew/bin/astro-ls",
+    //   "filetypes": ["astro"]
+    // }
+
+
+    "astro": {
+      "enable": true,
+      "rootPatterns": [
+        "astro.config.mjs"
+      ],
+      "module" :"/opt/homebrew/bin/astro-ls",
+      "args": ["--node-ipc"],
+      "filetypes": ["astro"]
+    },
+
+    "svelte": {
+      "enable": true,
+      "module": "/opt/homebrew/bin/svelteserver",
+      "args": ["--node-ipc"],
+      "filetypes": ["svelte"]
+    },
+
+    "zls" : {
+      "command": "~/.local/bin/zls",
+      "filetypes": ["zig"]
+    }
+  },
+
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "•",
+  "diagnostic.checkCurrentLine": true,
+
+  "snippets.ultisnips.directories": [
+    "UltiSnips"
+  ],
+
+  "prettier.useEditorConfig": true,
+
+  "clangd.fallbackFlags": [
+    "--std=c++17"
+  ]
+}
+
+// vim:ft=jsonc
