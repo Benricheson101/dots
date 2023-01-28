@@ -1,4 +1,4 @@
-require('ben.util.opt')
+require('config.util.opt')
 
 if vim.fn.has('termguicolors') then
   set { termguicolors = true }

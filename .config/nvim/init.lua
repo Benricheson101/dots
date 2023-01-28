@@ -1,1 +1,1 @@
-require('ben')
+require('config')

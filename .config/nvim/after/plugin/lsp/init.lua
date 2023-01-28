@@ -1,4 +1,4 @@
-require('ben.util.table')
+require('config.util.table')
 
 local mason_lspconfig = require('mason-lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
