@@ -3,8 +3,9 @@
 ## Software
 | **Purpose** | **Software** |
 | ----------- | ------------ |
-| Editor      | MacVim       |
+| Editor      | Neovide      |
 | Shell       | zsh          |
+| Terminal    | iTerm2       |
 
 ## Hardware
 - 13" 2020 M1 MacBook Pro; 16GB, 512GB SSD
