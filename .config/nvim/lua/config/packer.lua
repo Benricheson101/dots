@@ -1,13 +1,16 @@
 vim.cmd.packadd('packer.nvim')
 
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'Shatur/neovim-ayu'
 
   use {
     'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
+    run = ':TSUpdate',
+    requires = {
+      'nvim-treesitter/nvim-tree-docs',
+    }
   }
 
   use 'tpope/vim-commentary'
@@ -24,10 +27,10 @@ return require('packer').startup(function(use)
 
   use {
     'nvim-tree/nvim-tree.lua',
+    tag = 'nightly',
     requires = {
       'nvim-tree/nvim-web-devicons',
     },
-    tag = 'nightly'
   }
 
   use {
@@ -37,13 +40,52 @@ return require('packer').startup(function(use)
   }
 
   use 'neovim/nvim-lspconfig'
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
+  use {
+    'williamboman/mason.nvim',
+    requires = {
+      'williamboman/mason-lspconfig.nvim',
+      'jay-babu/mason-nvim-dap.nvim'
+    }
+  }
+
+  use 'b0o/schemastore.nvim'
+
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path'
+    }
+  }
+
+  use {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
+
+  use 'mfussenegger/nvim-dap'
+
+  use {
+    'rcarriga/nvim-dap-ui',
+    requires = {
+      'mfussenegger/nvim-dap',
+      'folke/neodev.nvim',
+    }
+  }
+
+  -- use {
+  --   'mxsdev/nvim-dap-vscode-js',
+  --   requires = {
+  --     'mfussenegger/nvim-dap'
+  --   }
+  -- }
+
+  use 'simrat39/rust-tools.nvim'
 
   -- TODO:
-  -- lsp
   -- snipets
-  -- emmet
+  -- dap
 end)

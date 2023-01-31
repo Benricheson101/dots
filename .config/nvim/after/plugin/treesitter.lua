@@ -9,11 +9,15 @@ require('nvim-treesitter.configs').setup {
     'vim',
   },
 
+  tree_docs = {
+    enable = true,
+  },
+
   sync_install = false,
   auto_install = true,
 
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
 }

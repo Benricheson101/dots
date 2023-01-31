@@ -1,17 +1,17 @@
-require('config.util.opt')
+local optutil = require('config.util.opt')
 
 if vim.fn.has('termguicolors') then
-  set { termguicolors = true }
+  optutil.set { termguicolors = true }
 end
 
-let_g {
-  mapleader = ',',
+optutil.let_g {
+  mapleader = ' ',
   neovide_cursor_animation_length = 0.05
 }
 
-set {
+optutil.set {
   guifont = 'FiraCode Nerd Font:h12',
-  clipboard = 'unnamedplus',
+  -- clipboard = 'unnamedplus',
 
   mouse = 'a',
 
@@ -24,6 +24,7 @@ set {
   autoread = true,
   equalalways = false,
   pumheight = 25,
+  scrolloff = 10,
 
   tabstop = 2,
   shiftwidth = 2,

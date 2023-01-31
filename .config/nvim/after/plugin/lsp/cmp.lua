@@ -11,7 +11,7 @@ cmp.setup {
 
   window = {
     completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(), -- TODO: how do I make this wider?
   },
 
   snippet = {
@@ -58,5 +58,6 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
   },
 }

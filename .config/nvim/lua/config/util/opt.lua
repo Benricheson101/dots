@@ -1,10 +1,14 @@
+local tableutil = require('config.util.table')
+
+local M = {}
+
 local function table_set(into)
   return function(opts)
-    for opt, val in pairs(opts) do
-      into[opt] = val
-    end
+    tableutil.merge_table(into, opts)
   end
 end
 
-set = table_set(vim.opt)
-let_g = table_set(vim.g)
+M.set = table_set(vim.opt)
+M.let_g = table_set(vim.g)
+
+return M

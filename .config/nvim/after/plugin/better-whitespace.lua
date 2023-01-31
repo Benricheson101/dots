@@ -1,5 +1,7 @@
-require('config.util.opt')
+local optutil = require('config.util.opt')
 
-let_g {
+-- FIXME: highlights red in insert mode after opening LSP floating hover
+
+optutil.let_g {
   better_whitespace_guicolor = '#BF616A'
 }

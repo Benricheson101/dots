@@ -1,12 +1,12 @@
-require('config.util.table')
+local tableutil = require('config.util.table')
 
 local mason_lspconfig = require('mason-lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lspconfig = require('lspconfig')
-local mason = require('mason')
+local schemastore = require('schemastore')
 
 local custom_configs = {
-  ['sumneko_lua'] = {
+  sumneko_lua = {
     settings = {
       Lua = {
         diagnostics = {
@@ -24,9 +24,19 @@ local custom_configs = {
       },
     },
   },
+
+  jsonls = {
+    settings = {
+      json = {
+        schemas = schemastore.json.schemas(),
+        validate = {
+          enable = true,
+        },
+      },
+    },
+  },
 }
 
-mason.setup()
 mason_lspconfig.setup {
   ensure_installed = {
     'eslint',
@@ -51,18 +61,31 @@ local function lsp_attach(_, bufnr)
 
   vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
 
+  -- only reopen floating diagnostic window once the cursor moves. this prevents the
+  -- floating diagnostic window from covering other floating windows (like hover)
+  local group = vim.api.nvim_create_augroup('LSPDiagnosticOnHover', { clear = true })
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
+    group = group,
     callback = function()
-      local float_opts = {
-        focusable = false,
-        close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
-        border = 'rounded',
-        source = 'always',
-        prefix = ' ',
-        scope = 'cursor',
-      }
-      vim.diagnostic.open_float(nil, float_opts)
+      local current_cursor_pos = vim.api.nvim_win_get_cursor(0)
+      local last_popup_cursor_pos = vim.w.lsp_diagnostics_last_cursor or {nil, nil}
+
+      if current_cursor_pos[1] ~= last_popup_cursor_pos[1] or current_cursor_pos[2] ~= last_popup_cursor_pos[2] then
+        vim.w.lsp_diagnostics_last_cursor = current_cursor_pos
+
+        local float_opts = {
+          focusable = false,
+          close_events = { 'BufLeave', 'CursorMoved', 'InsertEnter', 'FocusLost' },
+          border = 'rounded',
+          source = 'always',
+          prefix = ' ',
+          scope = 'cursor',
+        }
+
+        --TODO: set some key to close floating window?
+        vim.diagnostic.open_float(nil, float_opts)
+      end
     end
   })
 end
@@ -75,6 +98,6 @@ mason_lspconfig.setup_handlers {
     }
     local custom_cfg = custom_configs[name] or {}
 
-    lspconfig[name].setup(MergeTable(default_cfg, custom_cfg))
+    lspconfig[name].setup(tableutil.merge_table(default_cfg, custom_cfg))
   end
 }
