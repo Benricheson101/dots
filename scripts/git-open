@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Opens a remote Git repo
+#
+# Usage: `git open [remote]`
+
+remote="${1:-origin}"
+
+remote_url="$(git remote get-url $remote)"
+
+if [ -z $remote_url ]; then
+  exit 1
+fi
+
+url="$(sed -E 's,((git|ssh|https?):\/\/|git@)([[:alpha:]\.-]+):?([[:alpha:]\.@\:\/\-~]+)(\.git),https://\3/\4,g' <<< "$remote_url")"
+
+open "$url"
