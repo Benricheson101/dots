@@ -9,7 +9,7 @@
 
 ## Hardware
 - 13" 2020 M1 MacBook Pro; 16GB, 512GB SSD
-- Keychron K2 v2 Keyboard
+- 12.9" M2 iPad Pro
 
 ## Usage
 ```sh
