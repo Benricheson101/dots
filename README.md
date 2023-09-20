@@ -10,3 +10,12 @@
 ## Hardware
 - 13" 2020 M1 MacBook Pro; 16GB, 512GB SSD
 - Keychron K2 v2 Keyboard
+
+## Usage
+```sh
+$ echo 'alias dot="git --git-dir=$HOME/.dot.git/ --work-tree=$HOME"' >> $HOME/.zshenv
+$ source ~/.zshenv
+$ git clone --bare git@github.com:Benricheson101/dots.git $HOME/.dot.git
+$ dot checkout
+$ dot config --local status.showUntrackedFiles false
+```

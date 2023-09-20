@@ -1,4 +1,4 @@
-local optutil = require('config.util.opt')
+local optutil = require('util.opt')
 
 optutil.let_g {
   indentLine_char = '¦',

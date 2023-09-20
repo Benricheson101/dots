@@ -21,3 +21,5 @@ vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     focusable = false,
   }
 )
+
+-- vim.lsp.set_log_level(1)

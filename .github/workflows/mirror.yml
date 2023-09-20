@@ -1,0 +1,22 @@
+name: 'Push to Mirror'
+
+on:
+  push:
+
+jobs:
+  soft-serve:
+    runs-on: 'ubuntu-latest'
+
+    steps:
+      - uses: 'actions/checkout@v4'
+        with:
+          fetch-depth: 0
+
+      - name: 'Download Mirror'
+        run: 'git clone --mirror $(git config --get remote.origin.url) mirror'
+
+      - name: 'Push'
+        run: |
+          cd mirror
+          REMOTE="https://${{secrets.SOFT_SERVE_HTTP_TOKEN}}@${{vars.SOFT_SERVE_HTTP_URL}}/${{vars.REPO_NAME}}.git"
+          git push --mirror $REMOTE

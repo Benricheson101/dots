@@ -1,4 +1,3 @@
-" Disable MacVim touchbar fullscreen button
 call plug#begin("~/.vim/plugged")
 " Colorschemes
 Plug 'wadackel/vim-dogrun'
@@ -61,6 +60,7 @@ if has('termguicolors')
   set termguicolors
 endif
 
+" Disable MacVim touchbar fullscreen button
 if has("gui_macvim")
   let g:macvim_default_touchbar_fullscreen=0
   set macligatures
@@ -105,6 +105,7 @@ inoremap <Left> <Nop>
 inoremap <Right> <Nop>
 nnoremap <C-p> :Files<CR>
 nnoremap <C-S-P> :GFiles<CR>
+tnoremap <S-space> <space>
 
 map <leader>l :exec &conceallevel ? "set conceallevel=0" : "set conceallevel=1"<CR>
 

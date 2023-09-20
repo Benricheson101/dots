@@ -1,4 +1,4 @@
-local tableutil = require('config.util.table')
+local tableutil = require('util.table')
 
 local mason_lspconfig = require('mason-lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
@@ -6,6 +6,17 @@ local lspconfig = require('lspconfig')
 local schemastore = require('schemastore')
 
 local custom_configs = {
+  rust_analyzer = {
+    flags = {
+      exit_timeout = 0,
+    },
+
+    settings = {
+      rust = {
+      },
+    },
+  },
+
   sumneko_lua = {
     settings = {
       Lua = {
@@ -35,16 +46,42 @@ local custom_configs = {
       },
     },
   },
+
+  elixirls = {
+    cmd = {
+      vim.fn.expand('~/.local/src/elixir-ls/release/language_server.sh'),
+    },
+
+    settings = {
+      elixirLS = {
+        dialyzerEnabled = false,
+        fetchDeps = false,
+      },
+    },
+  },
+
+  -- gleam = {
+  --   cmd = {'gleam', 'lsp'},
+
+  --   filetypes = {'gleam'},
+
+  --   root_dir = lspconfig.util.root_pattern('gleam.toml'),
+
+  --   settings = {
+  --     gleam = {
+  --     },
+  --   },
+  -- },
 }
 
-mason_lspconfig.setup {
-  ensure_installed = {
-    'eslint',
-    'rust_analyzer',
-    'sumneko_lua',
-    'tsserver',
-  }
-}
+-- mason_lspconfig.setup {
+--   -- ensure_installed = {
+--   --   'eslint',
+--   --   'rust_analyzer',
+--   --   -- 'sumneko_lua',
+--   --   'tsserver',
+--   -- }
+-- }
 
 local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 
@@ -100,4 +137,32 @@ mason_lspconfig.setup_handlers {
 
     lspconfig[name].setup(tableutil.merge_table(default_cfg, custom_cfg))
   end
+}
+
+local lspconfig = require('lspconfig')
+
+local gleam = {
+  cmd = {'gleam', 'lsp'},
+
+  filetypes = {'gleam'},
+
+  root_dir = lspconfig.util.root_pattern('gleam.toml'),
+
+  settings = {
+    gleam = {
+    },
+  },
+}
+
+lspconfig.gleam.setup {
+  cmd = {'gleam', 'lsp'},
+
+  filetypes = {'gleam'},
+
+  root_dir = lspconfig.util.root_pattern('gleam.toml'),
+
+  settings = {
+    gleam = {
+    },
+  }
 }

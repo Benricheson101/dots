@@ -1,4 +1,4 @@
-local optutil = require('config.util.opt')
+local optutil = require('util.opt')
 
 -- FIXME: highlights red in insert mode after opening LSP floating hover
 

@@ -82,7 +82,15 @@
       "filetypes": ["rescript"],
       "rootPatterns": ["bsconfig.json"]
     }
-  }
+  },
+
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
+  "diagnostic.hintSign": "•",
+  "diagnostic.checkCurrentLine": true,
+
+  "signature.target": "echo"
 }
 
 // vim:ft=jsonc

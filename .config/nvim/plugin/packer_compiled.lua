@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
-  ["auto-pairs"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/auto-pairs",
-    url = "https://github.com/jiangmiao/auto-pairs"
-  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -93,6 +88,28 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["emmet-vim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/emmet-vim",
+    url = "https://github.com/mattn/emmet-vim"
+  },
+  ["fluent.vim"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/fluent.vim",
+    url = "https://github.com/projectfluent/fluent.vim"
+  },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
   },
   indentLine = {
     loaded = true,
@@ -114,40 +131,27 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["neodev.nvim"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/neodev.nvim",
-    url = "https://github.com/folke/neodev.nvim"
-  },
   ["neovim-ayu"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/neovim-ayu",
     url = "https://github.com/Shatur/neovim-ayu"
   },
+  ["nvim-autopairs"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
+    url = "https://github.com/windwp/nvim-autopairs"
+  },
   ["nvim-cmp"] = {
+    load_after = {},
     loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    needs_bufread = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
-  },
-  ["nvim-dap"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-dap",
-    url = "https://github.com/mfussenegger/nvim-dap"
-  },
-  ["nvim-dap-ui"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
-    url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
-  },
-  ["nvim-tree-docs"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-tree-docs",
-    url = "https://github.com/nvim-treesitter/nvim-tree-docs"
   },
   ["nvim-tree.lua"] = {
     loaded = true,
@@ -159,6 +163,13 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["nvim-treesitter-textobjects"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/nvim-treesitter-textobjects",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -169,20 +180,37 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["rust-tools.nvim"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
   ["schemastore.nvim"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/schemastore.nvim",
     url = "https://github.com/b0o/schemastore.nvim"
+  },
+  ["telescope-file-browser.nvim"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
+    url = "https://github.com/nvim-telescope/telescope-file-browser.nvim"
+  },
+  ["telescope-fzf-native.nvim"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
+    url = "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -204,10 +232,29 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-crystal"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal",
+    url = "https://github.com/vim-crystal/vim-crystal"
+  },
+  ["vim-elixir"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-elixir",
+    url = "https://github.com/elixir-editors/vim-elixir"
+  },
   ["vim-matchit"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-matchit",
     url = "https://github.com/adelarsq/vim-matchit"
+  },
+  ["vim-snippets"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-snippets",
+    url = "https://github.com/honza/vim-snippets"
   },
   ["vim-surround"] = {
     loaded = true,
@@ -227,6 +274,37 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Load plugins in order defined by `after`
+time([[Sequenced loading]], true)
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+vim.cmd [[ packadd LuaSnip ]]
+vim.cmd [[ packadd nvim-cmp ]]
+time([[Sequenced loading]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
+vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType crystal ++once lua require("packer.load")({'vim-crystal'}, { ft = "crystal" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
+vim.cmd [[augroup filetypedetect]]
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/crystal.vim]], true)
+vim.cmd [[source /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/crystal.vim]]
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/crystal.vim]], false)
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/ecrystal.vim]], true)
+vim.cmd [[source /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/ecrystal.vim]]
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-crystal/ftdetect/ecrystal.vim]], false)
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], true)
+vim.cmd [[source /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]]
+time([[Sourcing ftdetect script at: /Users/benricheson/.local/share/nvim/site/pack/packer/opt/vim-elixir/ftdetect/elixir.vim]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
