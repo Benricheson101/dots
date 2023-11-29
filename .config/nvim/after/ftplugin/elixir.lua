@@ -1,0 +1,1 @@
+-- vim.b.AutoPairs = vim.cmd.AutoPairsDefine

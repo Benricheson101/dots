@@ -47,45 +47,42 @@ local custom_configs = {
     },
   },
 
-  elixirls = {
-    cmd = {
-      vim.fn.expand('~/.local/src/elixir-ls/release/language_server.sh'),
-    },
-
+  tsserver = {
     settings = {
-      elixirLS = {
-        dialyzerEnabled = false,
-        fetchDeps = false,
+      typescript = {
+        inlayHints = {
+          -- shows the value of an enum member in its declaration
+          includeInlayEnumMemberValueHints = true,
+          -- shows the inferred return type of a function
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionParameterTypeHints = true,
+          -- parameters in function calls
+          includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+          -- shows the parameter name in a function when both the parameter name and input variable name are the same
+          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          -- class member inferred type
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayVariableTypeHints = false,
+        },
       },
     },
+
+    on_attach = function(client, bufnr)
+      client.server_capabilities.document_formatting = false
+      client.server_capabilities.document_range_formatting = false
+
+      lsp_attach(client, bufnr)
+    end
   },
 
-  -- gleam = {
-  --   cmd = {'gleam', 'lsp'},
-
-  --   filetypes = {'gleam'},
-
-  --   root_dir = lspconfig.util.root_pattern('gleam.toml'),
-
-  --   settings = {
-  --     gleam = {
-  --     },
-  --   },
-  -- },
+  tailwindcss = {
+    filetypes = {'javascriptreact', 'typescriptreact', 'html'},
+  },
 }
-
--- mason_lspconfig.setup {
---   -- ensure_installed = {
---   --   'eslint',
---   --   'rust_analyzer',
---   --   -- 'sumneko_lua',
---   --   'tsserver',
---   -- }
--- }
 
 local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 
-local function lsp_attach(_, bufnr)
+function lsp_attach(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
@@ -97,6 +94,10 @@ local function lsp_attach(_, bufnr)
   vim.keymap.set('n', 'cr', vim.lsp.buf.rename, opts)
 
   vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
+
+  if client.server_capabilities.inlayHintProvider then
+    vim.lsp.inlay_hint.enable(bufnr, true)
+  end
 
   -- only reopen floating diagnostic window once the cursor moves. this prevents the
   -- floating diagnostic window from covering other floating windows (like hover)
@@ -139,30 +140,35 @@ mason_lspconfig.setup_handlers {
   end
 }
 
-local lspconfig = require('lspconfig')
+-- local lspconfig = require('lspconfig')
 
-local gleam = {
-  cmd = {'gleam', 'lsp'},
+-- lspconfig.gleam.setup {
+--   cmd = {'gleam', 'lsp'},
 
-  filetypes = {'gleam'},
+--   filetypes = {'gleam'},
 
-  root_dir = lspconfig.util.root_pattern('gleam.toml'),
+--   root_dir = lspconfig.util.root_pattern('gleam.toml'),
 
-  settings = {
-    gleam = {
-    },
-  },
-}
+--   settings = {
+--     gleam = {
+--     },
+--   }
+-- }
 
-lspconfig.gleam.setup {
-  cmd = {'gleam', 'lsp'},
 
-  filetypes = {'gleam'},
+-- lspconfig.elixirls.setup {
+--   cmd = {
+--     vim.fn.expand('~/.local/src/elixir-ls/release/language_server.sh'),
+--   },
 
-  root_dir = lspconfig.util.root_pattern('gleam.toml'),
+--   filetypes = {'elixir'},
 
-  settings = {
-    gleam = {
-    },
-  }
-}
+--   root_dir = lspconfig.util.root_pattern('mix.exs'),
+
+--   settings = {
+--     elixirLS = {
+--       dialyzerEnabled = false,
+--       fetchDeps = false,
+--     },
+--   },
+-- }

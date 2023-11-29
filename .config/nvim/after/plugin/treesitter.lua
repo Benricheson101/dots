@@ -1,5 +1,10 @@
 local configs = require('nvim-treesitter.configs')
 
+require('nvim-treesitter.install').compilers = {'gcc', 'clang'}
+
+require('tree-sitter-just').setup({})
+require('nvim-treesitter.parsers').get_parser_configs().just.install_info.use_makefile = true
+
 configs.setup {
   ensure_installed = {
     'c',
@@ -21,6 +26,10 @@ configs.setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = true,
+  },
+
+  endwise = {
+    enable = true,
   },
 
   textobjects = {

@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?/init.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -78,6 +78,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["cmp-emmet-vim"] = {
+    after_files = { "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/cmp-emmet-vim/after/plugin/cmp_emmet_vim.lua" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/cmp-emmet-vim",
+    url = "https://github.com/dcampos/cmp-emmet-vim"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -136,6 +144,11 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/neovim-ayu",
     url = "https://github.com/Shatur/neovim-ayu"
   },
+  nvim = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/Everblush/nvim"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -147,6 +160,11 @@ _G.packer_plugins = {
     needs_bufread = false,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-colorizer.lua"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -162,6 +180,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-treesitter-endwise"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-treesitter-endwise",
+    url = "https://github.com/RRethy/nvim-treesitter-endwise"
   },
   ["nvim-treesitter-textobjects"] = {
     load_after = {},
@@ -202,6 +225,11 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/schemastore.nvim",
     url = "https://github.com/b0o/schemastore.nvim"
   },
+  ["splitjoin.vim"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
+    url = "https://github.com/AndrewRadev/splitjoin.vim"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -216,6 +244,13 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["tree-sitter-just"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/tree-sitter-just",
+    url = "https://github.com/IndianBoy42/tree-sitter-just"
   },
   undotree = {
     loaded = true,
@@ -256,6 +291,11 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-snippets",
     url = "https://github.com/honza/vim-snippets"
   },
+  ["vim-startuptime"] = {
+    loaded = true,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-startuptime",
+    url = "https://github.com/dstein64/vim-startuptime"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/vim-surround",
@@ -276,22 +316,23 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd nvim-treesitter ]]
-vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 vim.cmd [[ packadd LuaSnip ]]
 vim.cmd [[ packadd nvim-cmp ]]
+vim.cmd [[ packadd nvim-treesitter ]]
+vim.cmd [[ packadd tree-sitter-just ]]
+vim.cmd [[ packadd nvim-treesitter-textobjects ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
+vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
 vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType crystal ++once lua require("packer.load")({'vim-crystal'}, { ft = "crystal" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
