@@ -5,7 +5,6 @@
 # Usage: `git open [remote]`
 
 remote="${1:-origin}"
-
 remote_url="$(git remote get-url $remote)"
 
 if [ -z $remote_url ]; then

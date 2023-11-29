@@ -1,0 +1,32 @@
+#! /usr/bin/env bash
+
+join_by() {
+  local d=${1-} f=${2-}
+  if shift 2; then
+    printf %s "$f" "${@/#/$d}"
+  fi
+}
+
+bits=$1
+max="${2:-63}"
+
+if [ -z "$bits" ]; then
+  echo "Missing bitfield" >&2
+  exit 1
+fi
+
+has_bits=()
+
+for n in $(seq 0 $max); do
+  nr=$((1 << $n))
+
+  if [[ $(($bits & $nr)) == $nr ]]; then
+    has_bits+=($nr)
+
+    printf "1 << %s (%s) \n" $n $nr
+  fi
+done
+
+visual="$(join_by ' | ' ${has_bits[@]})"
+
+printf '\n%s = %s\n' "$visual" $bits

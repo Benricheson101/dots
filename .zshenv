@@ -1,31 +1,42 @@
 export PNPM_HOME="/Users/benricheson/Library/pnpm"
 
-export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/scripts:$PATH"
-export PATH="$PNPM_HOME:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-export PATH="$(/usr/local/go/bin/go env GOPATH)/bin:$PATH" # TODO: reinstall go with homebrew once it has 1.18
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
-export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
+# export PATH="$HOME/.yarn/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/scripts:$PATH"
+# export PATH="$PNPM_HOME:$PATH"
+# export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+# export PATH="$(/usr/local/go/bin/go env GOPATH)/bin:$PATH" # TODO: reinstall go with homebrew once it has 1.18
+# export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+# export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
+# export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
+
+if [ -z "$IN_NIX_SHELL" ]; then
+  export PATH="$HOME/.yarn/bin:$PATH"
+  export PATH="$HOME/.local/bin:$PATH"
+  export PATH="$PNPM_HOME:$PATH"
+  export PATH="$(/usr/local/go/bin/go env GOPATH)/bin:$PATH" # TODO: reinstall go with homebrew once it has 1.18
+  export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
+
+  export NVM_DIR="$HOME/.nvm"
+
+  export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+
+  . "$NVM_DIR/nvm.sh"
+  . "$HOME/.cargo/env"
+fi
 
 export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-export NVM_DIR="$HOME/.nvm"
-
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export PATH="$HOME/scripts:$PATH"
+. "$HOME/.env"
 
 export EDITOR="nvim"
 export VISUAL="nvim"
 
-. "$NVM_DIR/nvm.sh"
-. "$HOME/.cargo/env"
-. "$HOME/.env"
-
 alias 'reload!'='source ~/.zshenv && source ~/.zshrc'
 alias b='bun'
+alias bi='brew install'
+alias bu='brew uninstall'
 alias bz='bazel'
 alias c='/Users/benricheson/.cargo/bin/cargo'
 alias cat='bat -p --theme Nord'
@@ -39,6 +50,8 @@ alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias gb='go build'
 alias ghci='TERM=dumb ghci'
 alias gr='go run'
+alias j-'just'
+alias k='kubectl'
 alias la='exa -a'
 alias n='node'
 alias nv='neovide'

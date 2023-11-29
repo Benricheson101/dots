@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+VENCORD_DIR=~/Library/Application\ Support/discordcanary/Vencord
+
+pushd "$VENCORD_DIR"
+git pull
+pnpm build
+pnpm inject
+popd
+
+# vim:ft=bash

@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+tmp=$(mktemp "${TMPDIR}discordiosexperiments.XXXXX")
+trap "rm -f $tmp" EXIT
+
+echo 'import json
+
+from mitmproxy.http import HTTPFlow
+
+class InterceptDiscord:
+    def response(self, flow: HTTPFlow):
+        if flow.request.host == "discord.com" and flow.request.url.endswith("/users/@me"):
+            if flow.response is not None and flow.response.text is not None:
+                body = json.loads(flow.response.text)
+                flags: int = body["flags"]
+
+                if (flags & 1) != 1:
+                    flags = flags | 1
+
+                body["flags"] = flags
+
+                flow.response.set_text(json.dumps(body))
+
+addons = [InterceptDiscord()]' > $tmp
+
+mitmproxy -s "$tmp"

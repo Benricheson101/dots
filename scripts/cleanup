@@ -1,0 +1,84 @@
+#!/usr/bin/env bash
+
+# find . -type d -name build -a -not -path '*node_modules*' -a -exec test -e '{}/src/index.js.map' \; -prune -execdir rm -rf {} \;
+
+files=()
+
+function collect_node_modules {
+	# local -n files=$1
+	files=()
+	readarray -d '' files < <(find . -type d -name node_modules -prune -print0)
+}
+
+function collect_cargo_dirs {
+	files=()
+	readarray -d '' files < <(find . -type f -name Cargo.toml -execdir sh -c 'printf "%s\0" $(pwd)' \;)
+}
+
+function delete_files {
+	local i=0
+	local amt="${#files[@]}"
+
+	tput sc
+	for file in "${files[@]}"; do
+		((i++))
+
+		tput rc
+		tput el
+		echo "[${i}/${amt}] Deleting ${file}"
+	done
+
+	tput rc
+	tput el
+
+	echo "Deleted ${amt} files/directories"
+}
+
+function confirm {
+	tput sc
+
+	local amt="${#files[@]}"
+	shift
+
+	local confirm='n'
+	local prompt=$(cat <<EOF
+Are you sure you want to delete ${amt} files/directories?
+  y: confirm
+  p: print list
+  n: cancel
+
+[ypn]: 
+EOF
+	)
+
+	read -p "${prompt}" -N1 confirm
+
+	tput rc
+	tput el
+	tput ed
+
+	case $confirm in
+		y | Y)
+			delete_files
+			;;
+
+		p | P)
+			tr '$IFS' '\n' <<< "${files[@]}"
+			;;
+
+		*)
+			exit 0
+			;;
+	esac
+}
+
+function cleanup {
+	collect_node_modules
+	confirm
+
+	collect_cargo_dirs
+}
+
+cleanup
+
+# vim: noet
