@@ -8,6 +8,7 @@ plugins=(
   git
   docker
   docker-compose
+  zsh-syntax-highlighting
 )
 
 . "$ZSH/oh-my-zsh.sh"

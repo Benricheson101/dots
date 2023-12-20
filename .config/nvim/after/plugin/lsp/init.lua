@@ -6,6 +6,10 @@ local lspconfig = require('lspconfig')
 local schemastore = require('schemastore')
 
 local custom_configs = {
+  biome = {
+    root_dir = lspconfig.util.root_pattern('biome.json'),
+  },
+
   rust_analyzer = {
     flags = {
       exit_timeout = 0,

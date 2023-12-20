@@ -16,6 +16,7 @@ if [ -z "$IN_NIX_SHELL" ]; then
   export PATH="$PNPM_HOME:$PATH"
   export PATH="$(/usr/local/go/bin/go env GOPATH)/bin:$PATH" # TODO: reinstall go with homebrew once it has 1.18
   export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
+  export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
 
   export NVM_DIR="$HOME/.nvm"
 
