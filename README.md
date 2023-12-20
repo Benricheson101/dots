@@ -9,7 +9,6 @@
 
 ## Hardware
 - 13" 2020 M1 MacBook Pro; 16GB, 512GB SSD
-- 12.9" M2 iPad Pro
 
 ## Usage
 ```sh
