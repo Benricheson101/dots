@@ -7,11 +7,13 @@ end
 optutil.let_g {
   mapleader = ' ',
   neovide_cursor_animation_length = 0.05,
+  neovide_scroll_animation_length = 0,
+  neovide_position_animation_length = 0,
 }
 
 optutil.set {
-  -- guifont = 'IntelOne Mono:h12',
-  guifont = 'FiraCode Nerd Font:h12',
+  guifont = 'IntelOne Mono:h12',
+  -- guifont = 'FiraCode Nerd Font:h12',
   -- clipboard = 'unnamedplus',
 
   mouse = 'a',
@@ -43,6 +45,10 @@ optutil.set {
   undodir = '/private/tmp',
 
   updatetime = 100,
+
+  wildoptions = {'pum', 'tagfile', 'fuzzy'},
+  -- winfixwidth = true,
+  virtualedit = {'block'},
 }
 
 vim.opt.shortmess:append('c')

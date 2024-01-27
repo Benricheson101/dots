@@ -10,7 +10,7 @@ export PNPM_HOME="/Users/benricheson/Library/pnpm"
 # export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 # export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
 
-if [ -z "$IN_NIX_SHELL" ]; then
+# if [ -z "$IN_NIX_SHELL" ]; then
   export PATH="$HOME/.yarn/bin:$PATH"
   export PATH="$HOME/.local/bin:$PATH"
   export PATH="$PNPM_HOME:$PATH"
@@ -25,7 +25,7 @@ if [ -z "$IN_NIX_SHELL" ]; then
 
   . "$NVM_DIR/nvm.sh"
   . "$HOME/.cargo/env"
-fi
+# fi
 
 export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
 export PATH="$HOME/scripts:$PATH"
@@ -59,6 +59,7 @@ alias nv='neovide'
 alias p='python3'
 alias pn='pnpm'
 alias sc='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
+alias vim='nvim'
 alias y='yarn'
 alias ya='yarn add'
 alias yw='yarn workspaces'

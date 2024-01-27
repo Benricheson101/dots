@@ -19,13 +19,13 @@ require('nvim-tree').setup {
   view = {
     preserve_window_proportions = true,
 
-    float = {
-      enable = true,
+    -- float = {
+    --   enable = true,
 
-      open_win_config = {
-        relative = 'editor',
-      }
-    }
+    --   open_win_config = {
+    --     relative = 'editor',
+    --   }
+    -- }
   },
 }
 

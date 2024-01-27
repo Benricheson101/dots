@@ -1,9 +1,16 @@
-local tableutil = require('util.table')
-
 local mason_lspconfig = require('mason-lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
 local lspconfig = require('lspconfig')
 local schemastore = require('schemastore')
+
+require('neodev').setup {
+  library = {
+    enabled = true,
+    runtime = true,
+    types = true,
+    plugins = false,
+  }
+}
 
 local custom_configs = {
   biome = {
@@ -21,11 +28,11 @@ local custom_configs = {
     },
   },
 
-  sumneko_lua = {
+  lua_ls = {
     settings = {
       Lua = {
-        diagnostics = {
-          globals = {'vim'}
+        runtime = {
+          version = 'LuaJIT',
         },
 
         workspace = {
@@ -138,9 +145,12 @@ mason_lspconfig.setup_handlers {
       on_attach = lsp_attach,
       capabilities = lsp_capabilities,
     }
+
     local custom_cfg = custom_configs[name] or {}
 
-    lspconfig[name].setup(tableutil.merge_table(default_cfg, custom_cfg))
+    lspconfig[name].setup(
+      vim.tbl_deep_extend('force', default_cfg, custom_cfg)
+    )
   end
 }
 

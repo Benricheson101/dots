@@ -84,6 +84,11 @@ packer.startup(function(use)
   }
 
   use {
+    'folke/neodev.nvim',
+    after = {'nvim-cmp'}
+  }
+
+  use {
     'nvim-telescope/telescope.nvim',
     -- tag = '0.1.1',
     requires = {

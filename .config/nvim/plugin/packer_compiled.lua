@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/share/lua/5.1/?/init.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1700008891/lib/lua/5.1/?.so"
+local package_path_str = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1703358377/share/lua/5.1/?/init.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?.lua;/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1703358377/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/Users/benricheson/.cache/nvim/packer_hererocks/2.1.1703358377/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -139,6 +139,13 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neodev.nvim"] = {
+    load_after = {},
+    loaded = true,
+    needs_bufread = false,
+    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
   ["neovim-ayu"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/neovim-ayu",
@@ -155,6 +162,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
+    after = { "neodev.nvim" },
     load_after = {},
     loaded = true,
     needs_bufread = false,
@@ -316,23 +324,24 @@ _G.packer_plugins = {
 time([[Defining packer_plugins]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
-vim.cmd [[ packadd LuaSnip ]]
-vim.cmd [[ packadd nvim-cmp ]]
 vim.cmd [[ packadd nvim-treesitter ]]
 vim.cmd [[ packadd tree-sitter-just ]]
 vim.cmd [[ packadd nvim-treesitter-textobjects ]]
+vim.cmd [[ packadd LuaSnip ]]
+vim.cmd [[ packadd nvim-cmp ]]
+vim.cmd [[ packadd neodev.nvim ]]
 time([[Sequenced loading]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType svelte ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
-vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
 vim.cmd [[au FileType crystal ++once lua require("packer.load")({'vim-crystal'}, { ft = "crystal" }, _G.packer_plugins)]]
+vim.cmd [[au FileType html ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType html ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
-vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
-vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'emmet-vim', 'cmp-emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
+vim.cmd [[au FileType svelte ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
+vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
+vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

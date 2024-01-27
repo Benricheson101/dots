@@ -27,9 +27,9 @@ compdef _git dot
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # pyenv stuff
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # tabtab source for packages
 # uninstall by removing these lines
@@ -37,7 +37,7 @@ eval "$(pyenv init -)"
 
 # export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
 
-autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/mc mc
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /opt/homebrew/bin/mc mc
 
-. $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
+# . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh
