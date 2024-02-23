@@ -59,6 +59,8 @@ packer.startup(function(use)
     },
   }
 
+  use 'folke/trouble.nvim'
+
   use 'neovim/nvim-lspconfig'
   use {
     'williamboman/mason.nvim',

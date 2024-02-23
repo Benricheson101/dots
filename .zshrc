@@ -1,5 +1,4 @@
 export ZSH="/Users/benricheson/.oh-my-zsh"
-# export PATH="$(pyenv root)/shims:$PATH"
 export GPG_TTY=$(tty)
 
 ZSH_THEME="oxide"
@@ -9,6 +8,7 @@ plugins=(
   docker
   docker-compose
   zsh-syntax-highlighting
+  # zsh-vi-mode
 )
 
 . "$ZSH/oh-my-zsh.sh"
@@ -26,18 +26,11 @@ compdef _git dot
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# pyenv stuff
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+unalias run-help
+autoload run-help
+HELPDIR=/usr/share/zsh/"${ZSH_VERSION}"/help
+alias help=run-help
 
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]] && . ~/.config/tabtab/zsh/__tabtab.zsh || true
-
-# export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"
-
-# autoload -U +X bashcompinit && bashcompinit
-# complete -o nospace -C /opt/homebrew/bin/mc mc
-
-# . $HOMEBREW_PREFIX/opt/asdf/libexec/asdf.sh

@@ -14,7 +14,17 @@ require('neodev').setup {
 
 local custom_configs = {
   biome = {
-    root_dir = lspconfig.util.root_pattern('biome.json'),
+    -- cmd = {'biome', 'lsp-proxy'},
+    -- root_dir = lspconfig.util.root_pattern('biome.json'),
+    -- filetypes = {
+    --   'javascript',
+    --   'javascriptreact',
+    --   'json',
+    --   'jsonc',
+    --   'typescript',
+    --   'typescript.tsx',
+    --   'typescriptreact'
+    -- },
   },
 
   rust_analyzer = {
@@ -148,10 +158,26 @@ mason_lspconfig.setup_handlers {
 
     local custom_cfg = custom_configs[name] or {}
 
+    -- print('calling setup for lsp ', name)
+
     lspconfig[name].setup(
       vim.tbl_deep_extend('force', default_cfg, custom_cfg)
     )
   end
+}
+
+lspconfig.biome.setup {
+  cmd = {'biome', 'lsp-proxy'},
+  root_dir = lspconfig.util.root_pattern('biome.json'),
+  filetypes = {
+    'javascript',
+    'javascriptreact',
+    'json',
+    'jsonc',
+    'typescript',
+    'typescript.tsx',
+    'typescriptreact'
+  },
 }
 
 -- local lspconfig = require('lspconfig')

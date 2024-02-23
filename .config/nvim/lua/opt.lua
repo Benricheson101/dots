@@ -12,7 +12,8 @@ optutil.let_g {
 }
 
 optutil.set {
-  guifont = 'IntelOne Mono:h12',
+  guifont = 'IntoneMono Nerd Font:h12',
+  -- guifont = 'IntelOne Mono:h12',
   -- guifont = 'FiraCode Nerd Font:h12',
   -- clipboard = 'unnamedplus',
 
