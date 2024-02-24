@@ -1,0 +1,8 @@
+#!/usr/bin/env zsh
+
+function nvm {
+  unfunction nvm
+  [ -f ~/.nvm/nvm.sh ] || exit 1
+  . ~/.nvm/nvm.sh
+  nvm "$@"
+}

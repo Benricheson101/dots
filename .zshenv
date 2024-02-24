@@ -1,28 +1,43 @@
 export PNPM_HOME="/Users/benricheson/Library/pnpm"
 
-export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$PNPM_HOME:$PATH"
-export PATH="$(/usr/local/go/bin/go env GOPATH)/bin:$PATH" # TODO: reinstall go with homebrew once it has 1.18
-export PATH="$(/opt/homebrew/bin/pyenv root)/shims:$PATH"
-export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"
+typeset -U FPATH fpath
+typeset -U PATH path
+
+path+=(
+  $HOME/scripts
+  $HOME/.yarn/bin
+  $HOME/.local/bin
+  $HOME/Library/pnpm
+  $HOME/go
+  $HOME/.pyenv/shims
+  $HOME/.cargo/bin
+  $HOIME/Library/Application\ Support/JetBrains/Toolbox/scripts
+  /opt/homebrew/bin
+  /opt/homebrew/sbin
+)
+
+fpath+=(
+  /opt/homebrew/share/zsh/site-functions
+  $HOME/.local/share/zsh/functions
+  $HOME/scripts/functions
+)
+
+export PATH
+export FPATH
 
 export NVM_DIR="$HOME/.nvm"
 
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
-. "$NVM_DIR/nvm.sh"
-. "$HOME/.cargo/env"
-
-export FPATH="$(/opt/homebrew/bin/brew --prefix)/share/zsh/site-functions:${FPATH}"
-export PATH="$HOME/scripts:$PATH"
 . "$HOME/.env"
 
-export EDITOR="nvim"
-export VISUAL="nvim"
+export PAGER=less
+export LESS='--mouse --wheel-lines 3'
+export EDITOR=nvim
+export VISUAL=nvim
 
-alias 'reload!'='source ~/.zshenv && source ~/.zshrc'
+alias 'reload!'='source ~/.zshenv && source ~/.zshrc && rm -i ~/.zcompdump && compinit'
 alias b='bun'
 alias bi='brew install'
 alias bu='brew uninstall'
@@ -31,15 +46,15 @@ alias c='/Users/benricheson/.cargo/bin/cargo'
 alias cat='bat -p --theme Nord'
 alias cls='clear'
 alias d='docker'
-alias dc='docker-compose'
-alias dce='docker-compose exec'
-alias dcu='docker-compose up'
-alias dcub='docker-compose up --build'
+alias dc='docker compose'
+alias dce='docker compose exec'
+alias dcu='docker compose up'
+alias dcub='docker compose up --build'
 alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias gb='go build'
 alias ghci='TERM=dumb ghci'
 alias gr='go run'
-alias j-'just'
+alias j='just'
 alias k='kubectl'
 alias la='exa -a'
 alias n='node'
