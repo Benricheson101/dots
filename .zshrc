@@ -29,12 +29,19 @@ zstyle ':completion:*' complete-options true
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d --%f'
 
+
+autoload -U {up,down}-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
 autoload -U compinit && compinit -C
 autoload -Uz nvm mk
 
 bindkey -M menuselect '^[[Z' reverse-menu-complete
-bindkey '^[[A' up-line-or-search
-bindkey '^[[B' down-line-or-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey -M vicmd 'k' up-line-or-beginning-search
+bindkey -M vicmd 'j' down-line-or-beginning-search
 bindkey '^D' vi-delete-char
 bindkey '^r' history-incremental-search-backward
 bindkey '^s' history-incremental-search-forward
