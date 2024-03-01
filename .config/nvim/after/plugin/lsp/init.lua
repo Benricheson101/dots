@@ -158,8 +158,6 @@ mason_lspconfig.setup_handlers {
 
     local custom_cfg = custom_configs[name] or {}
 
-    -- print('calling setup for lsp ', name)
-
     lspconfig[name].setup(
       vim.tbl_deep_extend('force', default_cfg, custom_cfg)
     )

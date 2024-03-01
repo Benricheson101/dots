@@ -37,12 +37,15 @@ zle -N down-line-or-beginning-search
 autoload -U compinit && compinit -C
 autoload -Uz nvm mk
 
+KEYTIMEOUT=1
+bindkey -v
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey -M vicmd 'k' up-line-or-beginning-search
 bindkey -M vicmd 'j' down-line-or-beginning-search
 bindkey '^D' vi-delete-char
+bindkey '^?' backward-delete-char
 bindkey '^r' history-incremental-search-backward
 bindkey '^s' history-incremental-search-forward
 
@@ -62,6 +65,7 @@ alias help=run-help
 plugins=(
   $HOME/.local/share/zsh/themes/oxide.zsh-theme
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  /opt/homebrew//opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 )
 
 for plugin ($plugins) do

@@ -14,6 +14,7 @@ path+=(
   $HOIME/Library/Application\ Support/JetBrains/Toolbox/scripts
   /opt/homebrew/bin
   /opt/homebrew/sbin
+  /usr/local/bin
 )
 
 fpath+=(
@@ -22,6 +23,8 @@ fpath+=(
   $HOME/scripts/functions
 )
 
+export path
+export fpath
 export PATH
 export FPATH
 
@@ -33,7 +36,7 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 . "$HOME/.env"
 
 export PAGER=less
-export LESS='--mouse --wheel-lines 3'
+export LESS='--mouse --wheel-lines 3 -R'
 export EDITOR=nvim
 export VISUAL=nvim
 
