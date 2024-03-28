@@ -146,16 +146,6 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/opt/neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
-  ["neovim-ayu"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/neovim-ayu",
-    url = "https://github.com/Shatur/neovim-ayu"
-  },
-  nvim = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim",
-    url = "https://github.com/Everblush/nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/nvim-autopairs",
@@ -211,11 +201,6 @@ _G.packer_plugins = {
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  playground = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/playground",
-    url = "https://github.com/nvim-treesitter/playground"
-  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -232,11 +217,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/schemastore.nvim",
     url = "https://github.com/b0o/schemastore.nvim"
-  },
-  ["splitjoin.vim"] = {
-    loaded = true,
-    path = "/Users/benricheson/.local/share/nvim/site/pack/packer/start/splitjoin.vim",
-    url = "https://github.com/AndrewRadev/splitjoin.vim"
   },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
@@ -340,13 +320,13 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
+vim.cmd [[au FileType crystal ++once lua require("packer.load")({'vim-crystal'}, { ft = "crystal" }, _G.packer_plugins)]]
+vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
 vim.cmd [[au FileType html ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "html" }, _G.packer_plugins)]]
 vim.cmd [[au FileType javascriptreact ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "javascriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType typescriptreact ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "typescriptreact" }, _G.packer_plugins)]]
 vim.cmd [[au FileType svelte ++once lua require("packer.load")({'cmp-emmet-vim', 'emmet-vim'}, { ft = "svelte" }, _G.packer_plugins)]]
-vim.cmd [[au FileType elixir ++once lua require("packer.load")({'vim-elixir'}, { ft = "elixir" }, _G.packer_plugins)]]
-vim.cmd [[au FileType rust ++once lua require("packer.load")({'rust-tools.nvim'}, { ft = "rust" }, _G.packer_plugins)]]
-vim.cmd [[au FileType crystal ++once lua require("packer.load")({'vim-crystal'}, { ft = "crystal" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

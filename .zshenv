@@ -20,6 +20,7 @@ path+=(
 fpath+=(
   /opt/homebrew/share/zsh/site-functions
   $HOME/.local/share/zsh/functions
+  $HOME/.local/share/zsh/completion
   $HOME/scripts/functions
 )
 
@@ -65,6 +66,7 @@ alias nv='neovide'
 alias p='python3'
 alias pn='pnpm'
 alias sc='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
+alias t=tmux
 alias vim='nvim'
 alias y='yarn'
 alias ya='yarn add'
@@ -80,3 +82,7 @@ alias cf="cargo fmt --all"
 
 alias gcc="gcc-13"
 alias g++="g++-13"
+
+alias gc='git commit --verbose'
+alias gcam='git commit -am'
+alias gp='git push'

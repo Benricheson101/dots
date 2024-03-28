@@ -5,8 +5,8 @@ vim.cmd.packadd('packer.nvim')
 packer.startup(function(use)
   use 'wbthomason/packer.nvim'
 
-  use 'Shatur/neovim-ayu'
-  use 'Everblush/nvim'
+  -- use 'Shatur/neovim-ayu'
+  -- use 'Everblush/nvim'
 
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -19,14 +19,17 @@ packer.startup(function(use)
     requires = 'nvim-treesitter/nvim-treesitter',
   }
 
-  use 'nvim-treesitter/playground'
+  -- use 'nvim-treesitter/playground'
   use 'RRethy/nvim-treesitter-endwise'
 
-  use 'projectfluent/fluent.vim'
+  use {
+    'projectfluent/fluent.vim',
+    fluent = {'fluent'}
+  }
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
-  use 'AndrewRadev/splitjoin.vim'
+  -- use 'AndrewRadev/splitjoin.vim'
   -- use 'jiangmiao/auto-pairs'
   use 'adelarsq/vim-matchit'
   use 'mbbill/undotree'
@@ -87,12 +90,11 @@ packer.startup(function(use)
 
   use {
     'folke/neodev.nvim',
-    after = {'nvim-cmp'}
+    after = {'nvim-cmp'},
   }
 
   use {
     'nvim-telescope/telescope.nvim',
-    -- tag = '0.1.1',
     requires = {
       'nvim-lua/plenary.nvim'
     }

@@ -1,7 +1,9 @@
 local mason_lspconfig = require('mason-lspconfig')
 local cmp_nvim_lsp = require('cmp_nvim_lsp')
-local lspconfig = require('lspconfig')
 local schemastore = require('schemastore')
+local lspconfig = require('lspconfig')
+
+local lsp_attach
 
 require('neodev').setup {
   library = {
@@ -15,16 +17,16 @@ require('neodev').setup {
 local custom_configs = {
   biome = {
     -- cmd = {'biome', 'lsp-proxy'},
-    -- root_dir = lspconfig.util.root_pattern('biome.json'),
-    -- filetypes = {
-    --   'javascript',
-    --   'javascriptreact',
-    --   'json',
-    --   'jsonc',
-    --   'typescript',
-    --   'typescript.tsx',
-    --   'typescriptreact'
-    -- },
+    root_dir = lspconfig.util.root_pattern('biome.json'),
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'json',
+      'jsonc',
+      'typescript',
+      'typescript.tsx',
+      'typescriptreact'
+    },
   },
 
   rust_analyzer = {
@@ -75,7 +77,7 @@ local custom_configs = {
           -- shows the value of an enum member in its declaration
           includeInlayEnumMemberValueHints = true,
           -- shows the inferred return type of a function
-          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = false,
           includeInlayFunctionParameterTypeHints = true,
           -- parameters in function calls
           includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
@@ -101,8 +103,6 @@ local custom_configs = {
   },
 }
 
-local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
-
 function lsp_attach(client, bufnr)
   local opts = { buffer = bufnr, remap = false }
 
@@ -122,7 +122,7 @@ function lsp_attach(client, bufnr)
 
   -- only reopen floating diagnostic window once the cursor moves. this prevents the
   -- floating diagnostic window from covering other floating windows (like hover)
-  local group = vim.api.nvim_create_augroup('LSPDiagnosticOnHover', { clear = true })
+  local group = vim.api.nvim_create_augroup('LSPDiagnosticOnHover', { clear = false })
   vim.api.nvim_create_autocmd('CursorHold', {
     buffer = bufnr,
     group = group,
@@ -149,6 +149,7 @@ function lsp_attach(client, bufnr)
   })
 end
 
+local lsp_capabilities = cmp_nvim_lsp.default_capabilities()
 mason_lspconfig.setup_handlers {
   function(name)
     local default_cfg = {
@@ -163,50 +164,3 @@ mason_lspconfig.setup_handlers {
     )
   end
 }
-
-lspconfig.biome.setup {
-  cmd = {'biome', 'lsp-proxy'},
-  root_dir = lspconfig.util.root_pattern('biome.json'),
-  filetypes = {
-    'javascript',
-    'javascriptreact',
-    'json',
-    'jsonc',
-    'typescript',
-    'typescript.tsx',
-    'typescriptreact'
-  },
-}
-
--- local lspconfig = require('lspconfig')
-
--- lspconfig.gleam.setup {
---   cmd = {'gleam', 'lsp'},
-
---   filetypes = {'gleam'},
-
---   root_dir = lspconfig.util.root_pattern('gleam.toml'),
-
---   settings = {
---     gleam = {
---     },
---   }
--- }
-
-
--- lspconfig.elixirls.setup {
---   cmd = {
---     vim.fn.expand('~/.local/src/elixir-ls/release/language_server.sh'),
---   },
-
---   filetypes = {'elixir'},
-
---   root_dir = lspconfig.util.root_pattern('mix.exs'),
-
---   settings = {
---     elixirLS = {
---       dialyzerEnabled = false,
---       fetchDeps = false,
---     },
---   },
--- }

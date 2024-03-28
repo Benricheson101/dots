@@ -53,3 +53,6 @@ optutil.set {
 }
 
 vim.opt.shortmess:append('c')
+
+vim.opt.formatoptions:remove('r')
+vim.opt.formatoptions:remove('o')
