@@ -1,8 +1,13 @@
 local optutil = require('util.opt')
 
 if vim.fn.has('termguicolors') then
-  optutil.set { termguicolors = true }
+  optutil.set {termguicolors = true}
 end
+
+vim.cmd.colors('habamax')
+-- sets the floating window border to match the background (making it ""invisible"")
+vim.api.nvim_set_hl(0, 'FloatBorder', {link = 'Normal'})
+vim.api.nvim_set_hl(0, 'Pmenu', {link = 'Normal'})
 
 optutil.let_g {
   mapleader = ' ',
