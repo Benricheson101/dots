@@ -90,7 +90,8 @@
   "diagnostic.hintSign": "•",
   "diagnostic.checkCurrentLine": true,
 
-  "signature.target": "echo"
+  "signature.target": "echo",
+  "snippets.ultisnips.pythonPrompt": false
 }
 
 // vim:ft=jsonc
