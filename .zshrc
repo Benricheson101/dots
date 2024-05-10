@@ -51,7 +51,7 @@ bindkey '^s' history-incremental-search-forward
 
 export GPG_TTY=$(tty)
 
-alias ls="exa"
+alias ls="eza"
 
 compdef _curl curlbot
 compdef _mkdir mk
