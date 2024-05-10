@@ -15,6 +15,13 @@ local function lsp_attach(client, bufnr)
     vim.lsp.inlay_hint.enable(bufnr, true)
   end
 
+  if client.name == 'tsserver' then
+    client.server_capabilities.documentFormattingProvider = false
+  end
+
+  -- no syntax highlighting from LSP. use treesitter instead
+  client.server_capabilities.semanticTokensProvider = nil
+
   -- only reopen floating diagnostic window once the cursor moves. this prevents the
   -- floating diagnostic window from covering other floating windows (like hover)
   local group = vim.api.nvim_create_augroup('LSPDiagnosticOnHover', { clear = false })
@@ -66,7 +73,9 @@ return {
       }
 
       vim.diagnostic.config {
-        virtual_text = true,
+        virtual_text = false,
+        underline = true,
+        signs = true,
         float = floating_window_options,
       }
 

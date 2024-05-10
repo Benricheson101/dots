@@ -2,6 +2,8 @@
 
 VENCORD_DIR=~/Library/Application\ Support/discordcanary/Vencord
 
+export COREPACK_ENABLE_STRICT=0
+
 pushd "$VENCORD_DIR"
 git pull
 pnpm build

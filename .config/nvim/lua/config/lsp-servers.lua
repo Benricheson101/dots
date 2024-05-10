@@ -16,6 +16,13 @@ return function(lsp_attach)
       },
     },
 
+    clangd = {
+      filetypes = {
+        'c',
+        'cpp',
+      },
+    },
+
     rust_analyzer = {
       flags = {
         exit_timeout = 0,
@@ -59,7 +66,15 @@ return function(lsp_attach)
 
     tsserver = {
       settings = {
+        javascript = {
+          format = {
+            enable = false,
+          },
+        },
         typescript = {
+          format = {
+            enable = false,
+          },
           inlayHints = {
             -- shows the value of an enum member in its declaration
             includeInlayEnumMemberValueHints = true,
@@ -81,13 +96,38 @@ return function(lsp_attach)
         client.server_capabilities.document_formatting = false
         client.server_capabilities.document_range_formatting = false
 
+        client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
+
         lsp_attach(client, bufnr)
       end
     },
 
     tailwindcss = {
+      root_dir = lspconfig.util.root_pattern('tailwind.config.js'),
       filetypes = {'javascriptreact', 'typescriptreact', 'html'},
     },
+
+    -- yamlls = {
+    --   settings = {
+    --     yaml = {
+    --       schemaStore = {
+    --         enable = true,
+    --         url = "https://www.schemastore.org/api/json/catalog.json",
+    --       },
+
+    --       trace = {
+    --         server = "verbose",
+    --       },
+
+    --       -- schemas = require('schemastore').yaml.schemas {
+    --       --   select = {
+    --       --     'docker-compose.yml',
+
+    --       --   }
+    --       -- }
+    --     },
+    --   },
+    -- },
   }
 
 end

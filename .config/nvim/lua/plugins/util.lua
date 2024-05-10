@@ -21,6 +21,10 @@ return {
     'chaoren/vim-wordmotion',
     event = {'BufReadPre', 'BufNewFile'},
   },
+  {
+    'godlygeek/tabular',
+    event = {'BufReadPre', 'BufNewFile'},
+  },
 
   {
     'windwp/nvim-autopairs',
@@ -44,6 +48,7 @@ return {
     event = {'BufReadPre', 'BufNewFile'},
     config = function()
       -- FIXME: highlights red in insert mode after opening LSP floating hover
+      -- TODO: rawr
       optutil.let_g {
         better_whitespace_guicolor = '#BF616A',
         current_line_whitespace_disabled_soft = 1,
@@ -59,21 +64,53 @@ return {
   },
 
   {
-    'Yggdroot/indentLine',
+    'lukas-reineke/indent-blankline.nvim',
     event = {'BufReadPre', 'BufNewFile'},
-    config = function()
-      optutil.let_g {
-        indentLine_char = '¦',
-        indentLine_setConceal = 0,
-        indentLine_bufTypeExclude = {
+    main = 'ibl',
+    opts = {
+      scope = {enabled = false},
+      indent = {
+        -- char = '│',
+        char = '¦',
+      },
+      whitespace = {},
+      exclude = {
+        filetypes = {
+          '',
+          'TelescopePrompt',
+          'TelescopeResults',
+          'checkhealth',
+          'gitcommit',
           'help',
+          'lspinfo',
+          'man',
           'nofile',
           'nowrite',
+          'packer',
+          'prompt',
           'quickfix',
           'terminal',
-          'prompt',
-        },
+        }
       }
-    end
+    }
   },
+
+  -- {
+  --   'Yggdroot/indentLine',
+  --   event = {'BufReadPre', 'BufNewFile'},
+  --   config = function()
+  --     optutil.let_g {
+  --       indentLine_char = '¦',
+  --       indentLine_setConceal = 0,
+  --       indentLine_bufTypeExclude = {
+  --         'help',
+  --         'nofile',
+  --         'nowrite',
+  --         'quickfix',
+  --         'terminal',
+  --         'prompt',
+  --       },
+  --     }
+  --   end
+  -- },
 }

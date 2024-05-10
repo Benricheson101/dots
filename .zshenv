@@ -3,7 +3,7 @@ export PNPM_HOME="/Users/benricheson/Library/pnpm"
 typeset -U FPATH fpath
 typeset -U PATH path
 
-path+=(
+path=(
   $HOME/scripts
   $HOME/.yarn/bin
   $HOME/.local/bin
@@ -15,6 +15,7 @@ path+=(
   /opt/homebrew/bin
   /opt/homebrew/sbin
   /usr/local/bin
+  $path
 )
 
 fpath+=(
