@@ -12,7 +12,8 @@ local function lsp_attach(client, bufnr)
   vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
 
   if client.server_capabilities.inlayHintProvider then
-    vim.lsp.inlay_hint.enable(bufnr, true)
+    -- DEPRECATED: vim.lsp.inlay_hint.enable(bufnr, true)
+    vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
   end
 
   if client.name == 'tsserver' then
