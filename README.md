@@ -12,9 +12,9 @@
 
 ## Usage
 ```sh
-$ echo 'alias dot="git --git-dir=$HOME/.dot.git/ --work-tree=$HOME"' >> $HOME/.zshenv
+$ alias dot="git --git-dir=$HOME/.dot/ --work-tree=$HOME"
 $ source ~/.zshenv
-$ git clone --bare git@github.com:Benricheson101/dots.git $HOME/.dot.git
+$ git clone --bare git@github.com:Benricheson101/dots.git $HOME/.dot
 $ dot checkout
 $ dot config --local status.showUntrackedFiles false
 ```
