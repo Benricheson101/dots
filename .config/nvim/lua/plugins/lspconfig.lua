@@ -12,6 +12,7 @@ local function lsp_attach(client, bufnr)
   vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
 
   if client.server_capabilities.inlayHintProvider then
+      vim.api.nvim_set_hl(0, 'LspInlayHint', {link = 'Folded'})
     -- DEPRECATED: vim.lsp.inlay_hint.enable(bufnr, true)
     vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
   end
@@ -76,8 +77,17 @@ return {
       vim.diagnostic.config {
         virtual_text = false,
         underline = true,
-        signs = true,
+        -- signs = true,
         float = floating_window_options,
+
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '●',
+            [vim.diagnostic.severity.WARN] = '●',
+            [vim.diagnostic.severity.HINT] = '●',
+            [vim.diagnostic.severity.INFO] = '●',
+          },
+        },
       }
 
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
@@ -126,5 +136,17 @@ return {
         plugins = false,
       },
     },
+  },
+
+  {
+    'marilari88/twoslash-queries.nvim',
+    lazy = true,
+    opts = {
+      highlight = 'TwoslashQuery',
+    },
+    config = function (_, opts)
+      require('twoslash-queries').setup(opts)
+      vim.api.nvim_set_hl(0, 'TwoslashQuery', {link = 'Folded'})
+    end
   },
 }

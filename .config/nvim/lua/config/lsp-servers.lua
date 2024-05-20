@@ -98,6 +98,7 @@ return function(lsp_attach)
 
         client.server_capabilities.documentFormattingProvider = false -- 0.8 and later
 
+        require('twoslash-queries').attach(client, bufnr)
         lsp_attach(client, bufnr)
       end
     },
