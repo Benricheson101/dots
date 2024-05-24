@@ -13,6 +13,9 @@ startup_mode = "Maximized"
 option_as_alt = "OnlyLeft"
 
 [font]
+# to fix weird font antialiasing issues:
+# defaults write org.alacritty AppleFontSmoothing -int 0
+
 size = 12
 normal = {family = "BerkeleyMono Nerd Font", style = "Regular"}
 bold = {family = "BerkeleyMono Nerd Font", style = "Bold"}
