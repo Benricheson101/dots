@@ -11,6 +11,7 @@ args = ["new", "-A"]
 [window]
 startup_mode = "Maximized"
 option_as_alt = "OnlyLeft"
+decorations = "Buttonless"
 
 [font]
 # to fix weird font antialiasing issues:
