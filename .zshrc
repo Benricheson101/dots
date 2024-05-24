@@ -9,6 +9,7 @@ SAVEHIST=10000
 setopt alwaystoend
 setopt appendhistory
 setopt autocd
+setopt autopushd
 setopt extendedglob
 setopt extendedhistory
 setopt histfindnodups
@@ -65,9 +66,11 @@ alias help=run-help
 plugins=(
   $HOME/.local/share/zsh/themes/oxide.zsh-theme
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-  /opt/homebrew//opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+  /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 )
 
 for plugin ($plugins) do
   [ -f "$plugin" ] && . "$plugin"
 done
+
+eval "$(zoxide init zsh)"
