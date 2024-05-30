@@ -1,11 +1,11 @@
 <h1 align="center">MacOS Dotfiles</h1>
 
 ## Software
-| **Purpose** | **Software** |
-| ----------- | ------------ |
-| Editor      | Neovide      |
-| Shell       | zsh          |
-| Terminal    | iTerm2       |
+| **Purpose** | **Software**  |
+| ----------- | ------------- |
+| Editor      | neovim + tmux |
+| Shell       | zsh           |
+| Terminal    | Alacritty     |
 
 ## Hardware
 - 13" 2020 M1 MacBook Pro; 16GB, 512GB SSD
