@@ -10,5 +10,6 @@ end
 
 M.set = table_set(vim.opt)
 M.let_g = table_set(vim.g)
+M.g = table_set(vim.g)
 
 return M

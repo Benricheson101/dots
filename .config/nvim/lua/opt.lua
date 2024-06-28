@@ -9,7 +9,7 @@ vim.cmd.colors('habamax')
 vim.api.nvim_set_hl(0, 'FloatBorder', {link = 'Normal'})
 vim.api.nvim_set_hl(0, 'Pmenu', {link = 'Normal'})
 
-optutil.let_g {
+optutil.g {
   mapleader = ' ',
   neovide_cursor_animation_length = 0.05,
   neovide_scroll_animation_length = 0,

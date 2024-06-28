@@ -1,5 +1,5 @@
 local optutil = require('util.opt')
 
-optutil.let_g {
+optutil.g {
   zig_fmt_autosave = false,
 }

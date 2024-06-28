@@ -56,6 +56,7 @@ alias dce='docker compose exec'
 alias dcu='docker compose up'
 alias dcub='docker compose up --build'
 alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
+alias f=flux
 alias gb='go build'
 alias ghci='TERM=dumb ghci'
 alias gr='go run'
@@ -86,4 +87,10 @@ alias g++="g++-13"
 
 alias gc='git commit --verbose'
 alias gcam='git commit -am'
+alias gca='git commit -a'
+alias gcm='git commit -m'
 alias gp='git push'
+
+for n in {3..6} ; do
+  alias "$(printf '.%.s' {1..$n})"="cd $(printf '../%.s' {2..$n})"
+done
