@@ -11,6 +11,7 @@ path=(
   $HOME/go
   $HOME/.pyenv/shims
   $HOME/.cargo/bin
+  /Applications/Ghostty.app/Contents/MacOS
   $HOIME/Library/Application\ Support/JetBrains/Toolbox/scripts
   /opt/homebrew/bin
   /opt/homebrew/sbin
@@ -69,6 +70,7 @@ alias p='python3'
 alias pn='pnpm'
 alias sc='sed -r "s/\x1B\[([0-9]{1,3}(;[0-9]{1,2})?)?[mGK]//g"'
 alias t=tmux
+alias tf=terraform
 alias vim='nvim'
 alias y='yarn'
 alias ya='yarn add'

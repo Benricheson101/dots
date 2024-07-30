@@ -1,6 +1,8 @@
 return {
   'nvim-tree/nvim-tree.lua',
 
+  event = {'BufReadPre', 'BufNewFile', 'BufEnter'},
+
   dependencies = {
     'nvim-tree/nvim-web-devicons',
   },
