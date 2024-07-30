@@ -1,0 +1,36 @@
+theme = Ayu Mirage
+font-family = BerkeleyMono Nerd Font
+font-size = 12
+
+command = /opt/homebrew/bin/tmux new -A
+
+# TODO: how do I make this work in tmux?
+shell-integration = zsh
+
+keybind = clear
+
+keybind = alt+left=esc:b
+keybind = alt+right=esc:f
+keybind = super+left=esc:OH
+keybind = super+right=esc:OF
+keybind = super+backspace=text:\x15
+keybind = alt+backspace=text:\x1b\x7f
+
+keybind = super+q=quit
+keybind = super+comma=open_config
+keybind = super+shift+comma=reload_config
+keybind = super+alt+i=inspector:toggle
+keybind = super+q=quit
+keybind = super+c=copy_to_clipboard
+keybind = super+v=paste_from_clipboard
+keybind = super+equal=increase_font_size:1
+keybind = super+minus=decrease_font_size:1
+keybind = super+zero=reset_font_size
+
+macos-option-as-alt = left
+
+window-decoration = false
+
+quit-after-last-window-closed = true
+
+# vim: ft=ini commentstring=#\ %s
