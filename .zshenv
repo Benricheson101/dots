@@ -84,8 +84,8 @@ alias ct="cargo test"
 alias ctr="cargo test --release"
 alias cf="cargo fmt --all"
 
-alias gcc="gcc-13"
-alias g++="g++-13"
+alias gcc="gcc-14"
+alias g++="g++-14"
 
 alias gc='git commit --verbose'
 alias gcam='git commit -am'
@@ -95,4 +95,5 @@ alias gp='git push'
 
 for n in {3..6} ; do
   alias "$(printf '.%.s' {1..$n})"="cd $(printf '../%.s' {2..$n})"
+  # alias "${(pl:$n::.:)}"="cd ${(pl:$((n - 1))::../:)}"
 done
