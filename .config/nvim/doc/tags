@@ -1,0 +1,5 @@
+:TrimWhitespace	trim_whitespace.txt	/*:TrimWhitespace*
+b:TrimWhitespaceOnSaveDisable	trim_whitespace.txt	/*b:TrimWhitespaceOnSaveDisable*
+trim_whitespace.commands	trim_whitespace.txt	/*trim_whitespace.commands*
+trim_whitespace.config	trim_whitespace.txt	/*trim_whitespace.config*
+trim_whitespace.txt	trim_whitespace.txt	/*trim_whitespace.txt*

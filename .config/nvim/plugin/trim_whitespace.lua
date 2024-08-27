@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd({'ColorScheme'}, {
 vim.api.nvim_create_autocmd({'BufWritePre'}, {
   group = group,
   callback = function ()
-    if vim.b.WhitespaceTrimOnSave == 1 then
+    if not vim.b.TrimWhitespaceOnSaveDisable then
       local range = {0, vim.fn.line('$')}
       trim_whitespace(range, true)
     end
