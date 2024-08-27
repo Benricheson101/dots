@@ -55,8 +55,6 @@ optutil.set {
   wildoptions = {'pum', 'tagfile', 'fuzzy'},
   -- winfixwidth = true,
   virtualedit = {'block'},
-
-  list = true,
 }
 
 vim.opt.shortmess:append('c')
