@@ -14,31 +14,29 @@ local function trim_whitespace(range, silent)
   vim.api.nvim_win_set_cursor(0, pos)
 end
 
-local group = vim.api.nvim_create_augroup('HLWhitespace', {
+local group = vim.api.nvim_create_augroup('TrailingWhitespace', {
   clear = true,
 })
-
--- TODO: is there a better way to toggle this than setting/unsetting listchars.trail? maybe proper syn match?
 
 vim.api.nvim_create_autocmd({'InsertEnter'}, {
   group = group,
   callback = function ()
-    vim.opt_local.listchars:remove {'trail'}
+    vim.cmd.syntax {'clear', 'TrailingWhitespace'}
   end
 })
 
-vim.api.nvim_create_autocmd({'BufEnter', 'InsertLeave'}, {
+vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter', 'InsertLeave'}, {
   group = group,
   callback = function ()
-    vim.opt_local.listchars:append {trail = '•'}
+    vim.cmd.syntax {'match', 'TrailingWhitespace', 'excludenl', '/\\s\\+$/'}
   end
 })
 
 vim.api.nvim_create_autocmd({'ColorScheme'}, {
   group = group,
   callback = function ()
-    vim.api.nvim_set_hl(0, 'Whitespace', {
-      fg = '#BF616A',
+    vim.api.nvim_set_hl(0, 'TrailingWhitespace', {
+      bg = '#BF616A',
     })
   end
 })
@@ -56,10 +54,9 @@ vim.api.nvim_create_autocmd({'BufWritePre'}, {
 vim.api.nvim_create_user_command(
   'TrimWhitespace',
   function (opts)
-    local range = {0, vim.fn.line('$')}
-    if opts.range ~= 0 then
-      range = {opts.line1, opts.line2}
-    end
+    local range = opts.range == 0
+      and {0, vim.fn.line('$')}
+      or {opts.line1, opts.line2}
 
     trim_whitespace(range)
   end,
