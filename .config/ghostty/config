@@ -1,6 +1,7 @@
 theme = Ayu Mirage
 font-family = BerkeleyMono Nerd Font
 font-size = 12
+link-url = true
 
 command = /opt/homebrew/bin/tmux new -A
 
