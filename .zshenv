@@ -15,6 +15,8 @@ path=(
   $HOIME/Library/Application\ Support/JetBrains/Toolbox/scripts
   /opt/homebrew/bin
   /opt/homebrew/sbin
+  /opt/homebrew/opt/make/libexec/gnubin
+  /opt/homebrew/opt/openjdk/bin
   /usr/local/bin
   $path
 )

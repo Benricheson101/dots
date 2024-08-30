@@ -18,6 +18,10 @@ return {
       },
     },
 
+    renderer = {
+      group_empty = true,
+    },
+
     trash = {
       cmd = 'trash',
     },
