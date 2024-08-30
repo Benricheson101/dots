@@ -1,5 +1,7 @@
 <h1 align="center">MacOS Dotfiles</h1>
 
+![img](/.github/demo.png)
+
 ## Software
 | **Purpose** | **Software**   |
 | ----------- | -------------- |
@@ -18,5 +20,3 @@ $ git clone --bare git@github.com:Benricheson101/dots.git $HOME/.dot
 $ dot checkout
 $ dot config --local status.showUntrackedFiles false
 ```
-
-![img](/.github/demo.png)
