@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   event = {'BufReadPre', 'BufNewFile'},
   dependencies = {
-    'RRethy/nvim-treesitter-endwise',
+    -- 'RRethy/nvim-treesitter-endwise',
     'nvim-treesitter/nvim-treesitter-textobjects',
     'IndianBoy42/tree-sitter-just',
   },
@@ -37,9 +37,9 @@ return {
       additional_vim_regex_highlighting = false,
     },
 
-    endwise = {
-      enable = true,
-    },
+    -- endwise = {
+    --   enable = true,
+    -- },
 
     incremental_selection = {
       enable = true,

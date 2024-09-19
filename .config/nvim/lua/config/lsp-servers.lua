@@ -108,6 +108,33 @@ return function(lsp_attach)
       filetypes = {'javascriptreact', 'typescriptreact', 'html'},
     },
 
+    pylsp = {
+      settings = {
+        pylsp = {
+          plugins = {
+            pyflakes = {
+              enabled = false,
+            },
+            pycodestyle = {
+              enabled = false,
+            },
+          },
+        },
+      },
+    },
+    -- pywright = {
+    --   root_dir = lspconfig.util.root_pattern('biome.json'),
+    --   filetypes = {
+    --     'javascript',
+    --     'javascriptreact',
+    --     'json',
+    --     'jsonc',
+    --     'typescript',
+    --     'typescript.tsx',
+    --     'typescriptreact'
+    --   },
+    -- },
+
     -- yamlls = {
     --   settings = {
     --     yaml = {

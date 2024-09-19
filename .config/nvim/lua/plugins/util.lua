@@ -15,6 +15,10 @@ return {
     event = {'BufReadPre', 'BufNewFile'},
   },
   {
+    'tpope/vim-fugitive',
+    cmd = {'Git', 'G'},
+  },
+  {
     'adelarsq/vim-matchit',
     event = {'BufReadPre', 'BufNewFile'},
   },
