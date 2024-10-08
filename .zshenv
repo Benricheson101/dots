@@ -91,7 +91,7 @@ alias g++="g++-14"
 
 alias gc='git commit --verbose'
 alias gcam='git commit -am'
-alias gca='git commit -a'
+alias gca='git commit -av'
 alias gcm='git commit -m'
 alias gp='git push'
 
