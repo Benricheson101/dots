@@ -26,6 +26,7 @@ curlbot() {
   takesData=0
   hasContentTypeHeader=0
   hasAuthHeader=0
+  owoifyResponse=0
 
   for arg; do
     shift
@@ -39,6 +40,10 @@ curlbot() {
       takesData=1
     fi
 
+    if [[ "$owoifyResponse" == 0 && "$arg" =~ ^-(W|-owo|-owoify)$ ]]; then
+      owoifyResponse=1
+    fi
+
     shopt -s nocasematch
     if [[ "$hasContentTypeHeader" == 0 && "$arg" =~ ^content-type:[[:space:]](.*)$ ]]; then
       hasContentTypeHeader=1
@@ -47,6 +52,11 @@ curlbot() {
     if [[ "$hasAuthHeader" == 0 && "$arg" =~ ^authorization:.*$ ]]; then
       hasAuthHeader=1
     fi
+
+    if [[ "$hasAuthHeader" == 0 && "$arg" =~ ^-(-user-account)$ ]]; then
+      AUTH_HEADER="$DISCORD_TOKEN"
+    fi
+
     shopt -u nocasematch
 
     set -- "$@" "$arg"
@@ -79,7 +89,15 @@ curlbot() {
     )
   fi
 
-  eval "curl ${curlArgs[@]@Q}"
+  if [[ "$owoifyResponse" == 0 ]]; then
+    eval "curl ${curlArgs[@]@Q}"
+  else
+    eval "curl ${curlArgs[@]@Q} 2>&1 > /tmp/noowo"
+    uwuifyy -o /tmp/owo -i /tmp/noowo
+    rm -rf /tmp/noowo
+    cat /tmp/owo
+    rm -rf /tmp/owo
+  fi
 }
 
 curlbot "$@"
