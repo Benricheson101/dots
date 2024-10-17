@@ -72,7 +72,7 @@
       "KC_NO",
       "CUSTOM(3)",
       "MO(2)",
-      "KC_GRV",
+      "MO(4)",
       "KC_RCTL"
     ],
     [
@@ -161,7 +161,7 @@
       "KC_MUTE",
       "KC_VOLD",
       "KC_VOLU",
-      "KC_TRNS",
+      "KC_DEL",
       "KC_TRNS",
       "CUSTOM(9)",
       "CUSTOM(10)",
@@ -292,7 +292,7 @@
       "KC_TRNS"
     ],
     [
-      "S(KC_GRV)",
+      "KC_GRV",
       "KC_F1",
       "KC_F2",
       "KC_F3",
