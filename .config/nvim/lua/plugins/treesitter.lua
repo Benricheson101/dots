@@ -5,6 +5,7 @@ return {
     -- 'RRethy/nvim-treesitter-endwise',
     'nvim-treesitter/nvim-treesitter-textobjects',
     'IndianBoy42/tree-sitter-just',
+    'hrsh7th/nvim-cmp',
   },
 
   build = function()
@@ -62,6 +63,25 @@ return {
           ["ac"] = "@class.outer",
           ["ic"] = "@class.inner",
           ["as"] = "@scope",
+        },
+      },
+
+      swap = {
+        enable = true,
+        swap_next = {
+          ['<leader>a'] = '@parameter.inner',
+        },
+        swap_previous = {
+          ['<leader>A'] = '@parameter.inner',
+        },
+      },
+
+      lsp_interop = {
+        enable = true,
+        floating_preview_opts = require('cmp').config.window.bordered(),
+        peek_definition_code = {
+          ['<leader>df'] = '@function.outer',
+          ['<leader>dF'] = '@class.outer',
         },
       },
     },
