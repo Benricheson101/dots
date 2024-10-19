@@ -1,11 +1,11 @@
 theme = Ayu Mirage
 font-family = BerkeleyMono Nerd Font
+# font-family = FiraCode Nerd Font
 font-size = 12
 link-url = true
 
 command = /opt/homebrew/bin/tmux new -A
 
-# TODO: how do I make this work in tmux?
 shell-integration = zsh
 
 keybind = clear
