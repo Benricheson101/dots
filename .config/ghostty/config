@@ -37,4 +37,4 @@ resize-overlay = never
 
 quit-after-last-window-closed = true
 
-# vim: ft=ini commentstring=#\ %s
+# vim: commentstring=#\ %s

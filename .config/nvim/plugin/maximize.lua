@@ -3,6 +3,10 @@ local IS_MAXIMIZED_VAR = 'maximize_is_maximized'
 
 local M = {}
 
+--- Maximize a window. This works by setting the window size to $COLUMNS x $ROWS, shrinking the other windows.
+---
+--- For purposes of restoring, a window variable is set on each window of the tabpage containing the height and width before maximizing.
+--- @param win number? the window id to maximize
 function M.maximize(win)
   local winutil = require('util.win')
 
@@ -32,6 +36,7 @@ function M.maximize(win)
   vim.api.nvim_win_set_height(win, vim.go.lines)
 end
 
+--- Restores the split windows sizes to what they were before maximizing
 function M.restore()
   local winutil = require('util.win')
 
@@ -52,6 +57,7 @@ function M.restore()
   end
 end
 
+--- Toggles maximize and restore
 function M.toggle()
   if vim.t[IS_MAXIMIZED_VAR] then
     M.restore()

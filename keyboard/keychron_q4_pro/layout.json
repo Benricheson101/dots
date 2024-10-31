@@ -32,7 +32,7 @@
       "KC_LBRC",
       "KC_RBRC",
       "KC_BSLS",
-      "LT(4,KC_CAPS)",
+      "MO(4)",
       "KC_A",
       "KC_S",
       "KC_D",
@@ -162,7 +162,7 @@
       "KC_VOLD",
       "KC_VOLU",
       "KC_DEL",
-      "KC_TRNS",
+      "RGB_TOG",
       "CUSTOM(9)",
       "CUSTOM(10)",
       "CUSTOM(11)",
@@ -176,7 +176,7 @@
       "KC_PGUP",
       "KC_HOME",
       "KC_TRNS",
-      "RGB_TOG",
+      "KC_CAPS",
       "RGB_MOD",
       "RGB_VAI",
       "RGB_HUI",
@@ -358,10 +358,10 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "KC_TRNS",
-      "KC_LEFT",
-      "KC_DOWN",
-      "KC_RGHT"
+      "CUSTOM(3)",
+      "MO(2)",
+      "MO(4)",
+      "KC_RCTL"
     ]
   ],
   "encoders": []
