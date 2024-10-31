@@ -1,22 +1,24 @@
-local optutil = require('util.opt')
+local opt = require('util.opt')
 
 if vim.fn.has('termguicolors') then
-  optutil.set {termguicolors = true}
+  opt.set {termguicolors = true}
 end
 
 vim.cmd.colors('habamax')
+-- vim.cmd.colors('catppuccin-latte')
+
 -- sets the floating window border to match the background (making it ""invisible"")
 vim.api.nvim_set_hl(0, 'FloatBorder', {link = 'Normal'})
 vim.api.nvim_set_hl(0, 'Pmenu', {link = 'Normal'})
 
-optutil.g {
+opt.g {
   mapleader = ' ',
   neovide_cursor_animation_length = 0.05,
   neovide_scroll_animation_length = 0,
   neovide_position_animation_length = 0,
 }
 
-optutil.set {
+opt.set {
   guifont = 'IntoneMono Nerd Font:h12',
   -- guifont = 'IntelOne Mono:h12',
   -- guifont = 'FiraCode Nerd Font:h12',
@@ -57,7 +59,8 @@ optutil.set {
   virtualedit = {'block'},
 }
 
-vim.opt.shortmess:append('c')
+-- don't give ins-completion-menu messages "match 1 of 2"
+-- vim.opt.shortmess:append('c')
 
 vim.opt.formatoptions:remove('r')
 vim.opt.formatoptions:remove('o')

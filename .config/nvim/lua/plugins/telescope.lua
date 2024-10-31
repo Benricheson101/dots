@@ -5,6 +5,7 @@ return {
     'nvim-tree/nvim-web-devicons',
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope-file-browser.nvim',
+    'jvgrootveld/telescope-zoxide',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
@@ -41,6 +42,17 @@ return {
         hidden = true,
       },
     },
+
+    zoxide = {
+      -- mappings = {
+      --   ['<leader>pz'] = {
+      --     keepinsert = true,
+      --     action = function (selection)
+      --       require("telescope").extensions.file_browser.file_browser({ cwd = selection.path })
+      --     end
+      --   }
+      -- },
+    },
   },
 
   keys = {
@@ -59,6 +71,7 @@ return {
 
     telescope.load_extension('file_browser')
     telescope.load_extension('fzf')
+    telescope.load_extension('zoxide')
 
     vim.keymap.set('n', '<leader>pc', telescope.extensions.file_browser.file_browser)
     vim.keymap.set('n', '<leader>pf', builtin.find_files)
