@@ -27,7 +27,9 @@ return {
     },
 
     extensions = {
-      file_browser = {},
+      file_browser = {
+        git_status = false,
+      },
 
       fzf = {
         fuzzy = true,

@@ -38,6 +38,12 @@ return {
       --   }
       -- }
     },
+
+    -- git = {
+    --   disable_dirs = {
+    --     'qmk'
+    --   }
+    -- }
   },
 
   config = function(_, opts)

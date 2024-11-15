@@ -28,6 +28,23 @@ return function(lsp_attach)
         exit_timeout = 0,
       },
 
+      -- capabilities = vim.lsp.protocol.make_client_capabilities(),
+      -- temporary fix: https://github.com/hrsh7th/cmp-nvim-lsp/issues/72#issuecomment-2425963432
+      capabilities = require('cmp_nvim_lsp').default_capabilities {
+        resolveSupport = {
+          properties = {
+            "documentation",
+            "detail",
+            "additionalTextEdits",
+            "sortText",
+            "filterText",
+            "insertText",
+            "insertTextFormat",
+            "insertTextMode"
+          }
+        }
+      },
+
       settings = {
         rust = {
         },
@@ -87,7 +104,7 @@ return function(lsp_attach)
             includeInlayParameterNameHintsWhenArgumentMatchesName = true,
             -- class member inferred type
             includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = false,
+            includeInlayVariableTypeHints = true,
           },
         },
       },

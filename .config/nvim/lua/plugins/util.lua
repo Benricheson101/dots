@@ -25,6 +25,10 @@ return {
     'godlygeek/tabular',
     event = {'BufReadPre', 'BufNewFile'},
   },
+  -- {
+  --   'easymotion/vim-easymotion',
+  --   event = {'BufReadPre', 'BufNewFile'},
+  -- },
 
   {
     'windwp/nvim-autopairs',

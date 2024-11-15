@@ -23,13 +23,15 @@ setopt listpacked
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' complete-options true
-zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' cache-path ~/.cache/zsh/.zcompcache
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' complete-options true
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %d --%f'
+zstyle ':completion:*:cd:*' tag-order local-directories directory-stack path-directories
+zstyle ':completion:*:*:*:*:functions' ignoreed-patterns '_*'
+zstyle ':completion:*' verbose yes
 
 autoload -U {up,down}-line-or-beginning-search
 zle -N up-line-or-beginning-search
@@ -58,12 +60,14 @@ compdef _curl curlbot
 compdef _mkdir mk
 compdef _git dot
 
-autoload run-help
+autoload run-help -uZ
 HELPDIR=/usr/share/zsh/"${ZSH_VERSION}"/help
+unalias run-help &>/dev/null
 alias help=run-help
 
 # third-party plugins
 plugins=(
+  $HOME/.local/share/zsh/plugins/async.zsh
   $HOME/.local/share/zsh/themes/oxide.zsh-theme
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
