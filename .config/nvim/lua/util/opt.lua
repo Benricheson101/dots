@@ -9,6 +9,7 @@ local function table_set(into)
 end
 
 M.set = table_set(vim.opt)
+M.setlocal = table_set(vim.opt_local)
 M.let_g = table_set(vim.g)
 M.g = table_set(vim.g)
 

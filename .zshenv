@@ -5,7 +5,6 @@ typeset -U PATH path
 
 path=(
   $HOME/scripts
-  $HOME/.yarn/bin
   $HOME/.local/bin
   $HOME/Library/pnpm
   $HOME/go

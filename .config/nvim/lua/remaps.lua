@@ -9,8 +9,8 @@ vim.keymap.set('n', 'k', 'gk')
 vim.keymap.set('v', 'k', 'gk')
 
 vim.keymap.set('n', '<leader><Space>', vim.cmd.noh)
-vim.keymap.set('n', ';;', 'A;<esc>')
-vim.keymap.set('n', ',,', 'A,<esc>')
+vim.keymap.set('n', '<leader>;', 'A;<esc>')
+vim.keymap.set('n', '<leader>,', 'A,<esc>')
 vim.keymap.set('t', '<S-Space>', '<Space>')
 
 vim.keymap.set('n', 'gh', '<NOP>')

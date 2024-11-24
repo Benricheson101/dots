@@ -1,7 +1,11 @@
 local opt = require('util.opt')
+local t = require('util.table')
 
 if vim.fn.has('termguicolors') then
-  opt.set {termguicolors = true}
+  opt.set {
+    termguicolors = true,
+    winblend = 5
+  }
 end
 
 vim.cmd.colors('habamax')
@@ -34,7 +38,9 @@ opt.set {
   ignorecase = true,
   smartcase = true,
 
-  backspace = 'indent,eol,start',
+  showmatch = true,
+
+  backspace = {'indent', 'eol', 'start'},
 
   dir = '/private/tmp',
   backup = true,
@@ -46,7 +52,20 @@ opt.set {
 
   wildoptions = {'pum', 'tagfile', 'fuzzy'},
   virtualedit = {'block'},
+
+  matchpairs = t.append {'<:>'},
+  shortmess = t.append {'l'},
+  formatoptions = t.remove {'r', 'o'},
 }
 
-vim.opt.formatoptions:remove('r')
-vim.opt.formatoptions:remove('o')
+local fo_group = vim.api.nvim_create_augroup('formatoptions', {clear = true})
+vim.api.nvim_create_autocmd('FileType', {
+  group = fo_group,
+  pattern = '*',
+  desc = 'sets formatoptions because someone, in their infinite wisdom, decided to overwrite them in nearly every default ftplugin',
+  callback = function ()
+    opt.setlocal {
+      formatoptions = t.remove {'r', 'o'},
+    }
+  end
+})
