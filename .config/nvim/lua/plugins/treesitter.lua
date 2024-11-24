@@ -6,7 +6,7 @@ return {
       -- 'RRethy/nvim-treesitter-endwise',
       'nvim-treesitter/nvim-treesitter-textobjects',
       'IndianBoy42/tree-sitter-just',
-      'hrsh7th/nvim-cmp',
+      -- 'hrsh7th/nvim-cmp',
 
       {
         "folke/ts-comments.nvim",
@@ -85,14 +85,14 @@ return {
             },
           },
 
-          lsp_interop = {
-            enable = true,
-            floating_preview_opts = require('cmp').config.window.bordered(),
-            peek_definition_code = {
-              ['<leader>df'] = '@function.outer',
-              ['<leader>dF'] = '@class.outer',
-            },
-          },
+          -- lsp_interop = {
+          --   enable = true,
+          --   floating_preview_opts = require('cmp').config.window.bordered(),
+          --   peek_definition_code = {
+          --     ['<leader>df'] = '@function.outer',
+          --     ['<leader>dF'] = '@class.outer',
+          --   },
+          -- },
         },
       }
     end,

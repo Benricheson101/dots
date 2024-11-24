@@ -29,3 +29,5 @@ vim.keymap.set('n', '<leader>v', '"+p')
 vim.keymap.set('v', '<leader>v', '"+p')
 vim.keymap.set('v', '<leader>x', '"+d')
 vim.keymap.set('n', '<leader>x', '"+d')
+
+vim.keymap.set({'n', 'v'}, '<leader>z', function() require('plugin.maximize').toggle() end)

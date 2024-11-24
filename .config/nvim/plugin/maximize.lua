@@ -66,6 +66,4 @@ function M.toggle()
   end
 end
 
-vim.keymap.set({'n', 'v'}, '<leader>z', M.toggle)
-
 return M
