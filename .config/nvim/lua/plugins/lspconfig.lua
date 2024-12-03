@@ -134,10 +134,8 @@ return {
             capabilities = lsp_capabilities,
           }
 
-          local custom_cfg = custom_configs[name] or {}
-          lspconfig[name].setup(
-            vim.tbl_deep_extend('force', default_cfg, custom_cfg)
-          )
+          local cfg = vim.tbl_deep_extend('force', default_cfg, custom_configs[name] or {})
+          lspconfig[name].setup(cfg)
         end
       }
     end,
@@ -159,6 +157,7 @@ return {
   {
     'marilari88/twoslash-queries.nvim',
     lazy = true,
+    -- ft = {'typescript', 'typescriptreact', 'javascript', 'javascriptreact'},
     opts = {
       highlight = 'TwoslashQuery',
     },

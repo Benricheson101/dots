@@ -81,7 +81,7 @@ return function(lsp_attach)
       },
     },
 
-    tsserver = {
+    ts_ls = {
       settings = {
         javascript = {
           format = {
