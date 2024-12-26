@@ -96,5 +96,4 @@ alias gp='git push'
 
 for n in {3..6} ; do
   alias "$(printf '.%.s' {1..$n})"="cd $(printf '../%.s' {2..$n})"
-  # alias "${(pl:$n::.:)}"="cd ${(pl:$((n - 1))::../:)}"
 done
