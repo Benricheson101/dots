@@ -37,6 +37,8 @@ export NVM_DIR="$HOME/.nvm"
 export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
 export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
 
+export HOMEBREW_NO_ANALYTICS=1
+
 . "$HOME/.env"
 
 export PAGER=less
