@@ -90,7 +90,7 @@ alias cf="cargo fmt --all"
 alias gcc="gcc-14"
 alias g++="g++-14"
 
-alias gc='git commit --verbose'
+alias gc='git commit'
 alias gcam='git commit -am'
 alias gca='git commit -av'
 alias gcm='git commit -m'
