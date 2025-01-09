@@ -1,0 +1,24 @@
+#!/usr/bin/env zsh
+
+name=${1:-mac14}
+
+if [[ ! $name ]] ; then
+  echo 'incorrect usage: missing NAME' >&2
+  return 1
+fi
+
+envfile="$HOME/.restic/$name.env"
+
+if [ ! -f $envfile ] ; then
+  echo "missing \`$envfile\` file for: $name" >&2
+  return 1
+fi
+
+dir=$(mktemp -d -t "$name")
+trap "rm -rf \"$dir\"" EXIT SIGINT
+
+. $envfile
+
+open $dir
+
+restic mount $dir

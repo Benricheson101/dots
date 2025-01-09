@@ -29,3 +29,6 @@ $ dot config --local status.showUntrackedFiles no
 - [zoxide](https://github.com/ajeetdsouza/zoxide)
 - [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 - [zsh-vi-mode](https://github.com/jeffreytse/zsh-vi-mode)
+
+---
+`$ gpg --keyserver keys.openpgp.org --recv-keys 1B90D025DC9A8E35`

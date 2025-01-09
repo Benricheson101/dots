@@ -1,0 +1,3 @@
+#compdef mount-backup
+
+_path_files -W "$HOME/.restic" -g '*.env(:r)' -S ' '

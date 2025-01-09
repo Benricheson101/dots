@@ -1,0 +1,18 @@
+#!/usr/bin/env zsh
+
+. ~/.env
+
+restic backup \
+  --exclude-caches \
+  --exclude 'node_modules/*' \
+  --exclude 'build/*' \
+  --exclude 'dist/*' \
+  --exclude 'target/*' \
+  --exclude 'cache/*' \
+  --exclude 'Cache/*' \
+  --exclude 'caches/*' \
+  --exclude 'Caches/*' \
+  --exclude 'Mobile Documents/*' \
+  --exclude 'CloudStorage/*' \
+  --exclude=$HOME/{.cache,.npm,.pnpm,.Trash}/\* \
+  ~
