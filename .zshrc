@@ -78,3 +78,6 @@ for plugin ($plugins) do
 done
 
 eval "$(zoxide init zsh)"
+
+# autoload -U +X bashcompinit && bashcompinit
+# complete -o nospace -C /opt/homebrew/bin/mc mc

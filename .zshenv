@@ -47,7 +47,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 alias 'reload!'='source ~/.zshenv && source ~/.zshrc && rm -i ~/.zcompdump && compinit'
-alias b='bun'
+alias b='brew'
 alias bi='brew install'
 alias bu='brew uninstall'
 alias bz='bazel'
@@ -95,6 +95,8 @@ alias gcam='git commit -am'
 alias gca='git commit -av'
 alias gcm='git commit -m'
 alias gp='git push'
+
+alias bu='brew update && brew upgrade'
 
 for n in {3..6} ; do
   alias "$(printf '.%.s' {1..$n})"="cd $(printf '../%.s' {2..$n})"
