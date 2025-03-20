@@ -60,7 +60,7 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'b0o/schemastore.nvim',
-      'folke/neodev.nvim',
+      -- 'folke/neodev.nvim',
     },
 
     config = function()
@@ -141,15 +141,29 @@ return {
     end,
   },
 
+  -- {
+  --   'folke/neodev.nvim',
+  --   lazy = true,
+  --   opts = {
+  --     library = {
+  --       enabled = true,
+  --       runtime = true,
+  --       types = true,
+  --       plugins = false,
+  --     },
+  --   },
+  -- },
+
   {
-    'folke/neodev.nvim',
+    'folke/lazydev.nvim',
     lazy = true,
     opts = {
       library = {
-        enabled = true,
-        runtime = true,
-        types = true,
-        plugins = false,
+        {path = "${3rd}/luv/library", words = {"vim%.uv"}},
+        -- enabled = true,
+        -- runtime = true,
+        -- types = true,
+        -- plugins = false,
       },
     },
   },

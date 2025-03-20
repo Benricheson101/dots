@@ -62,6 +62,7 @@ return {
         },
 
         mapping = cmp.mapping.preset.insert({
+          -- MAC NOTE: if this doesn't work, check System Prefs > Keyboard > Keyboard Shortcuts > Input Sources and make sure the ^Space one is unchecked
           -- open the completion menu
           ['<C-Space>'] = cmp.mapping.complete(),
 
@@ -124,6 +125,7 @@ return {
           },
           {name = 'luasnip', options = {use_show_conditions = false}},
           {name = 'path'},
+          {name = 'lazydev', group_index = 0},
         },
       }
 

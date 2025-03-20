@@ -16,6 +16,10 @@ return function(lsp_attach)
       },
     },
 
+    bashls = {
+      filetypes = {"bash", "sh", "zsh"},
+    },
+
     clangd = {
       filetypes = {
         'c',
@@ -92,20 +96,21 @@ return function(lsp_attach)
           format = {
             enable = false,
           },
-          inlayHints = {
-            -- shows the value of an enum member in its declaration
-            includeInlayEnumMemberValueHints = true,
-            -- shows the inferred return type of a function
-            includeInlayFunctionLikeReturnTypeHints = false,
-            includeInlayFunctionParameterTypeHints = true,
-            -- parameters in function calls
-            includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-            -- shows the parameter name in a function when both the parameter name and input variable name are the same
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            -- class member inferred type
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-          },
+          -- FIXME: sometimes gives weird COmputed something error
+          -- inlayHints = {
+          --   -- shows the value of an enum member in its declaration
+          --   includeInlayEnumMemberValueHints = true,
+          --   -- shows the inferred return type of a function
+          --   includeInlayFunctionLikeReturnTypeHints = false,
+          --   includeInlayFunctionParameterTypeHints = true,
+          --   -- parameters in function calls
+          --   includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+          --   -- shows the parameter name in a function when both the parameter name and input variable name are the same
+          --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          --   -- class member inferred type
+          --   includeInlayPropertyDeclarationTypeHints = true,
+          --   includeInlayVariableTypeHints = true,
+          -- },
         },
       },
 
@@ -152,27 +157,37 @@ return function(lsp_attach)
     --   },
     -- },
 
+    yamlls = {},
+
     -- yamlls = {
-    --   settings = {
-    --     yaml = {
-    --       schemaStore = {
-    --         enable = true,
-    --         url = "https://www.schemastore.org/api/json/catalog.json",
-    --       },
-
-    --       trace = {
-    --         server = "verbose",
-    --       },
-
-    --       -- schemas = require('schemastore').yaml.schemas {
-    --       --   select = {
-    --       --     'docker-compose.yml',
-
-    --       --   }
-    --       -- }
-    --     },
-    --   },
+    --   -- settings = {
+    --   --   yaml = {
+    --   --     schemaStore = {
+    --   --       enable = true,
+    --   --       url = "https://www.schemastore.org/api/json/catalog.json",
+    --   --     },
+    --   --
+    --   --     trace = {
+    --   --       server = "verbose",
+    --   --     },
+    --   --
+    --   --     -- schemas = require('schemastore').yaml.schemas {
+    --   --     --   select = {
+    --   --     --     'docker-compose.yml',
+    --   --
+    --   --     --   }
+    --   --     -- }
+    --   --   },
+    --   -- },
     -- },
+
+    astro = {
+      init_options = {
+        typescript = {
+          tsdk = vim.env.HOME .. "/.local/share/nvim/mason/packages/typescript-language-server/node_modules/typescript/lib/"
+        },
+      },
+    },
   }
 
 end

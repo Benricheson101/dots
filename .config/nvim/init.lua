@@ -14,7 +14,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy = require('lazy')
--- lazy.setup('plugins')
 lazy.setup {
   spec = {
     {import = "plugins"},
@@ -25,7 +24,8 @@ lazy.setup {
   },
 }
 
--- require('plugins')
 require('opt')
 require('remaps')
 require('hi')
+
+require('plugin.trim_whitespace').setup()

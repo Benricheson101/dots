@@ -23,11 +23,15 @@ vim.keymap.set('n', '<leader>d', '"_d')
 vim.keymap.set('v', '<leader>d', '"_d')
 
 -- system clipboard
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
-vim.keymap.set('n', '<leader>v', '"+p')
-vim.keymap.set('v', '<leader>v', '"+p')
-vim.keymap.set('v', '<leader>x', '"+d')
-vim.keymap.set('n', '<leader>x', '"+d')
+vim.keymap.set({'n', 'v'}, '<leader>y', '"+y')
+-- vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set({'n', 'v'}, '<leader>v', '"+p')
+-- vim.keymap.set('v', '<leader>v', '"+p')
+vim.keymap.set({'n', 'v'}, '<leader>x', '"+d')
+-- vim.keymap.set('v', '<leader>x', '"+d')
 
 vim.keymap.set({'n', 'v'}, '<leader>z', function() require('plugin.maximize').toggle() end)
+
+-- vim.keymap.set('v', '<leader>c', "ygvgc'>pm`O<esc>``") -- why does this not work
+
+vim.cmd "vmap <leader>c ygvgc'>pm`O<esc>``"

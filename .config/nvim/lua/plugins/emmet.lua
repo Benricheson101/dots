@@ -1,14 +1,15 @@
 return {
-  -- {
-  --   'mattn/emmet-vim',
-  --   ft = {
-  --     'html',
-  --     'javascriptreact',
-  --     'typescriptreact',
-  --     'svelte',
-  --   },
-  -- },
-  --
+  {
+    'mattn/emmet-vim',
+    ft = {
+      'html',
+      'javascriptreact',
+      'typescriptreact',
+      'svelte',
+      'astro',
+    },
+  },
+
   -- {
   --   'dcampos/cmp-emmet-vim',
   --   ft = {
@@ -16,6 +17,7 @@ return {
   --     'javascriptreact',
   --     'typescriptreact',
   --     'svelte',
+  --     'astro',
   --   },
   -- }
 }
