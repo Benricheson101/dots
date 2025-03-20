@@ -37,4 +37,6 @@ resize-overlay = never
 
 quit-after-last-window-closed = true
 
+auto-update-channel = tip
+
 # vim: commentstring=#\ %s

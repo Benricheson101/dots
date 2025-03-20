@@ -16,3 +16,25 @@ restic backup \
   --exclude 'CloudStorage/*' \
   --exclude=$HOME/{.cache,.npm,.pnpm,.Trash}/\* \
   ~
+
+  # --exclude=$HOME/{Pictures,Library,Movies,Music,.Trash}/\* \
+
+
+#!/usr/bin/env bash
+
+. ~/.env
+
+# restic backup \
+#   --exclude-caches \
+#   --exclude 'node_modules/*' \
+#   --exclude 'build/*' \
+#   --exclude 'dist/*' \
+#   --exclude 'target/*' \
+#   --exclude 'pkg/mod/*' \
+#   --exclude=$HOME/{.Trash,.asdf,.bun,.pnpm,.stack,.mongodb,.cabal,.cache,.cargo}/\* \
+#   --exclude '.Trash/*' \
+#   --exclude '/Applications/*' \
+#   --exclude 'Mobile Documents/*' \
+#   --exclude 'CloudStorage/*' \
+#   /
+  # --exclude=$HOME/{Pictures,Library,Movies,Music,.Trash,.asdf,.bun,.pnpm,.stack,.mongodb,.cabal,.cache,.cargo}/\* \

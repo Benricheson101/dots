@@ -1,4 +1,5 @@
-export PNPM_HOME="/Users/benricheson/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
+export ASDF_DATA_DIR="$HOME/.asdf"
 
 typeset -U FPATH fpath
 typeset -U PATH path
@@ -10,6 +11,7 @@ path=(
   $HOME/go
   $HOME/.pyenv/shims
   $HOME/.cargo/bin
+  $ASDF_DATA_DIR/shims
   /Applications/Ghostty.app/Contents/MacOS
   $HOIME/Library/Application\ Support/JetBrains/Toolbox/scripts
   /opt/homebrew/bin
@@ -17,13 +19,14 @@ path=(
   /opt/homebrew/opt/make/libexec/gnubin
   /opt/homebrew/opt/openjdk/bin
   /usr/local/bin
+  /opt/homebrew/opt/rustup/bin
   $path
 )
 
 fpath+=(
+  $HOME/.local/share/zsh/completion
   /opt/homebrew/share/zsh/site-functions
   $HOME/.local/share/zsh/functions
-  $HOME/.local/share/zsh/completion
   $HOME/scripts/functions
 )
 
@@ -51,7 +54,7 @@ alias b='brew'
 alias bi='brew install'
 alias bu='brew uninstall'
 alias bz='bazel'
-alias c='/Users/benricheson/.cargo/bin/cargo'
+alias c='cargo'
 alias cat='bat -p --theme Nord'
 alias cls='clear'
 alias d='docker'
