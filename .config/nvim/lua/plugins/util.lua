@@ -24,6 +24,15 @@ return {
   {
     'godlygeek/tabular',
     event = {'BufReadPre', 'BufNewFile'},
+    config = function()
+      local patterns = {
+        typsttable = '/\\("\\|\\]\\),\\zs',
+      }
+
+      for name, pat in pairs(patterns) do
+        vim.cmd.AddTabularPattern(name, pat)
+      end
+    end
   },
   -- {
   --   'easymotion/vim-easymotion',
