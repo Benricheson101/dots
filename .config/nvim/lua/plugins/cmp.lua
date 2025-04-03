@@ -51,8 +51,12 @@ return {
         },
 
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(), -- TODO: how do I make this wider?
+          completion = cmp.config.window.bordered {
+            border = 'rounded',
+          },
+          documentation = cmp.config.window.bordered { -- TODO: how do I make this wider?
+            border = 'rounded',
+          },
         },
 
         snippet = {

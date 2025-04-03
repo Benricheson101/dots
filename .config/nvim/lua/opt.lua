@@ -8,6 +8,7 @@ if vim.fn.has('termguicolors') then
   }
 end
 
+-- vim.cmd.colors('habamax_old')
 vim.cmd.colors('habamax')
 
 opt.g {
