@@ -57,6 +57,8 @@ opt.set {
   matchpairs = t.append {'<:>'},
   shortmess = t.append {'l'},
   formatoptions = t.remove {'r', 'o'},
+
+  winborder = 'rounded',
 }
 
 local fo_group = vim.api.nvim_create_augroup('formatoptions', {clear = true})

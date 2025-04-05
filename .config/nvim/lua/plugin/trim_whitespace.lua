@@ -16,6 +16,10 @@ local function trim_whitespace(range, silent)
   vim.api.nvim_win_set_cursor(0, pos)
 end
 
+local disabled_filetypes = {
+  'help',
+}
+
 function M.setup()
   local group = vim.api.nvim_create_augroup('TrailingWhitespace', {
     clear = true,
@@ -31,6 +35,12 @@ function M.setup()
   vim.api.nvim_create_autocmd({'BufEnter', 'BufWinEnter', 'InsertLeave'}, {
     group = group,
     callback = function ()
+      for _, ft in ipairs(disabled_filetypes) do
+        if vim.bo.ft == ft then
+          return
+        end
+      end
+
       vim.cmd.syntax {'match', 'TrailingWhitespace', 'excludenl', '/\\s\\+$/'}
     end
   })

@@ -34,7 +34,22 @@ return function(lsp_attach)
 
       -- capabilities = vim.lsp.protocol.make_client_capabilities(),
       -- temporary fix: https://github.com/hrsh7th/cmp-nvim-lsp/issues/72#issuecomment-2425963432
-      capabilities = require('cmp_nvim_lsp').default_capabilities {
+      -- capabilities = require('cmp_nvim_lsp').default_capabilities {
+      --   resolveSupport = {
+      --     properties = {
+      --       "documentation",
+      --       "detail",
+      --       "additionalTextEdits",
+      --       "sortText",
+      --       "filterText",
+      --       "insertText",
+      --       "insertTextFormat",
+      --       "insertTextMode"
+      --     }
+      --   }
+      -- },
+
+      capabilities = require('blink.cmp').get_lsp_capabilities {
         resolveSupport = {
           properties = {
             "documentation",
@@ -44,10 +59,11 @@ return function(lsp_attach)
             "filterText",
             "insertText",
             "insertTextFormat",
-            "insertTextMode"
-          }
-        }
+            "insertTextMode",
+          },
+        },
       },
+
 
       settings = {
         rust = {

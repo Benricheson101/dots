@@ -60,12 +60,14 @@ return {
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'b0o/schemastore.nvim',
+      'saghen/blink.cmp',
       -- 'folke/neodev.nvim',
     },
 
     config = function()
       local mason_lspconfig = require('mason-lspconfig')
-      local cmp_nvim_lsp = require('cmp_nvim_lsp')
+      -- local cmp_nvim_lsp = require('cmp_nvim_lsp')
+      local blink = require('blink.cmp')
       local lspconfig = require('lspconfig')
 
       -- TODO: is it possible to remove the concealed ```lua line from the popup
@@ -102,29 +104,31 @@ return {
 
       -- vim.lsp.set_log_level(1)
 
-      local lsp_capabilities = vim.tbl_deep_extend(
-        'force',
-        vim.lsp.protocol.make_client_capabilities(),
-        cmp_nvim_lsp.default_capabilities()
+      -- local lsp_capabilities = vim.tbl_deep_extend(
+      --   'force',
+      --   vim.lsp.protocol.make_client_capabilities(),
+      --   cmp_nvim_lsp.default_capabilities()
+      --
+      --   -- temporary fix: https://github.com/hrsh7th/cmp-nvim-lsp/issues/72#issuecomment-2425963432
+      --   -- cmp_nvim_lsp.default_capabilities(
+      --   --   {
+      --   --     resolveSupport = {
+      --   --       properties = {
+      --   --         "documentation",
+      --   --         "detail",
+      --   --         "additionalTextEdits",
+      --   --         "sortText",
+      --   --         "filterText",
+      --   --         "insertText",
+      --   --         "insertTextFormat",
+      --   --         "insertTextMode"
+      --   --       }
+      --   --     }
+      --   --   }
+      --   -- )
+      -- )
 
-        -- temporary fix: https://github.com/hrsh7th/cmp-nvim-lsp/issues/72#issuecomment-2425963432
-        -- cmp_nvim_lsp.default_capabilities(
-        --   {
-        --     resolveSupport = {
-        --       properties = {
-        --         "documentation",
-        --         "detail",
-        --         "additionalTextEdits",
-        --         "sortText",
-        --         "filterText",
-        --         "insertText",
-        --         "insertTextFormat",
-        --         "insertTextMode"
-        --       }
-        --     }
-        --   }
-        -- )
-      )
+      local lsp_capabilities = blink.get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       local custom_configs = require('config.lsp-servers')(lsp_attach)
       mason_lspconfig.setup_handlers {
