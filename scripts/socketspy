@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# snoop on unix domain socket. moves the socket and creates a middleman in its place using socat
+
+socket="$1"
+renamedsocket="${socket}.original"
+
+if [[ ! $socket || ! -S $socket ]] ; then
+  echo "incorrect usage: missing socket" >&2
+  exit 1
+fi
+
+cleanup() {
+  if [[ -S "$renamedsocket" ]] ; then
+    rm -f "$socket"
+    mv "$renamedsocket" "$socket"
+  fi
+}
+
+trap cleanup EXIT
+
+# mode=$(stat )
+case $(uname -s) in
+  Darwin*) mode=$(stat -f'%A' "$socket") ;;
+  Linux*) mode=$(stat -f'%A' "$socket") ;;
+  *)
+    echo "unknown system $(uname -s)" >&2
+    exit 1
+    ;;
+esac
+
+mv "$socket" "$renamedsocket"
+socat -t100 -x -v "UNIX-LISTEN:${socket},mode=${mode},reuseaddr,fork" "UNIX-CONNECT:${renamedsocket}"
