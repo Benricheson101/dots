@@ -1,6 +1,7 @@
 local optutil = require('util.opt')
 
 return {
+  {'ayu-theme/ayu-vim'},
   {
     'wakatime/vim-wakatime',
     event = {'BufReadPre', 'BufNewFile'},

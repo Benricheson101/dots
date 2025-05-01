@@ -55,6 +55,8 @@ return {
         show_on_trigger_character = true,
         show_on_insert_on_trigger_character = true,
         show_on_accept_on_trigger_character = true,
+        show_on_blocked_trigger_characters = {'\t'},
+        show_on_x_blocked_trigger_characters = {'\t'},
         -- show_on_blocked_trigger_characters = {' ', '\n'},
       }
     },
