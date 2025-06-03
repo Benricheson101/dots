@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+sopsenv() {
+  file=${1:-.env}
+  export $(sops -d --output-type dotenv "$file" | xargs)
+}
