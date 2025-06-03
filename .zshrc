@@ -38,7 +38,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 autoload -U compinit && compinit -C
-autoload -Uz nvm mk trim
+autoload -Uz nvm mk trim sopsenv
 
 KEYTIMEOUT=1
 bindkey -v

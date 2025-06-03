@@ -20,6 +20,7 @@ path=(
   /opt/homebrew/opt/openjdk/bin
   /usr/local/bin
   /opt/homebrew/opt/rustup/bin
+  /opt/homebrew/opt/libpq/bin
   $path
 )
 
