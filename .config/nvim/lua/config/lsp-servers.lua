@@ -173,7 +173,13 @@ return function(lsp_attach)
     --   },
     -- },
 
-    yamlls = {},
+    yamlls = {
+      settings = {
+        schemas = require('schemastore').yaml.schemas {
+          ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json"] = "/ansible/*.yml",
+        },
+      },
+    },
 
     -- yamlls = {
     --   -- settings = {

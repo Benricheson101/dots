@@ -25,6 +25,7 @@ lazy.setup {
 }
 
 require('plugin.trim_whitespace').setup()
+require('plugin.sops').setup()
 
 require('opt')
 require('remaps')

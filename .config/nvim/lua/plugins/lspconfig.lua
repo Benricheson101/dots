@@ -58,7 +58,7 @@ return {
     'neovim/nvim-lspconfig',
     event = {'BufReadPre', 'BufNewFile'},
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      'mason-org/mason-lspconfig.nvim',
       'b0o/schemastore.nvim',
       'saghen/blink.cmp',
       -- 'folke/neodev.nvim',
