@@ -1,0 +1,74 @@
+#!/usr/bin/env zsh
+
+_direnv_ENABLED_FILE=~/.config/direnv/dirs
+
+_direnv_ENABLED_DIRS=(
+  $(sed "s,^~/,$HOME/," $_direnv_ENABLED_FILE | xargs realpath)
+)
+
+_direnv_LOG_LEVEL=info
+
+typeset -U _direnv_loaded_vars
+
+_direnv_is_dir_enabled() {
+  local dir=${1:-$PWD}
+
+  for enabled_path in $_direnv_ENABLED_DIRS ; do
+    [[ "$dir" == "$enabled_path"* ]] && return 0
+  done
+
+  return 1
+}
+
+direnv_load() {
+  for var in $_direnv_loaded_vars ; do
+    unset $var
+  done
+
+  _direnv_loaded_vars=()
+
+  local -a parents
+  local -a parts=(${(s:/:)PWD})
+
+  for part in {1..${#parts}} ; do
+    local p=(${parts:0:$part})
+    local partial_path="/${(j:/:)p}"
+
+    if _direnv_is_dir_enabled $partial_path ; then
+      parents+=$partial_path
+    fi
+  done
+
+  if [[ ${#parents} == 0 ]] ; then
+    return
+  fi
+
+  for parent in $parents ; do
+    local file="${parent}/.env"
+    if [[ -f $file ]] ; then
+      set -a
+      . $file
+      set +a
+
+    _direnv_loaded_vars+=("${(f)$(perl -ne '/^(?:export )?([a-zA-Z0-9_]+)=/ && print "$1\n"' < $file)}")
+    fi
+  done
+
+  if [[ $_direnv_LOG_LEVEL == debug ]] || [[ $_direnv_LOG_LEVEL == info && ${#_direnv_loaded_vars} != 0 ]] ; then
+    echo "[direnv] loaded variables: ${(j:, :)_direnv_loaded_vars:-none}" >&2
+  fi
+}
+
+direnv_add() {
+  local dir=$(realpath ${1:-$PWD})
+  mkdir -p $(dirname $_direnv_ENABLED_FILE)
+  echo $dir >> $_direnv_ENABLED_FILE
+
+  sort -u $_direnv_ENABLED_FILE -o $_direnv_ENABLED_FILE
+}
+
+chpwd() {
+  if _direnv_is_dir_enabled ; then
+    direnv_load
+  fi
+}

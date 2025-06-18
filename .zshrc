@@ -71,6 +71,8 @@ plugins=(
   $HOME/.local/share/zsh/themes/oxide.zsh-theme
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+  ~/scripts/functions/direnv
 )
 
 for plugin ($plugins) do
