@@ -131,6 +131,7 @@ return {
       local lsp_capabilities = blink.get_lsp_capabilities(vim.lsp.protocol.make_client_capabilities())
 
       local custom_configs = require('config.lsp-servers')(lsp_attach)
+
       mason_lspconfig.setup_handlers {
         function(name)
           local default_cfg = {
@@ -139,7 +140,9 @@ return {
           }
 
           local cfg = vim.tbl_deep_extend('force', default_cfg, custom_configs[name] or {})
-          lspconfig[name].setup(cfg)
+          -- lspconfig[name].setup(cfg)
+          vim.lsp.config(name, cfg)
+          vim.lsp.enable(name)
         end
       }
     end,

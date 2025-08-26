@@ -113,20 +113,20 @@ return function(lsp_attach)
             enable = false,
           },
           -- FIXME: sometimes gives weird COmputed something error
-          -- inlayHints = {
-          --   -- shows the value of an enum member in its declaration
-          --   includeInlayEnumMemberValueHints = true,
-          --   -- shows the inferred return type of a function
-          --   includeInlayFunctionLikeReturnTypeHints = false,
-          --   includeInlayFunctionParameterTypeHints = true,
-          --   -- parameters in function calls
-          --   includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-          --   -- shows the parameter name in a function when both the parameter name and input variable name are the same
-          --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          --   -- class member inferred type
-          --   includeInlayPropertyDeclarationTypeHints = true,
-          --   includeInlayVariableTypeHints = true,
-          -- },
+          inlayHints = {
+            -- shows the value of an enum member in its declaration
+            includeInlayEnumMemberValueHints = true,
+            -- shows the inferred return type of a function
+            includeInlayFunctionLikeReturnTypeHints = false,
+            includeInlayFunctionParameterTypeHints = true,
+            -- parameters in function calls
+            includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+            -- shows the parameter name in a function when both the parameter name and input variable name are the same
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            -- class member inferred type
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayVariableTypeHints = true,
+          },
         },
       },
 
@@ -175,9 +175,11 @@ return function(lsp_attach)
 
     yamlls = {
       settings = {
-        schemas = require('schemastore').yaml.schemas {
-          ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json"] = "/ansible/*.yml",
-        },
+        yaml = {
+          schemas = require('schemastore').yaml.schemas {
+            ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json"] = "/ansible/*.yml",
+          },
+        }
       },
     },
 
