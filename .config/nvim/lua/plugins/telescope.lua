@@ -60,6 +60,7 @@ return {
   keys = {
     '<leader>pc',
     '<leader>pf',
+    '<leader>ps',
     '<leader>gf',
     '<C-F>',
     '<CS-f>',
@@ -77,6 +78,7 @@ return {
 
     vim.keymap.set('n', '<leader>pc', telescope.extensions.file_browser.file_browser)
     vim.keymap.set('n', '<leader>pf', builtin.find_files)
+    vim.keymap.set('n', '<leader>ps', builtin.lsp_document_symbols)
     vim.keymap.set('n', '<leader>gf', builtin.git_files)
     vim.keymap.set('n', '<C-F>', builtin.live_grep)
     vim.keymap.set('n', '<CS-f>', builtin.live_grep)

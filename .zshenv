@@ -93,8 +93,8 @@ alias ct="cargo test"
 alias ctr="cargo test --release"
 alias cf="cargo fmt --all"
 
-alias gcc="gcc-14"
-alias g++="g++-14"
+alias gcc="gcc-15"
+alias g++="g++-15"
 
 alias gc='git commit'
 alias gcam='git commit -am'
