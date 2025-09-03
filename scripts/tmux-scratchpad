@@ -1,0 +1,20 @@
+#!/usr/bin/env zsh
+
+# inspired by https://blog.meain.io/2020/tmux-flating-scratch-terminal
+
+SCRATCHPAD_SESSION_NAME=scratch
+
+height='85%'
+width='85%'
+
+if [[ $(tmux display-message -p '#S') == "$SCRATCHPAD_SESSION_NAME" ]] ; then
+  tmux detach
+else
+  tmux popup \
+    -d '#{pane_current_path}' \
+    -w$width \
+    -h$height \
+    -xC \
+    -yC \
+    -E "tmux new -As $SCRATCHPAD_SESSION_NAME"
+fi
