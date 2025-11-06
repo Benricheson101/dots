@@ -19,7 +19,14 @@ local function lsp_attach(client, bufnr)
 
   if client.name == 'tsserver' then
     client.server_capabilities.documentFormattingProvider = false
+  elseif client.name == 'emmet_language_server' then
+    if client.server_capabilities.completionProvider then
+      -- this is the reason why the completion menu opens so much in jsx files. emmet_language_server adds a bunch of emmet-related trigger characters but doesn't chack if it's an appropriate place to use them
+      -- TODO: can i make it only open the emmet completions in a jsx block?
+      -- client.server_capabilities.completionProvider.triggerCharacters = {}
+    end
   end
+
 
   -- no syntax highlighting from LSP. use treesitter instead
   client.server_capabilities.semanticTokensProvider = nil

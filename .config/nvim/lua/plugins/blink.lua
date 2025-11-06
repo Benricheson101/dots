@@ -1,4 +1,5 @@
-local ts = require "util.ts"
+local ts = require('util.ts')
+local tbl = require('util.table')
 return {
   'saghen/blink.cmp',
 
@@ -40,15 +41,30 @@ return {
       },
 
       menu = {
-        auto_show = function ()
-          local node = ts.get_node_under_cursor()
-          if node == nil then
-            return true
-          end
-
-          local disable_in = {'comment', 'comment_content'}
-          return not vim.tbl_contains(disable_in, node:type())
-        end
+        auto_show = true,
+        -- auto_show = function (ctx, items)
+        --   -- for _, item in ipairs(items) do
+        --   --   if item.client_name == 'emmet_language_server' then
+        --   --     table.insert(els, item)
+        --   --   end
+        --   -- end
+        --
+        --   -- local els = tbl.filter(items, function(val) return val.client_name == 'emmet_language_server' end)
+        --   --
+        --   -- if #els ~= 0 then
+        --   --   -- print(vim.inspect(items))
+        --   --   print(#els)
+        --   -- end
+        --
+        --   local node = ts.get_node_under_cursor()
+        --   if node == nil then
+        --     print("auto_show=true")
+        --     return true
+        --   end
+        --
+        --   local disable_in = {'comment', 'comment_content'}
+        --   return not vim.tbl_contains(disable_in, node:type())
+        -- end,
       },
 
       trigger = {
@@ -84,13 +100,26 @@ return {
 
     sources = {
       default = function ()
-        local node = ts.get_node_under_cursor()
+        -- local node = ts.get_node_under_cursor()
+        --
+        -- if node and vim.tbl_contains({'string', 'string_content'}, node:type()) then
+        --   return {'path'}
+        -- else
+        --   return {'lsp', 'path', 'snippets'}
+        -- end
 
-        if node and vim.tbl_contains({'string', 'string_content'}, node:type()) then
-          return {'path'}
-        else
+        local node = ts.get_node_under_cursor()
+        if not node then
           return {'lsp', 'path', 'snippets'}
         end
+
+        if vim.tbl_contains({'string', 'string_content', 'string_fragment'}, node:type()) then
+          return {'path'}
+        elseif vim.tbl_contains({'comment', 'comment_content'}, node:type()) then
+          return {}
+        end
+
+        return {'lsp', 'path', 'snippets'}
       end,
 
       providers = {

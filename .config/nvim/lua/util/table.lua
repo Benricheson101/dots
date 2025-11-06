@@ -62,4 +62,52 @@ function M.append_remove(a, r)
   end
 end
 
+--- Filters an array-like table
+--- @generic T
+--- @param tbl T[]
+--- @param pred fun(val: T): boolean
+--- @return T[]
+function M.filter(tbl, pred)
+  local out = {}
+
+  for _, val in ipairs(tbl) do
+    if pred(val) then
+      table.insert(out, val)
+    end
+  end
+
+  return out
+end
+
+--- Maps an array-like table
+--- @generic T
+--- @generic U
+--- @param tbl T[]
+--- @param f fun(val: T): U
+--- @return U[]
+function M.map(tbl, f)
+  local out = {}
+
+  for _, val in ipairs(tbl) do
+    table.insert(out, f(val))
+  end
+
+  return out
+end
+
+--- Tests if any item in an array satisfies the predicate function
+--- @generic T
+--- @param tbl T[]
+--- @param pred fun(val: T): boolean
+--- @return boolean
+function M.any(tbl, pred)
+  for _, val in ipairs(tbl) do
+    if pred(val) then
+      return true
+    end
+  end
+
+  return false
+end
+
 return M

@@ -21,6 +21,7 @@ path=(
   /usr/local/bin
   /opt/homebrew/opt/rustup/bin
   /opt/homebrew/opt/libpq/bin
+  /opt/homebrew/opt/mysql-client/bin
   $path
 )
 

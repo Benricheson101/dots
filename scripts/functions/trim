@@ -1,5 +1,0 @@
-#!/usr/bin/env zsh
-
-trim() {
-  print -n ${(*)${(*)${1:-$(< /dev/stdin)}%%[[:space:]]##}##[[:space:]]##}
-}

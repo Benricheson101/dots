@@ -113,20 +113,20 @@ return function(lsp_attach)
             enable = false,
           },
           -- FIXME: sometimes gives weird COmputed something error
-          inlayHints = {
-            -- shows the value of an enum member in its declaration
-            includeInlayEnumMemberValueHints = true,
-            -- shows the inferred return type of a function
-            includeInlayFunctionLikeReturnTypeHints = false,
-            includeInlayFunctionParameterTypeHints = true,
-            -- parameters in function calls
-            includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
-            -- shows the parameter name in a function when both the parameter name and input variable name are the same
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            -- class member inferred type
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayVariableTypeHints = true,
-          },
+          -- inlayHints = {
+          --   -- shows the value of an enum member in its declaration
+          --   includeInlayEnumMemberValueHints = true,
+          --   -- shows the inferred return type of a function
+          --   includeInlayFunctionLikeReturnTypeHints = false,
+          --   includeInlayFunctionParameterTypeHints = true,
+          --   -- parameters in function calls
+          --   includeInlayParameterNameHints = 'all', -- 'none' | 'literals' | 'all';
+          --   -- shows the parameter name in a function when both the parameter name and input variable name are the same
+          --   includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+          --   -- class member inferred type
+          --   includeInlayPropertyDeclarationTypeHints = true,
+          --   includeInlayVariableTypeHints = true,
+          -- },
         },
       },
 
@@ -212,6 +212,18 @@ return function(lsp_attach)
         },
       },
     },
+
+    -- java_language_server = {
+    --   cmd = {
+    --     vim.env.HOME .. "/.local/share/nvim/mason/packages/java-language-server/java-language-server"
+    --   }
+    -- --   -- root_markers = {
+    -- --   --   "build.gradle",
+    -- --   --   "build.gradle.kts",
+    -- --   --   "pom.xml",
+    -- --   --   ".git"
+    -- --   -- }
+    -- },
   }
 
 end
