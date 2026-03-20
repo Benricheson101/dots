@@ -4,8 +4,9 @@ return {
   dependencies = {
     'nvim-tree/nvim-web-devicons',
     'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-file-browser.nvim',
-    'jvgrootveld/telescope-zoxide',
+    -- 'nvim-telescope/telescope-file-browser.nvim',
+    -- 'jvgrootveld/telescope-zoxide',
+    'nvim-telescope/telescope-dap.nvim',
     {
       'nvim-telescope/telescope-fzf-native.nvim',
       build = 'make',
@@ -27,9 +28,9 @@ return {
     },
 
     extensions = {
-      file_browser = {
-        git_status = false,
-      },
+      -- file_browser = {
+      --   git_status = false,
+      -- },
 
       fzf = {
         fuzzy = true,
@@ -45,16 +46,16 @@ return {
       },
     },
 
-    zoxide = {
-      -- mappings = {
-      --   ['<leader>pz'] = {
-      --     keepinsert = true,
-      --     action = function (selection)
-      --       require("telescope").extensions.file_browser.file_browser({ cwd = selection.path })
-      --     end
-      --   }
-      -- },
-    },
+    -- zoxide = {
+    --   -- mappings = {
+    --   --   ['<leader>pz'] = {
+    --   --     keepinsert = true,
+    --   --     action = function (selection)
+    --   --       require("telescope").extensions.file_browser.file_browser({ cwd = selection.path })
+    --   --     end
+    --   --   }
+    --   -- },
+    -- },
   },
 
   keys = {
@@ -72,13 +73,20 @@ return {
 
     telescope.setup(opts)
 
-    telescope.load_extension('file_browser')
+    telescope.load_extension('dap')
+    -- telescope.load_extension('file_browser')
     telescope.load_extension('fzf')
-    telescope.load_extension('zoxide')
+    -- telescope.load_extension('zoxide')
 
-    vim.keymap.set('n', '<leader>pc', telescope.extensions.file_browser.file_browser)
+    vim.keymap.set('n', '<leader>ph', builtin.help_tags)
+
+    -- file picker
+    -- vim.keymap.set('n', '<leader>pc', telescope.extensions.file_browser.file_browser)
     vim.keymap.set('n', '<leader>pf', builtin.find_files)
+
+    -- LSP
     vim.keymap.set('n', '<leader>ps', builtin.lsp_document_symbols)
+
     vim.keymap.set('n', '<leader>gf', builtin.git_files)
     vim.keymap.set('n', '<C-F>', builtin.live_grep)
     vim.keymap.set('n', '<CS-f>', builtin.live_grep)

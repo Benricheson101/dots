@@ -12,7 +12,7 @@
 ## Hardware
 - 14" 2024 M4 Max Macbook Pro; 64GB, 2TB SSD
 - Keychron Q4 Pro with Gateron Milky Yellow Pro switches [VIA Keymap](/keyboard/keychron_q4_pro/layout.json)
-- Planck V7 with Akko Lavender Purple switches [QMK firmware](https://github.com/Benricheson101/qmk_firmware/blob/master/keyboards/planck/rev7/keymaps/benricheson101)
+- MX Master 3
 
 ## Usage
 ```sh

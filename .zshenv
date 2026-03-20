@@ -22,6 +22,7 @@ path=(
   /opt/homebrew/opt/rustup/bin
   /opt/homebrew/opt/libpq/bin
   /opt/homebrew/opt/mysql-client/bin
+  /opt/homebrew/opt/llvm/bin
   $path
 )
 
@@ -71,6 +72,7 @@ alias ghci='TERM=dumb ghci'
 alias gl='git log'
 alias gr='git rebase'
 alias gs='git switch'
+alias gst='git status'
 alias j='just'
 alias k='kubectl'
 alias la='eza -a'
@@ -92,14 +94,14 @@ alias cr="cargo run -q --"
 alias crr="cargo run --release -q --"
 alias ct="cargo test"
 alias ctr="cargo test --release"
-alias cf="cargo fmt --all"
+alias cf="cargo +nightly fmt --all"
 
 alias gcc="gcc-15"
 alias g++="g++-15"
 
 alias gc='git commit'
 alias gcam='git commit -am'
-alias gca='git commit -av'
+alias gca='git commit --amend'
 alias gcm='git commit -m'
 alias gp='git push'
 

@@ -12,7 +12,9 @@ local function lsp_attach(client, bufnr)
   vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help, opts)
 
   if client.server_capabilities.inlayHintProvider then
-      vim.api.nvim_set_hl(0, 'LspInlayHint', {link = 'Folded'})
+      -- vim.api.nvim_set_hl(0, 'LspInlayHint', {link = 'Folded'})
+
+      -- vim.api.nvim_set_hl(0, 'LspInlayHint', {link = 'Whitespace'})
     -- DEPRECATED: vim.lsp.inlay_hint.enable(bufnr, true)
     vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
   end
@@ -170,10 +172,13 @@ return {
 
   {
     'folke/lazydev.nvim',
-    lazy = true,
+    -- lazy = true,
+    ft = 'lua',
     opts = {
       library = {
         {path = "${3rd}/luv/library", words = {"vim%.uv"}},
+        plugins = {'nvim-dap-ui'},
+        -- types = true,
         -- enabled = true,
         -- runtime = true,
         -- types = true,

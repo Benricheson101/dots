@@ -1,19 +1,21 @@
+local t = require('util.table')
+
 return function(lsp_attach)
   local schemastore = require('schemastore')
   local lspconfig = require('lspconfig')
 
   return {
     biome = {
-      root_dir = lspconfig.util.root_pattern('biome.json'),
-      filetypes = {
-        'javascript',
-        'javascriptreact',
-        'json',
-        'jsonc',
-        'typescript',
-        'typescript.tsx',
-        'typescriptreact'
-      },
+      -- root_dir = lspconfig.util.root_pattern('biome.json'),
+      -- filetypes = {
+      --   'javascript',
+      --   'javascriptreact',
+      --   'json',
+      --   'jsonc',
+      --   'typescript',
+      --   'typescript.tsx',
+      --   'typescriptreact'
+      -- },
     },
 
     bashls = {
@@ -68,20 +70,37 @@ return function(lsp_attach)
       settings = {
         rust = {
         },
+
+        ['rust-analyzer'] = {
+          cargo = {
+            features = "all",
+          },
+        },
       },
     },
 
     lua_ls = {
+      root_markers = {
+        ".luarc.json",
+        ".luarc.jsonc",
+        ".luacheckrc",
+        ".stylua.toml",
+        ".git",
+      },
+
       settings = {
         Lua = {
           runtime = {
             version = 'LuaJIT',
           },
 
-          workspace = {
-            library = vim.api.nvim_get_runtime_file('', true),
-            checkThirdParty = false,
-          },
+          -- workspace = {
+          --   library = t.cat(
+          --     vim.api.nvim_get_runtime_file('', true),
+          --     {'${3rd}/love2d/library'}
+          --   ),
+          --   checkThirdParty = false,
+          -- },
 
           telemetry = {
             enable = false,
@@ -223,6 +242,10 @@ return function(lsp_attach)
     -- --   --   "pom.xml",
     -- --   --   ".git"
     -- --   -- }
+    -- },
+
+    -- zig = {
+    --
     -- },
   }
 
