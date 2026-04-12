@@ -23,6 +23,7 @@ path=(
   /opt/homebrew/opt/libpq/bin
   /opt/homebrew/opt/mysql-client/bin
   /opt/homebrew/opt/llvm/bin
+  /opt/homebrew/opt/sqlite/bin
   $path
 )
 
@@ -69,6 +70,7 @@ alias dot='git --git-dir=$HOME/.dot/ --work-tree=$HOME'
 alias f=flux
 alias gb='go build'
 alias ghci='TERM=dumb ghci'
+alias gd='git diff'
 alias gl='git log'
 alias gr='git rebase'
 alias gs='git switch'

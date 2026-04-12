@@ -101,15 +101,23 @@ return {
         },
       }
 
-      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-        vim.lsp.handlers.hover,
-        floating_window_options
-      )
+      vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+        return vim.lsp.handlers.hover(_, result, ctx, vim.tbl_extend("force", floating_window_options, config or {}))
+      end
 
-      vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
-        vim.lsp.handlers.signature_help,
-        floating_window_options
-      )
+      vim.lsp.handlers["textDocument/signatureHelp"] = function(_, result, ctx, config)
+        return vim.lsp.handlers.signature_help(_, result, ctx, vim.tbl_extend("force", floating_window_options, config or {}))
+      end
+
+      -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+      --   vim.lsp.handlers.hover,
+      --   floating_window_options
+      -- )
+      --
+      -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+      --   vim.lsp.handlers.signature_help,
+      --   floating_window_options
+      -- )
 
       -- vim.lsp.set_log_level(1)
 
