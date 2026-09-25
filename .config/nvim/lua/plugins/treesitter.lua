@@ -37,7 +37,7 @@ return {
 
         indent = {
           enable = true,
-          disable = {'yaml'}
+          disable = {'yaml', 'html'}
         },
 
         sync_install = false,
@@ -52,15 +52,15 @@ return {
         --   enable = true,
         -- },
 
-        incremental_selection = {
-          enable = true,
-          keymaps = {
-            init_selection = '<CR>',
-            scope_incremental = '<CR>',
-            node_incremental = '<tab>',
-            node_decremental = '<s-tab>',
-          },
-        },
+        -- incremental_selection = {
+        --   enable = true,
+        --   keymaps = {
+        --     init_selection = '<CR>',
+        --     scope_incremental = '<CR>',
+        --     node_incremental = '<tab>',
+        --     node_decremental = '<s-tab>',
+        --   },
+        -- },
 
         -- textobjects = {
         --   select = {

@@ -198,6 +198,22 @@ return function(lsp_attach)
           schemas = require('schemastore').yaml.schemas {
             ["https://raw.githubusercontent.com/ansible/ansible-lint/main/src/ansiblelint/schemas/ansible.json"] = "/ansible/*.yml",
           },
+
+          customTags = {
+            '!Condition sequence',
+            '!Context scalar',
+            '!Enumerate sequence',
+            '!Env scalar',
+            '!File scalar',
+            '!File sequence',
+            '!Find sequence',
+            '!Format sequence',
+            '!If sequence',
+            '!Index scalar',
+            '!KeyOf scalar',
+            '!Value scalar',
+            '!AtIndex scalar'
+          },
         }
       },
     },

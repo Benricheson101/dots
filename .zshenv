@@ -8,6 +8,7 @@ path=(
   $HOME/scripts
   $HOME/.local/bin
   $HOME/Library/pnpm
+  $HOME/Library/pnpm/bin
   $HOME/go
   $HOME/.pyenv/shims
   $HOME/.cargo/bin
@@ -24,8 +25,17 @@ path=(
   /opt/homebrew/opt/mysql-client/bin
   /opt/homebrew/opt/llvm/bin
   /opt/homebrew/opt/sqlite/bin
+  /opt/homebrew/opt/gnu-sed/libexec/gnubin
   $path
 )
+
+# if [[ ! -z "$IN_NIX_SHELL" ]] then
+#   remove=(
+#     /opt/homebrew/opt/llvm/bin
+#     /opt/homebrew/bin
+#   )
+#   path=(${path:|remove} /opt/homebrew/bin)
+# fi
 
 fpath+=(
   $HOME/.local/share/zsh/completion
@@ -34,17 +44,32 @@ fpath+=(
   $HOME/scripts/functions
 )
 
+ldflags=(
+  -L/opt/homebrew/opt/llvm/lib
+  -L/opt/homebrew/opt/libxml2/lib
+)
+
+cppflags=(
+  -I/opt/homebrew/opt/llvm/include
+)
+
+export LDFLAGS="${ldflags[*]}"
+
+export CPPFLAGS="${cppflags[*]}"
+
 export path
 export fpath
 export PATH
 export FPATH
+export ldpath
+
+export APP_SUPPORT=/Library/Application\ Support/
+export LOCAL_APP_SUPPORT=$HOME/Library/Application\ Support
 
 export NVM_DIR="$HOME/.nvm"
 
-export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
-
 export HOMEBREW_NO_ANALYTICS=1
+export SEM_NO_TELEMETRY=1
 
 . "$HOME/.env"
 
@@ -54,10 +79,12 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 alias 'reload!'='source ~/.zshenv && source ~/.zshrc && rm -i ~/.zcompdump && compinit'
+alias andcopy='tee >(pbcopy)'
 alias b='brew'
 alias bi='brew install'
 alias bu='brew uninstall'
 alias bz='bazel'
+alias brew-orphans='comm -23 <(brew leaves | sort) <(brew leaves --installed-on-request | sort)'
 alias c='cargo'
 alias cat='bat -p --theme Nord'
 alias cl='clear'
@@ -98,8 +125,8 @@ alias ct="cargo test"
 alias ctr="cargo test --release"
 alias cf="cargo +nightly fmt --all"
 
-alias gcc="gcc-15"
-alias g++="g++-15"
+alias gcc="gcc-16"
+alias g++="g++-16"
 
 alias gc='git commit'
 alias gcam='git commit -am'

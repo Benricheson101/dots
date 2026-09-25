@@ -5,6 +5,10 @@ return {
   {
     'wakatime/vim-wakatime',
     event = {'BufReadPre', 'BufNewFile'},
+    enabled = true,
+    opts = {
+      debug = false,
+    },
   },
   {
     'tpope/vim-surround',

@@ -23,7 +23,7 @@ return {
         "node_modules",
         "target",
         "vendor/",
-        "^.svelte-kit/"
+        "^.svelte-kit",
       },
     },
 

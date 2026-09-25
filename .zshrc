@@ -66,13 +66,21 @@ unalias run-help &>/dev/null
 alias help=run-help
 
 # third-party plugins
+
+# zsh theme note: `vcs_info` is slow in large repos because it calls `git status` on
+# on every prompt. `git status` can be sped up by enabling two git config options:
+#   $ git config core.fsmonistor true
+#   $ git config core.untrackedcache true
+# if using git cli, the latter can be replaced with (not compatible with all git clients):
+#   $ git config feature.manyFiles true
+
 plugins=(
-  $HOME/.local/share/zsh/plugins/async.zsh
   $HOME/.local/share/zsh/themes/oxide.zsh-theme
   /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
   /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
   ~/scripts/functions/direnv
+  ~/scripts/functions/nix_shell_precmd.zsh
 )
 
 for plugin ($plugins) do

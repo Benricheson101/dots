@@ -114,7 +114,7 @@ return {
         end
 
         if vim.tbl_contains({'string', 'string_content', 'string_fragment'}, node:type()) then
-          return {'path'}
+          return {'lsp', 'path'}
         elseif vim.tbl_contains({'comment', 'comment_content'}, node:type()) then
           return {}
         end
